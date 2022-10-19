@@ -28,14 +28,14 @@
   },
   "scripts": {
     "start-js": "react-scripts start",
+    "stylelint-build": "stylelint 'src/**/*.scss'",
+    "eslint": "eslint 'src/**/*.js'",
     "start": "npm-run-all -p watch-sass-js start-js",
     "build": "npm run eslint && npm run stylelint-build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "stylelint-dev": "stylelint 'src/**/*.scss' --cache --cache-location './.stylelintcache'; exit 0",
-    "stylelint-build": "stylelint 'src/**/*.scss'",
-    "watch-sass-js": "npm-watch",
-    "eslint": "eslint 'src/**/*.js'"
+    "watch-sass-js": "npm-watch"
   },
   "watch": {
     "stylelint-dev": {
