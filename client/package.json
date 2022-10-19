@@ -9,6 +9,7 @@
 		"classnames": "^2.3.2",
 		"dart-sass": "^1.25.0",
 		"formik": "^2.2.9",
+		"lint-staged": "^13.0.3",
 		"npm-run-all": "^4.1.5",
 		"npm-watch": "^0.3.0",
 		"prop-types": "^15.8.1",
@@ -37,8 +38,7 @@
 		"eject": "react-scripts eject",
 		"stylelint-dev": "stylelint src/**/*.scss --cache --cache-location ./.stylelintcache; exit 0",
 		"watch-sass-js": "npm-watch",
-		"prepare": "cd .. && husky install client/.husky",
-		"husky": "npm run eslint && npm run stylelint-build"
+		"prepare": "cd .. && husky install client/.husky"
 	},
 	"watch": {
 		"stylelint-dev": {
