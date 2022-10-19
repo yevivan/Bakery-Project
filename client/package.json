@@ -28,27 +28,25 @@
   },
   "scripts": {
     "start-js": "react-scripts start",
-    "stylelint-build": "stylelint 'src/**/*.scss'",
-    "eslint": "eslint 'src/**/*.js'",
+    "stylelint-build": "stylelint src/**/*.scss",
+    "eslint": "eslint src/**/*.js",
     "start": "npm-run-all -p watch-sass-js start-js",
     "build": "npm run eslint && npm run stylelint-build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "stylelint-dev": "stylelint 'src/**/*.scss' --cache --cache-location './.stylelintcache'; exit 0",
+    "stylelint-dev": "stylelint src/**/*.scss --cache --cache-location ./.stylelintcache; exit 0",
     "watch-sass-js": "npm-watch"
   },
   "watch": {
     "stylelint-dev": {
       "patterns": [
-        "/src/**/*.scss",
-        "/src/*.scss"
+        "/src/**/*.scss"
       ],
       "extensions": "scss"
     },
     "eslint": {
       "patterns": [
-        "/src/**/*.js",
-        "/src/*.js"
+        "/src/**/*.js"
       ],
       "extensions": "js"
     }
