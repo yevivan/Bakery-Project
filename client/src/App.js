@@ -20,7 +20,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Let`s start our Bakery-project `
         </a>
       </header>
     </div>

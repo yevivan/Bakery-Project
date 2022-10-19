@@ -40,13 +40,15 @@
   "watch": {
     "stylelint-dev": {
       "patterns": [
-        "/src/**/*.scss"
+        "/src/**/*.scss",
+        "/src/*.scss"
       ],
       "extensions": "scss"
     },
     "eslint": {
       "patterns": [
-        "/src/**/*.js"
+        "/src/**/*.js",
+        "/src/*.js"
       ],
       "extensions": "js"
     }
