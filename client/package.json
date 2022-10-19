@@ -37,7 +37,8 @@
 		"eject": "react-scripts eject",
 		"stylelint-dev": "stylelint src/**/*.scss --cache --cache-location ./.stylelintcache; exit 0",
 		"watch-sass-js": "npm-watch",
-		"prepare": "cd .. && husky install client/.husky"
+		"prepare": "cd .. && husky install client/.husky",
+		"husky": "npm run eslint && npm run stylelint-build"
 	},
 	"watch": {
 		"stylelint-dev": {
