@@ -4,8 +4,9 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
-        "prettier"
+         "prettier",
+        "airbnb"
+       
     ],
     "overrides": [
     ],
