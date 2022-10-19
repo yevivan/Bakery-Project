@@ -5,7 +5,7 @@ language: node_js
 
  cache:
    directories:
-     - ./path-to-your-frontend-folder/node_modules
+     - ./client/node_modules
 
  before_script:
    - npm install --prefix path-to-your-frontend-folder
