@@ -41,12 +41,6 @@
 		"watch-sass-js": "npm-watch",
 		"prepare": "cd .. && husky install client/.husky"
 	},
-	"lint-staged": {
-		"**/*.{js,jsx}": [
-			"eslint . --fix",
-			"prettier --write ."
-		]
-	},
 	"watch": {
 		"stylelint-dev": {
 			"patterns": [
@@ -65,6 +59,12 @@
 		"extends": [
 			"react-app",
 			"react-app/jest"
+		]
+	},
+	"lint-staged": {
+		"**/*.{js,jsx}": [
+			"eslint . --fix",
+			"prettier --write ."
 		]
 	},
 	"browserslist": {
