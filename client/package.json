@@ -43,6 +43,12 @@
     "lint": "eslint --fix",
     "pretty": "prettier --write ."
   },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "npm run lint",
+      "prettier --write"
+    ]
+  },
   "watch": {
     "stylelint-dev": {
       "patterns": [
@@ -61,12 +67,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "lint-staged": {
-    "**/*.{js,jsx}": [
-      "npm run lint",
-      "prettier --write"
     ]
   },
   "browserslist": {
