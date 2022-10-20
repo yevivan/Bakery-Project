@@ -23,6 +23,5 @@
          "semi": 0,
           "comma-dangle": 0,
              "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-             "eslint linebreak-style": ["error", "windows"]
     }
 }

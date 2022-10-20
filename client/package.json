@@ -39,7 +39,15 @@
     "eject": "react-scripts eject",
     "stylelint-dev": "stylelint src/**/*.scss --cache --cache-location ./.stylelintcache; exit 0",
     "watch-sass-js": "npm-watch",
-    "prepare": "cd .. && husky install client/.husky"
+    "prepare": "cd .. && husky install client/.husky",
+    "lint": "eslint --fix",
+    "pretty": "prettier --write ."
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "npm run lint",
+      "prettier --write"
+    ]
   },
   "watch": {
     "stylelint-dev": {
@@ -71,12 +79,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "lint-staged": {
-    "**/*.{js,jsx}": [
-      "eslint . --fix",
-      "prettier --write ."
     ]
   },
   "devDependencies": {
