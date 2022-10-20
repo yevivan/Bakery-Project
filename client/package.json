@@ -41,6 +41,12 @@
 		"watch-sass-js": "npm-watch",
 		"prepare": "cd .. && husky install client/.husky"
 	},
+	"lint-staged": {
+		"**/*.{js,jsx}": [
+			"eslint . --fix",
+			"prettier --write ."
+		]
+	},
 	"watch": {
 		"stylelint-dev": {
 			"patterns": [
@@ -82,7 +88,7 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.31.10",
 		"eslint-plugin-react-hooks": "^4.6.0",
-		"husky": "^8.0.1",
+		"husky": "^8.0.0",
 		"prettier": "^2.7.1",
 		"stylelint": "^14.14.0",
 		"stylelint-config-prettier": "^9.0.3",

@@ -4,8 +4,10 @@
     },
     "extends": [
         "plugin:react/recommended",
-         "prettier",
+          "prettier",
          "airbnb"
+        
+         
        
     ],
     "overrides": [
@@ -19,6 +21,7 @@
         "prettier"
     ],
     "rules": {
-       "react/jsx-filename-extension": [0]
+
+             "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
