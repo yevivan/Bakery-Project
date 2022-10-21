@@ -8,8 +8,7 @@ function Main() {
       <Top />
       <Slider />
       <Grid />
-
     </>
-  )
+  );
 }
-export default Main
+export default Main;

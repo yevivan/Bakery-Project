@@ -1,4 +1,4 @@
 function Slider() {
-  return (<p>Slider</p>)
+  return <p>Slider</p>;
 }
-export default Slider
+export default Slider;

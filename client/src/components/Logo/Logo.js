@@ -6,8 +6,7 @@ function Logo() {
       <Link to="/">
         <h1>TitleLogo</h1>
       </Link>
-
     </div>
-  )
+  );
 }
-export default Logo
+export default Logo;

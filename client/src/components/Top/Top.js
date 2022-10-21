@@ -1,4 +1,4 @@
 function Top() {
-  return (<p>Top</p>)
+  return <p>Top</p>;
 }
-export default Top
+export default Top;

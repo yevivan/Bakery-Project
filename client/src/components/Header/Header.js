@@ -1,7 +1,7 @@
 import Logo from '../Logo/Logo';
 import Menu from '../Menu/Menu';
 import MenuIcon from '../MenuIcon/MenuIcon';
-import styles from './Header.module.scss'
+import styles from './Header.module.scss';
 
 function Header() {
   return (
@@ -10,6 +10,6 @@ function Header() {
       <Logo />
       <MenuIcon />
     </div>
-  )
+  );
 }
-export default Header
+export default Header;

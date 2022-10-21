@@ -1,6 +1,4 @@
 function Modal() {
-  return (
-    <p>MODAL</p>
-  )
+  return <p>MODAL</p>;
 }
-export default Modal
+export default Modal;

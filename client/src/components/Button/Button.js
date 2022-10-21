@@ -1,5 +1,5 @@
 function Button() {
-  return <button type="button">BTN</button>
+  return <button type="button">BTN</button>;
 }
 
-export default Button
+export default Button;

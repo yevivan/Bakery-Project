@@ -1,4 +1,4 @@
 function Basket() {
-  return (<p>Корзина</p>)
+  return <p>Корзина</p>;
 }
-export default Basket
+export default Basket;

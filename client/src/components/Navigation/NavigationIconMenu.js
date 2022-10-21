@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 function NavigationIconMenu({
-  basket, catalog, main, style
+  basket, catalog, main, style,
 }) {
   return (
     <nav>
@@ -17,8 +17,7 @@ function NavigationIconMenu({
           <NavLink to="/basket">{basket}</NavLink>
         </li>
       </ul>
-
     </nav>
-  )
+  );
 }
-export default NavigationIconMenu
+export default NavigationIconMenu;

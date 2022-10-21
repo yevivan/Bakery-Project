@@ -1,4 +1,4 @@
 function Grid() {
-  return (<p>Grid</p>)
+  return <p>Grid</p>;
 }
-export default Grid
+export default Grid;
