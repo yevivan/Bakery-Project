@@ -1,5 +1,5 @@
 import Navigation from '../Navigation/NavigationMenu';
-import styles from './Menu.module.scss'
+import styles from './Menu.module.scss';
 
 function Menu() {
   return (
@@ -23,6 +23,6 @@ function Menu() {
       />
     </div>
 
-  )
+  );
 }
-export default Menu
+export default Menu;

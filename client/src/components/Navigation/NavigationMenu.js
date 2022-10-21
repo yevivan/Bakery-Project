@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 function NavigationMenu({
-  catalog, category1, category2, category3, category4, style
+  catalog, category1, category2, category3, category4, style,
 }) {
   return (
     <nav>
@@ -26,6 +26,6 @@ function NavigationMenu({
       </ul>
 
     </nav>
-  )
+  );
 }
-export default NavigationMenu
+export default NavigationMenu;

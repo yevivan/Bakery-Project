@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import Main from './components/Pages/Main/Main'
+import { Routes, Route } from 'react-router-dom';
+import Main from './components/Pages/Main/Main';
 import Catalog from './components/Pages/Catalog/Catalog';
 import Basket from './components/Pages/Basket/Basket';
 
@@ -14,6 +14,6 @@ function AppRoutes() {
       <Route path="/catalog/category4" element={<Catalog />} />
       <Route path="/basket" element={<Basket />} />
     </Routes>
-  )
+  );
 }
-export default AppRoutes
+export default AppRoutes;

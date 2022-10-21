@@ -1,17 +1,17 @@
-import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import Header from './components/Header/Header'
-import AppRoutes from './AppRoutes'
-import Footer from './components/Footer/Footer'
-import Modal from './components/Modal/Modal'
-import './App.scss'
-import { fetchData } from './store/slices/dataSlices'
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import Header from './components/Header/Header';
+import AppRoutes from './AppRoutes';
+import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal';
+import './App.scss';
+import { fetchData } from './store/slices/dataSlices';
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchData())
-  }, [])
+    dispatch(fetchData());
+  }, []);
   return (
     <div className="App">
       <Header />
@@ -19,7 +19,7 @@ function App() {
       <Footer />
       <Modal />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
