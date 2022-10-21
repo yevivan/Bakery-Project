@@ -1,0 +1,20 @@
+[
+  { "category": "ТОРТИ",
+    "name": "ШВАРЦВАЛЬДСЬКИЙ",
+    "price": "100",
+    "picture": "https://www.bakerstreetbakery.com.ua/image/cache/data/torty/shvarzvald/schwarzwald%201-500x500.jpg",
+    "id": "001"
+  },
+  { "category": "ТАРТИ",
+    "name": "Maлиновий тарт",
+    "price": "150",
+    "picture": "https://thumb.tildacdn.com/tild6239-6435-4764-b433-633834643263/-/format/webp/Image00004.jpg",
+    "id": "002"
+  },
+  { "category": "Мусові торти",
+    "name": "Малина-м'ята-лайм",
+    "price": "200",
+    "picture": "https://thumb.tildacdn.com/tild6435-6538-4330-b436-613861363330/-/format/webp/54932E57-D3F5-4ED8-8.jpg",
+    "id": "003"
+
+  }]
