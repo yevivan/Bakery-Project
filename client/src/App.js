@@ -1,30 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import Header from './components/Header/Header'
+import AppRoutes from './AppRoutes'
+import Footer from './components/Footer/Footer'
+import Modal from './components/Modal/Modal'
+import './App.scss'
+import { fetchData } from './store/slices/dataSlices'
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Let`s start our Bakery-project `
-        </a>
-      </header>
+      <Header />
+      <AppRoutes />
+      <Footer />
+      <Modal />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
