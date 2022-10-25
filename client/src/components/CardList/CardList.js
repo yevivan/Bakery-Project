@@ -4,7 +4,6 @@ import styles from './CardList.module.scss';
 
 function CardList() {
   const cards = useSelector((state) => state.data.data);
-  console.log(cards);
   return (
     <div className={styles.card_list}>
       {cards.map(({
