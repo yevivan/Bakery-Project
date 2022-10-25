@@ -1,12 +1,24 @@
 import styles from './CardListItem.module.scss';
-import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import ButtonComponent from '../Button/ButtonComponent';
 
-function CardListItem() {
+function CardListItem(props) {
+  const {
+    name,
+    price,
+    picture,
+  } = props;
+
   return (
+
     <div className={styles.product_item}>
-      <img className={styles.product_item_img} src="https://www.bakerstreetbakery.com.ua/image/cache/data/torty/shvarzvald/schwarzwald%201-500x500.jpg" alt="Cake" />
-      <p className={styles.product_item_name}> Schawarzwald Cake</p>
-      <p className={styles.product_item_price}> From $30</p>
+      <img className={styles.product_item_img} src={picture} alt="Cake" />
+      <p className={styles.product_item_name}>
+        {name}
+      </p>
+      <p className={styles.product_item_price}>
+        From $
+        {price}
+      </p>
       <ButtonComponent>Shop Now</ButtonComponent>
 
     </div>
