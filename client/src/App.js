@@ -6,18 +6,21 @@ import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
 import './App.scss';
 import { fetchData } from './store/slices/dataSlices';
+import CardListItem from './components/CardListItem/CardListItem';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchData());
   }, []);
+
   return (
     <div className="App">
       <Header />
       <AppRoutes />
       <Footer />
       <Modal />
+      <CardListItem />
     </div>
   );
 }
