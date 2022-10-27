@@ -6,7 +6,13 @@ function ButtonComponent() {
     <Button
       className={styles.button}
       sx={{
-        width: 120,
+        width: {
+          xs: 100,
+          sm: 100,
+          md: 150,
+          lg: 200,
+          xl: 200,
+        },
         fontFamily: 'Barlow Condensed',
         fontSize: 23,
         fontWeight: 200,

@@ -1,9 +1,11 @@
 .product_item {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   align-items: center;
-  width: 500px;
+  width: 400px;
   margin-top: 50px;
+  // scroll-snap-align: center;
 }
 
 .product_item_img {
