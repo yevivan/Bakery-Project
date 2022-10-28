@@ -8,8 +8,10 @@ function Slider() {
   const prevBtn = useRef();
   const nextBtn = useRef();
   const scrollerRef = useRef();
+  const itemRef = useRef(null);
   const scroll = scrollerRef.current;
-
+  const itemWidth = itemRef.current;
+  console.log(itemWidth.clientWidth);
   function scrollToPrevtItem() {
     scroll.scrollLeft -= 100;
     console.log(scroll.scrollLeft);
@@ -36,13 +38,16 @@ function Slider() {
             picture,
             id,
           }) => (
-            <CardListItem
-              key={id}
-              picture={picture}
-              category={category}
-              name={name}
-              price={price}
-            />
+            <div ref={itemRef} className={styles.slider} key={id}>
+              <CardListItem
+                key={id}
+                picture={picture}
+                category={category}
+                name={name}
+                price={price}
+                styleForItemsInSlider="product_item_slider"
+              />
+            </div>
           ))}
         </div>
         <button ref={nextBtn} onClick={scrollToNextItem} type="button" className={`${styles.btn_next} ${styles.btn_disabled}`}>&#8250;</button>

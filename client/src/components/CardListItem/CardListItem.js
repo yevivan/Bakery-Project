@@ -6,11 +6,11 @@ function CardListItem(props) {
     name,
     price,
     picture,
+    styleForItemsInSlider,
   } = props;
-
   return (
 
-    <div className={styles.product_item}>
+    <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
       <img className={styles.product_item_img} src={picture} alt="Cake" />
       <p className={styles.product_item_name}>
         {name}

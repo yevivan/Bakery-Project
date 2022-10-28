@@ -45,18 +45,19 @@ h2 {
   overflow: hidden;
   overflow: scroll;
   overflow-y: visible;
-  scroll-snap-type: x mandatory;
+  // scroll-snap-type: x mandatory;
   cursor: grab;
 }
 
 .btn_next,
 .btn_prev {
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   width: 54px;
   height: 54px;
   //   margin: 0 10px;
-  margin: 0 20px;
+  margin: 0 30px;
   font-size: 40px;
   background: none;
   border: 3px solid rgba(57, 17, 19, 0.2);
