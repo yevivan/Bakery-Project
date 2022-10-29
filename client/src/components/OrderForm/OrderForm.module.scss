@@ -1,0 +1,17 @@
+.orderForm {
+    width: 33.33333%;
+}
+
+.title {
+    color: #391113;
+}
+
+.checkoutBtn {
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.checkoutBtn:disabled {
+    opacity: .5;
+}

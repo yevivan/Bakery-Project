@@ -1,4 +1,129 @@
+import React from 'react';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import { Container, Grid, Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Textfield from '../FormsUI/Textfield/Textfield';
+// import ButtonForm from '../FormsUI/ButtonForm/ButtonForm';
+import styles from './OrderForm.module.scss';
+
 function OrderForm() {
-  return <div>OrderForm</div>;
+  const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    addressLine1: '',
+    addressLine2: '',
+    city: '',
+    state: '',
+  };
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, 'Min 2 symbols')
+      .max(20, 'Max 20 symbols')
+      // .matches(/^[a-zA-Z\s]*$/, 'Should contain only letters and space')
+      .required('Required'),
+    lastName: Yup.string()
+      .min(2, 'Min 2 symbols')
+      .max(20, 'Max 20 symbols')
+      // .matches(/^[a-zA-Z\s]*$/, 'Should contain only letters and space')
+      .required('Required'),
+    email: Yup.string().email('Invalid email.').required('Required'),
+    phone: Yup.number()
+      .integer()
+      .typeError('Please enter a valid phone number')
+      .required('Required'),
+    addressLine1: Yup.string().required('Required'),
+    addressLine2: Yup.string(),
+    city: Yup.string().required('Required'),
+    state: Yup.string().required('Required'),
+  });
+
+  return (
+    <Grid container>
+      <Grid item xs={12}>
+        <Container maxWidth="md">
+          <div className={styles.orderForm}>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={(values, { resetForm }) => {
+                console.log(values);
+                resetForm();
+                alert('Your order has been accepted');
+              }}
+            >
+              {({ isValid }) => (
+                <Form className={styles.form}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <Typography className={styles.title}>
+                        Order form
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <Textfield name="firstName" label="First Name" />
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <Textfield name="lastName" label="Last Name" />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Textfield name="email" label="Email" />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Textfield name="phone" label="Phone" />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Typography className={styles.title}>Address</Typography>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Textfield name="addressLine1" label="Address Line 1" />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Textfield name="addressLine2" label="Address Line 2" />
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <Textfield name="city" label="City" />
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <Textfield name="state" label="State" />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Button
+                        className={styles.checkoutBtn}
+                        disabled={!isValid}
+                        fullWidth="true"
+                        type="submit"
+                        style={{
+                          color: '#f09ec4',
+                          backgroundColor: '#391113',
+                        }}
+                      >
+                        Check Out
+                      </Button>
+                      {/* <ButtonForm> Check Out</ButtonForm> */}
+                    </Grid>
+                  </Grid>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </Container>
+      </Grid>
+    </Grid>
+  );
 }
+
 export default OrderForm;
