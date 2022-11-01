@@ -43,7 +43,7 @@ function OrderForm() {
 
   return (
     <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
         <Container maxWidth="md">
           <div className={styles.orderForm}>
             <Formik
@@ -57,63 +57,70 @@ function OrderForm() {
             >
               {({ isValid }) => (
                 <Form className={styles.form}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                  <Grid>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Typography className={styles.title}>
                         Order form
                       </Typography>
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="firstName" label="First Name" />
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="lastName" label="Last Name" />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="email" label="Email" />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="phone" label="Phone" />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Typography className={styles.title}>Address</Typography>
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="addressLine1" label="Address Line 1" />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="addressLine2" label="Address Line 2" />
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="city" label="City" />
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Textfield name="state" label="State" />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sm={4} md={4}>
                       <Button
                         className={styles.checkoutBtn}
-                        disabled={!isValid}
-                        fullWidth="true"
                         type="submit"
+                        disabled={!isValid}
                         style={{
+                          width: '100%',
                           color: '#f09ec4',
                           backgroundColor: '#391113',
+                          padding: '12px',
+                          marginBottom: '10px',
                         }}
                       >
                         Check Out
                       </Button>
-                      {/* <ButtonForm> Check Out</ButtonForm> */}
+                      {/* <ButtonForm
+                      // className={styles.checkoutBtn}
+                      disabled={!isValid}
+                    >
+                      Check Out
+                    </ButtonForm> */}
                     </Grid>
                   </Grid>
                 </Form>
