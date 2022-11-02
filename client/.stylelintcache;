@@ -1,2 +1,77 @@
-[{"C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\BasketItem\\BasketItem.module.scss":"1","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\CardItem\\CardItem.module.scss":"2","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Footer\\Footer.module.scss":"3","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Grid\\Grid.module.scss":"4","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Menu\\Menu.module.scss":"5","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\MenuIcon\\MenuIcon.module.scss":"6","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Top\\Top.module.scss":"7","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Slider\\Slider.module.scss":"8","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Modal\\Modal.module.scss":"9","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Header\\Header.module.scss":"10","C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Navigation\\NavigationMenu.module.scss":"11","C:\\Dan_IT\\Bakery-Project\\client\\src\\App.scss":"12"},{"size":0,"mtime":1666346629829,"hashOfConfig":"13"},{"size":0,"mtime":1666353902878,"hashOfConfig":"13"},{"size":0,"mtime":1666346629835,"hashOfConfig":"13"},{"size":0,"mtime":1666346629838,"hashOfConfig":"13"},{"size":69,"mtime":1666353903448,"hashOfConfig":"13"},{"size":0,"mtime":1666346629847,"hashOfConfig":"13"},{"size":0,"mtime":1666346629862,"hashOfConfig":"13"},{"size":0,"mtime":1666346629859,"hashOfConfig":"13"},{"size":0,"mtime":1666346629849,"hashOfConfig":"13"},{"size":63,"mtime":1666353903252,"hashOfConfig":"13"},{"size":27,"mtime":1666353903618,"hashOfConfig":"13"},{"size":611,"mtime":1666353902699,"hashOfConfig":"13"},"urpdwv"]
-
+[
+  {
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\BasketItem\\BasketItem.module.scss": "1",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\CardItem\\CardItem.module.scss": "2",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Footer\\Footer.module.scss": "3",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Grid\\Grid.module.scss": "4",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Menu\\Menu.module.scss": "5",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\MenuIcon\\MenuIcon.module.scss": "6",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Top\\Top.module.scss": "7",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Slider\\Slider.module.scss": "8",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Modal\\Modal.module.scss": "9",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Header\\Header.module.scss": "10",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\components\\Navigation\\NavigationMenu.module.scss": "11",
+    "C:\\Dan_IT\\Bakery-Project\\client\\src\\App.scss": "12"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629829,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666353902878,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629835,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629838,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 69,
+    "mtime": 1666353903448,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629847,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629862,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629859,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 0,
+    "mtime": 1666346629849,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 63,
+    "mtime": 1666353903252,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 27,
+    "mtime": 1666353903618,
+    "hashOfConfig": "13"
+  },
+  {
+    "size": 611,
+    "mtime": 1666353902699,
+    "hashOfConfig": "13"
+  },
+  "urpdwv"
+]
