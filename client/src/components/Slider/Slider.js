@@ -31,14 +31,12 @@ function Slider() {
     // alert('bobbo');
     setMouseIsPressed(false);
     console.log(isMousePressed);
-    alert(isMousePressed);
   }
   function mouseSwipeSlides(e) {
     // e.stopPropagation();
 
     if (isMousePressed) {
       console.log(1213232);
-      alert(e);
 
       // scroll.scrollLeft += e.clientX;
     }
