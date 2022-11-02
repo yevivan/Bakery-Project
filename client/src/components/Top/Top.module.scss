@@ -1,0 +1,33 @@
+.top{
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  background: url("https://andjoy.com.ua/wp-content/uploads/2019/03/%D0%B4%D0%B5%D1%81%D0%B5%D1%80%D1%82-%D0%BA%D0%BB%D1%83%D0%B1%D0%BD%D0%B8%D1%87%D0%BD%D0%BE-%D0%B9%D0%BE%D0%B3%D1%83%D1%80%D1%82%D0%BE%D0%B2%D1%8B%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-1280x1280-1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+.topInfo {
+  position: absolute;
+  bottom: 50px;
+  background-color:#f09ec4;
+  opacity: 0.9;
+  left: 0;
+}
+.topText{
+  color: white;
+  padding: 10px 20px;
+  font-size: xx-large;
+
+}
+.topTitle{
+  margin-block: 5% auto;
+  padding: 20px;
+  background-color: rgba(255,255,255,0.6);
+
+}
+.title{
+  color:white;
+}
