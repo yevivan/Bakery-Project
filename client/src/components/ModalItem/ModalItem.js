@@ -4,13 +4,15 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Container } from '@mui/system';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
+
+
 function ModalItem(props) {
    const { item } = props;
    const { name, price, picture } = item;
 
    return (
       <Grid container spacing={0.5}
-         borderBottom={1}
+         borderTop={1}
          borderColor="#e8e8e8"
          padding={1}
          minHeight='175px'>
