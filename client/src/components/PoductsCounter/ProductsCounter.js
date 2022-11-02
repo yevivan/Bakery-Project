@@ -41,11 +41,8 @@ function ProductsCounter() {
     >
       <Button
         className={styles.counter__btn}
-        onClick={() => {
-
         disabled={maxCounter}
         onClick={() => {
-
           handleIncrement();
         }}
       >
