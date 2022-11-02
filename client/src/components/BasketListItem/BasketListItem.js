@@ -24,7 +24,7 @@ function BasketListItem(props) {
       }}
     >
       <Grid item xs={12} sm={6}>
-        <Grid container spacing={0}>
+        <Grid container spacing={1}>
           <Grid
             item
             xs={12}
@@ -40,7 +40,7 @@ function BasketListItem(props) {
             </SvgIcon>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <Button href="#" color="inherit" sx={{ p: 2 }}>
+            <Button href="#" color="inherit" disableElevation sx={{ p: 2 }}>
               <img src={picture} alt="sweets" width="100%" />
             </Button>
           </Grid>
@@ -54,18 +54,28 @@ function BasketListItem(props) {
               justifyContent: 'center',
             }}
           >
-            <Box>
-              <Typography
-                content="h3"
-                fontSize="inherit"
+            <Box
+              sx={{
+                p: 1,
+              }}
+            >
+              <Button
+                href="#"
+                color="inherit"
+                disableElevation
                 sx={{
-                  typography: { sm: 'body1', lg: 'h6', xs: 'h6' },
+                  textTransform: 'none',
                 }}
               >
-                <Button href="#" color="inherit">
+                <Typography
+                  content="span"
+                  sx={{
+                    fontSize: 20,
+                  }}
+                >
                   {name}
-                </Button>
-              </Typography>
+                </Typography>
+              </Button>
             </Box>
           </Grid>
         </Grid>
@@ -79,7 +89,7 @@ function BasketListItem(props) {
       </Grid>
       <Grid item xs={12} sm={2}>
         <Box>
-          <ProductsCounter sx={{ border: '3px solid #d8cbc0' }} />
+          <ProductsCounter key={name} sx={{ border: '3px solid #d8cbc0' }} />
         </Box>
       </Grid>
       <Grid

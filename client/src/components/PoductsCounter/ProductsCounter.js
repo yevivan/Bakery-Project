@@ -1,38 +1,38 @@
 import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import styles from './ProductsCounter.module.scss';
-// import {
-//   setCounterProducts,
-//   incrementCounterProducts,
-//   decrementCounterProducts,
-// } from '../../store/slices/counterProductsSlices';
+import {
+  setCounterProducts,
+  incrementCounterProducts,
+  decrementCounterProducts,
+} from '../../store/slices/counterProductsSlices';
 
 function ProductsCounter() {
-  // const dispatch = useDispatch();
-  // const counter = useSelector((store) => store.counterProducts.counterProducts);
-  const counter = 1;
+  const dispatch = useDispatch();
+  const counter = useSelector((store) => store.counterProducts.counterProducts);
+  // const counter = 1;
 
-  // const maxAmount = 7;
+  const maxAmount = 7;
 
-  // const displayCounter = counter <= 0;
-  // const maxCounter = counter >= maxAmount;
+  const displayCounter = counter <= 0;
+  const maxCounter = counter >= maxAmount;
 
-  // function handleIncrement() {
-  //   if (maxCounter) {
-  //     dispatch(setCounterProducts(counter));
-  //   } else {
-  //     dispatch(incrementCounterProducts(counter));
-  //   }
-  // }
-  // function handleDecrement() {
-  //   if (displayCounter) {
-  //     dispatch(setCounterProducts(counter));
-  //   } else {
-  //     dispatch(decrementCounterProducts(counter));
-  //   }
-  // }
+  function handleIncrement() {
+    if (maxCounter) {
+      dispatch(setCounterProducts(counter));
+    } else {
+      dispatch(incrementCounterProducts(counter));
+    }
+  }
+  function handleDecrement() {
+    if (displayCounter) {
+      dispatch(setCounterProducts(counter));
+    } else {
+      dispatch(decrementCounterProducts(counter));
+    }
+  }
 
   return (
     <ButtonGroup
@@ -42,9 +42,9 @@ function ProductsCounter() {
     >
       <Button
         className={styles.counter__btn}
-        // disabled={1}
         onClick={() => {
-          // handleIncrement();
+          console.log('++++++');
+          handleIncrement();
         }}
       >
         +
@@ -54,9 +54,8 @@ function ProductsCounter() {
       </Button>
       <Button
         className={styles.counter__btn}
-        // disabled={displayCounter}
         onClick={() => {
-          // handleDecrement();
+          handleDecrement();
         }}
       >
         -

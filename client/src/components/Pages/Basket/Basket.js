@@ -12,7 +12,7 @@ const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
   color: '#391113',
-  fontSize: 23,
+  fontSize: 20,
 }));
 
 function Basket() {
