@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchData());
   }, []);
+
   return (
     <div className="App">
       <Header />
