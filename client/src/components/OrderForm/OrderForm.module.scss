@@ -1,10 +1,10 @@
-.orderForm {
-    min-width: 360px;
-    flex-wrap: wrap;
-}
+// .orderForm {
+//     margin-left: auto;
 
-.title {
-    color: #391113;
+// }
+
+.form {
+    margin-left: auto;
 }
 
 .checkoutBtn {
@@ -15,4 +15,10 @@
 
 .checkoutBtn:disabled {
     opacity: .5;
+}
+
+.paymentIconItem {
+    list-style-type: none;
+    margin: 0 5px;
+
 }
