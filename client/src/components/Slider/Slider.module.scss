@@ -1,8 +1,5 @@
 .slider {
   position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   width: 80%;
   margin: auto;
   margin-bottom: 100px;
@@ -21,30 +18,33 @@ h2 {
   text-transform: uppercase;
 }
 
-.item_name {
+.slider_header_slogan {
   color: #111;
   font-size: 1.2em;
   font-family: 'Asap', sans-serif;
 }
 
 .slider_section_wrapper {
+  position: relative;
   display: flex;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-
-  // max-width: 80%;
-  // overflow: hidden;
-  // padding: 0 100px;
+}
+.slider_cards_track_container {
+  display: flex;
+  margin: 0px 20px;
+  overflow: hidden;
+  overflow: scroll;
+  overflow-y: visible;
 }
 
 .slider_cards_track {
   display: flex;
-  padding-bottom: 40px;
-  // width: 100%;
-  overflow: hidden;
-  overflow: scroll;
-  overflow-y: visible;
+  // flex-shrink: 0;
+  width: 800px;
+
+  padding-bottom: 100px;
+
   // scroll-snap-type: x mandatory;
   cursor: grab;
 }
@@ -56,17 +56,13 @@ h2 {
   justify-content: center;
   width: 54px;
   height: 54px;
-  //   margin: 0 10px;
-  margin: 0 30px;
   font-size: 40px;
   background: none;
   border: 3px solid rgba(57, 17, 19, 0.2);
   cursor: pointer;
-}
-
-.btn_next:hover,
-.btn_prev:hover {
-  border: 3px solid #391113;
+  &:hover {
+    border: 3px solid #391113;
+  }
 }
 
 // .btn_disabled {
@@ -74,31 +70,55 @@ h2 {
 //   pointer-events: none;
 // }
 
-.slider_cards_track::-webkit-scrollbar {
+.slider_cards_track_container::-webkit-scrollbar {
   height: 11px; /* высота для горизонтального скролла */
 }
 
-.slider_cards_track::-webkit-scrollbar-track {
+.slider_cards_track_container::-webkit-scrollbar-track {
   background: rgb(173, 144, 144); /* цвет зоны отслеживания */
 }
 
-.slider_cards_track::-webkit-scrollbar-thumb {
+.slider_cards_track_container::-webkit-scrollbar-thumb {
   width: 40px;
   background-color: #5a3134; /* цвет бегунка */
 }
 
-@media (max-width: 600px) {
-  .item_name {
+@media (min-width: 0px) and (max-width: 600px) {
+  .slider {
+    width: 90%;
+  }
+  .slider_header_slogan {
     display: none;
   }
-
   h2 {
     font-size: 35px;
+  }
+  .slider_cards_track {
+    width: 200px;
+  }
+  .btn_next,
+  .btn_prev {
+    width: 54px;
+    height: 54px;
+    font-size: 40px;
+    border: none;
+    &:hover {
+      border: none;
+    }
+  }
+  .slider_header {
+    padding: 30px 15px;
   }
 }
 
-@media (max-width: 900px) {
-  h2 {
-    font-size: 35px;
-  }
+@media (min-width: 600px) {
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1536px) {
 }
