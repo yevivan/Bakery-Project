@@ -6,6 +6,7 @@ function NavigationMenu({
   category2,
   category3,
   category4,
+  currentProduct,
   style,
 }) {
   return (
@@ -25,6 +26,9 @@ function NavigationMenu({
         </li>
         <li className={`${style}`}>
           <NavLink to="/catalog/category3">{category4}</NavLink>
+        </li>
+        <li className={`${style}`}>
+          <NavLink to="/catalog/current_product">{currentProduct}</NavLink>
         </li>
       </ul>
     </nav>

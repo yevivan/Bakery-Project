@@ -5,6 +5,7 @@ function Menu() {
   return (
     <div className={styles.menu}>
       <Navigation
+        currentProduct={<p>card item</p>}
         catalog={<p>весь каталог/веде на масив всіх item</p>}
         category1={<p>категорія</p>}
         category2={<p>категорія</p>}

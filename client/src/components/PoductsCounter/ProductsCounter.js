@@ -12,7 +12,6 @@ import {
 function ProductsCounter() {
   const dispatch = useDispatch();
   const counter = useSelector((store) => store.counterProducts.counterProducts);
-  // const counter = 1;
 
   const maxAmount = 7;
 
@@ -43,7 +42,10 @@ function ProductsCounter() {
       <Button
         className={styles.counter__btn}
         onClick={() => {
-          console.log('++++++');
+
+        disabled={maxCounter}
+        onClick={() => {
+
           handleIncrement();
         }}
       >
@@ -54,6 +56,7 @@ function ProductsCounter() {
       </Button>
       <Button
         className={styles.counter__btn}
+        disabled={displayCounter}
         onClick={() => {
           handleDecrement();
         }}
