@@ -1,9 +1,10 @@
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Navigation from '../Navigation/NavigationIconMenu';
 
 function MenuIcon() {
   return (
     <div>
-      <Navigation basket={<p>Корзина</p>} />
+      <Navigation basket={<ShoppingBasketIcon />} />
     </div>
   );
 }

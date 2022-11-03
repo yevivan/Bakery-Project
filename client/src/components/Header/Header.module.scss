@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#fce5f254;
-  height: 100px;
+  background-color:#fff;
+  height: 130px;
   text-decoration: none;
   gap: 5px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
