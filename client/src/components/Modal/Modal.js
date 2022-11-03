@@ -7,8 +7,9 @@ import {
   Box,
   Popper,
   Button,
+  SvgIcon,
 } from '@mui/material';
-
+import ClearIcon from '@mui/icons-material/Clear';
 import ModalItem from '../ModalItem/ModalItem';
 
 export default function SimplePopper() {
@@ -50,7 +51,7 @@ export default function SimplePopper() {
                 color: '#391113',
               }}
             >
-              TOTAL: price.
+              TOTAL: $ price.
             </Typography>
             <Button
               variant="contained"
@@ -68,8 +69,22 @@ export default function SimplePopper() {
             </Button>
 
           </Box>
+          <SvgIcon fontSize="medium"
+            sx={{
+              color: '#f09ec4',
+              border: '1px solid #f09ec4',
+              borderRadius: '50%',
+              bgcolor: '#391113',
+              position: 'absolute',
+              top: '20px',
+              left: '-12px',
+              padding: '3px'
+
+            }}>
+            <ClearIcon />
+          </SvgIcon>
         </Box>
       </Popper>
-    </div>
+    </div >
   );
 }

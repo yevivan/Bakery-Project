@@ -1,7 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { Box, SvgIcon, Typography } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import { Container } from '@mui/system';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 
@@ -26,7 +25,6 @@ function ModalItem(props) {
             sx={{
                display: 'flex',
                flexDirection: 'column',
-               // alignItems: 'center',
                justifyContent: 'start',
                boxSizing: 'border-box',
 
@@ -35,7 +33,6 @@ function ModalItem(props) {
             <Box
                sx={{
                   display: 'flex',
-                  // alignItems: 'center',
                   justifyContent: 'start',
                   padding: '0 15px',
                }}
