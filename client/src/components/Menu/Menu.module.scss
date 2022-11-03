@@ -3,6 +3,7 @@ ul {
 }
 
 .menu {
+  box-sizing: border-box;
   display: inline-block;
   padding: 3px 0;
   opacity: 1!important;
@@ -15,7 +16,13 @@ ul {
   font-size: 18px;
   transition: none;
   width: 40%;
+  & a:hover {
+    color: #a77e99;
+    
+  }
+  
 }
+
 .burgerMenu {
   display: none !important;
 }
