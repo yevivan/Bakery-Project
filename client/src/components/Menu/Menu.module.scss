@@ -1,8 +1,21 @@
 ul {
   display: flex;
-  padding: 10px;
 }
 
 .menu {
-  display: flex;
+  display: inline-block;
+  padding: 3px 0;
+  opacity: 1!important;
+  position: relative;
+  color: #391113;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  transition: none;
+  width: 40%;
 }
+
+
+

@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color:#fff;
   height: 130px;
@@ -13,13 +13,16 @@ a {
   text-decoration: none;
   color: #391113;
   text-transform: uppercase;
+  list-style: none;
   display: flex;
   gap: 15px ;
 }
 ul {
   display: flex;
-  gap: 5px;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: nowrap;
   text-decoration: none;
+}
+li {
+  list-style: none;
 }
