@@ -33,7 +33,7 @@ function Slider() {
     console.log(isMousePressed);
   }
   function mouseSwipeSlides(e) {
-    // e.stopPropagation();
+    e.stopPropagation();
 
     if (isMousePressed) {
       console.log(1213232);
