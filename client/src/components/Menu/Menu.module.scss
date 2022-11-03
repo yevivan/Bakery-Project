@@ -16,6 +16,36 @@ ul {
   transition: none;
   width: 40%;
 }
+.burgerMenu {
+  display: none !important;
+}
+@media (min-width: 0px) and (max-width: 600px) {
+  .burgerMenu {
+    display: flex !important;
+  }
+  .menu {
+    display: none !important;
+  }
+}
 
+@media (min-width: 600px) and (max-width: 900px){
+  .burgerMenu {
+    display: flex !important;
+  }
+  .menu{
+    display: none !important;
+  }
+}
+
+@media (min-width: 900px) {
+}
+
+@media (min-width: 1200px) {
+  
+}
+
+@media (min-width: 1536px) {
+  
+}
 
 
