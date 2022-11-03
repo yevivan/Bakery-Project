@@ -62,39 +62,93 @@ function OrderForm() {
                     <Typography className={styles.title}>Order form</Typography>
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="firstName" label="First Name" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="lastName" label="Last Name" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="email" label="Email" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="phone" label="Phone" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Typography className={styles.title}>Address</Typography>
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="addressLine1" label="Address Line 1" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="addressLine2" label="Address Line 2" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="city" label="City" />
                   </Grid>
 
-                  <Grid item xs={12} sm={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={4}
+                    style={{ marginBottom: '6px' }}
+                  >
                     <Textfield name="state" label="State" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={4}>
