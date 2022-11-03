@@ -1,5 +1,23 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #fce5f2;
+  align-items: center;
+  background-color:#fce5f254;
+  height: 100px;
+  text-decoration: none;
+  gap: 5px;
+}
+a {
+  text-decoration: none;
+  color: #391113;
+  text-transform: uppercase;
+  display: flex;
+  gap: 15px ;
+}
+ul {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-decoration: none;
 }
