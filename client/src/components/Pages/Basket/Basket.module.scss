@@ -1,0 +1,28 @@
+.basket {
+  padding-bottom: 20px;
+  margin: auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: #fff;
+  color: #494949;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  color: #391113;
+  letter-spacing: 0;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+// .order {
+//   background-color: blue;
+//   width: 150px;
+//   height: 150px;
+//   font-size: 40px;
+// }
