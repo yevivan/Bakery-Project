@@ -5,6 +5,7 @@ import styles from './Menu.module.scss';
 
 function Menu() {
   return (
+
     <>
       <MenuIcon className={styles.burgerMenu} />
       <CloseIcon className={styles.burgerMenuClose} />
@@ -18,6 +19,7 @@ function Menu() {
         />
       </div>
     </>
+
   );
 }
 export default Menu;
