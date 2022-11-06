@@ -27,7 +27,12 @@ export default function SimplePopper() {
       </button>
       <Popper id={id} open={open} anchorEl={anchorEl}>
         <Box
-          sx={{ maxHeight: '450px', maxWidth: { xs: '315px', md: '383px' }, border: '3px solid #d8cbc0' }}
+          sx={{
+            maxHeight: '450px',
+            maxWidth: { xs: '315px', md: '383px' },
+            border: '3px solid #d8cbc0',
+            bgcolor: '#ffffff',
+          }}
         >
           <Box sx={{ maxHeight: '315px', overflowY: 'scroll' }}>
             {data.map((item) => (
@@ -69,7 +74,8 @@ export default function SimplePopper() {
             </Button>
 
           </Box>
-          <SvgIcon fontSize="medium"
+          <SvgIcon
+            fontSize="medium"
             sx={{
               color: '#f09ec4',
               border: '1px solid #f09ec4',
@@ -78,13 +84,14 @@ export default function SimplePopper() {
               position: 'absolute',
               top: '20px',
               left: '-12px',
-              padding: '3px'
+              padding: '3px',
 
-            }}>
+            }}
+          >
             <ClearIcon />
           </SvgIcon>
         </Box>
       </Popper>
-    </div >
+    </div>
   );
 }
