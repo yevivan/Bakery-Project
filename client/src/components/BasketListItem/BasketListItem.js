@@ -1,8 +1,11 @@
 import Grid from '@mui/material/Grid';
-import { Button, SvgIcon, Typography } from '@mui/material';
+// import { maxWidth } from '@mui/system';
+import { NavLink } from 'react-router-dom';
+import { SvgIcon, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
 import ProductsCounter from '../PoductsCounter/ProductsCounter';
+import style from './BasketListItem.module.scss';
 
 function BasketListItem(props) {
   const { item } = props;
@@ -39,10 +42,25 @@ function BasketListItem(props) {
               <ClearIcon />
             </SvgIcon>
           </Grid>
-          <Grid item xs={12} sm={5}>
-            <Button href="#" color="inherit" disableElevation sx={{ p: 2 }}>
-              <img src={picture} alt="sweets" width="100%" />
-            </Button>
+          <Grid
+            item
+            xs={12}
+            sm={5}
+            sx={{
+              display: { xs: 'flex' },
+              alignItems: { xs: 'center' },
+              justifyContent: { xs: 'center' },
+            }}
+          >
+            <NavLink to="/">
+              <img
+                src={picture}
+                alt="sweets"
+                width="100%"
+                height="100%"
+                className={style.picture}
+              />
+            </NavLink>
           </Grid>
           <Grid
             item
@@ -54,29 +72,18 @@ function BasketListItem(props) {
               justifyContent: 'center',
             }}
           >
-            <Box
-              sx={{
-                p: 1,
-              }}
-            >
-              <Button
-                href="#"
-                color="inherit"
-                disableElevation
+            <NavLink>
+              <Typography
+                content="span"
                 sx={{
+                  fontSize: 20,
                   textTransform: 'none',
+                  marginLeft: { sm: 3, xs: 0 },
                 }}
               >
-                <Typography
-                  content="span"
-                  sx={{
-                    fontSize: 20,
-                  }}
-                >
-                  {name}
-                </Typography>
-              </Button>
-            </Box>
+                {name}
+              </Typography>
+            </NavLink>
           </Grid>
         </Grid>
       </Grid>
