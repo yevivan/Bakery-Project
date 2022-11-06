@@ -1,3 +1,4 @@
+/* eslint-disable */
 import styles from './GridItem.module.scss';
 
 
