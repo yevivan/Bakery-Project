@@ -1,18 +1,25 @@
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Navigation from '../Navigation/NavigationMenu';
 import styles from './Menu.module.scss';
 
 function Menu() {
   return (
-    <div className={styles.menu}>
-      <Navigation
-        currentProduct={<p>card item</p>}
-        catalog={<p>весь каталог/веде на масив всіх item</p>}
-        category1={<p>категорія</p>}
-        category2={<p>категорія</p>}
-        category3={<p>категорія</p>}
-        category4={<p>категорія</p>}
-      />
-    </div>
+
+    <>
+      <MenuIcon className={styles.burgerMenu} />
+      <CloseIcon className={styles.burgerMenuClose} />
+      <div className={styles.menu}>
+        <Navigation
+          catalog={<p>All item</p>}
+          category1={<p>category1</p>}
+          category2={<p>category2</p>}
+          category3={<p>category3</p>}
+          category4={<p>category4</p>}
+        />
+      </div>
+    </>
+
   );
 }
 export default Menu;
