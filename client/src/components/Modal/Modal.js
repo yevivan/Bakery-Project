@@ -76,6 +76,7 @@ export default function SimplePopper() {
           </Box>
           <SvgIcon
             fontSize="medium"
+            onClick={handleClick}
             sx={{
               color: '#f09ec4',
               border: '1px solid #f09ec4',

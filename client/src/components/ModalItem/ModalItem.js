@@ -20,7 +20,15 @@ function ModalItem(props) {
         item
         xs={4}
       >
-        <img src={picture} alt="sweets" width="92px" />
+        <Box
+          component="img"
+          sx={{
+            width: '92px',
+            height: 'auto',
+          }}
+          alt="sweets"
+          src={picture}
+        />
       </Grid>
       <Grid
         item
