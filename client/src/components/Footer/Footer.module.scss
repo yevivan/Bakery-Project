@@ -1,0 +1,60 @@
+.footer {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 60px 0;
+    background-color: #391113;
+    border-top: 1px solid #ebebeb;
+}
+
+// .footerContainer {
+//     float: none;
+//     margin: 0 auto;
+//     width: 100%;
+//     text-align: center;
+//     padding-left: 25px;
+//     padding-right: 25px;
+//     display: table;
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-evenly;
+// }
+
+.footerLogo {
+    width: 335px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.footerLogoContainer {
+    display: block;
+}
+
+.footerCopyrightBottom {
+    margin-top: 35px;
+}
+
+.footerCopyrightContent {
+    color: #fff5d6;
+    font-size: 11px;
+    font-family: 'Barlow Condensed', sans-serif;
+    line-height: 1.5;
+}
+
+.footerSocial {
+    // float: left;
+    // margin: 0 10px;
+    width: 360px;
+    margin: 0 auto;
+}
+
+.socialIcon li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.paymentIconItem {
+    margin: 0 10px;
+    color: #fff5d6;
+    list-style-type: none;
+}

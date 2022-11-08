@@ -1,0 +1,22 @@
+.form {
+    margin-left: auto;
+}
+
+.checkoutBtn {
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 12px;
+    color: #fa9bc9;
+    background-color: #391113;
+}
+
+.checkoutBtn:disabled {
+    color: #fa9bc9;
+    background-color: #391113;
+    opacity: .5;
+}
+
+.paymentIconItem {
+    margin: 0 5px;
+    list-style-type: none;
+}
