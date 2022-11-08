@@ -1,21 +1,7 @@
-// // $xs: 0px;
-// // $sm: 600px;
-// // $md: 900px;
-// // $lg: 1200px;
-// // $xl: 1536px;
-// $breakpoints: (
-//   breakpoint-xs: 0px,
-//   breakpoint-sm: 600px,
-//   breakpoint-md: 900px,
-//   breakpoint-lg: 1200px,
-//   breakpoint-lx: 1536px,
-// );
 .card__container {
-  // grid-template-columns: 1fr 1fr;
   gap: 60px;
-  // margin: 75px auto;
+  background: linear-gradient(rgba(174, 131, 58, 0), rgba(174, 131, 58, .05));
   background-color: #fff;
-  background: linear-gradient(rgba(174, 131, 58, 0), rgba(174, 131, 58, 0.05));
 }
 .card__image {
   padding: 0 !important;
@@ -24,63 +10,34 @@
   }
 }
 .card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
   width: 100%;
   padding: 0 !important;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   .title {
+    margin: 0;
+    color: #391113;
+    font-weight: 600;
     font-size: 48px;
     font-family: 'Asap', sans-serif;
-    font-weight: 600;
     line-height: 1.2;
     text-transform: capitalize;
-    color: #391113;
-    margin: 0;
   }
   .price {
     margin-top: 10px;
+    color: #494949;
+    font-weight: lighter;
     font-size: 26px;
     font-family: 'Asap', sans-serif;
     line-height: 1.2;
-    font-weight: lighter;
-    color: #494949;
   }
-  // .btn {
-  //   width: 540px;
-  //   height: 53.8px;
-  //   background-color: #391113;
-  //   color: #fa9bc9;
-  //   font-family: 'Barlow Condensed', sans-serif;
-  //   line-height: 1.4;
-  //   font-weight: 200;
-  //   font-size: 23px;
-  //   text-transform: capitalize;
-  //   border-radius: 0;
-  //   &:hover {
-  //     background-color: #391113;
-  //     opacity: 0.6;
-  //   }
-  //   &:disabled {
-  //     color: #391113;
-  //     background-color: #fff5d6;
-  //   }
-  // }
 }
 .parameters {
   svg {
     color: #391113;
-    cursor: pointer;
     font-size: 26px;
+    cursor: pointer;
   }
 }
-//   p {
-//     font-family: 'Barlow Condensed', sans-serif;
-//     font-size: 20px;
-//     color: #494949;
-//     margin: 0;
-//   }
-// }
-// .about {
-// text-indent: 10px;}
