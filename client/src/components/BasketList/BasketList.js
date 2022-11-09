@@ -6,7 +6,7 @@ function BasketList() {
   const data = useSelector((state) => state.data.data, shallowEqual);
   console.log(data);
   return (
-    <div className={styles.BasketList}>
+    <div className={styles.basketList}>
       {data.map((item) => (
         <BasketListItem key={item.name} item={item} fromCart />
       ))}
