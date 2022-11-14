@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
@@ -13,18 +13,26 @@ function CurrentProduct() {
   const dispatch = useDispatch();
 
   const name = 'tasty cake';
-  const price = '250';
   const picture = 'https://www.bakerstreetbakery.com.ua/image/cache/data/torty/shvarzvald/schwarzwald%201-500x500.jpg';
   const id = 'cakeeee';
+  const curPrice = '250';
+  const prevPrice = '350';
 
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
+  const [isPrevPrice, setIsPrevPrice] = useState();
   const counter = useSelector((store) => store.counterProducts.counterProducts);
   const basket = useSelector((store) => store.basketArr.basketArr);
   const activeParameters = {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
+  useEffect(() => {
+    if (Number(prevPrice)) {
+      setIsPrevPrice(true);
+      console.log(Number(prevPrice));
+    } else { setIsPrevPrice(false); }
+  }, []);
   return (
     <Grid
       className={styles.card__container}
@@ -83,19 +91,53 @@ function CurrentProduct() {
         >
           {name}
         </Typography>
-        <Typography
-          variant="h4"
-          align="left"
-          color="#494949"
-          mt="20px"
-          fs="26px"
-          fontFamily="Asap"
-          fontWeight="lighter"
-          lineHeight="1.2"
-        >
-          {price}
-          &#8372;
-        </Typography>
+        {
+          isPrevPrice ? (
+            <div className={styles.price__box}>
+              <Typography
+                variant="h6"
+                align="left"
+                color="#111"
+                mt="15px"
+                fs="26px"
+                fontFamily="Asap"
+                fontWeight="lighter"
+                lineHeight="1.2"
+              >
+                <strike>{prevPrice}</strike>
+                &#8372;
+              </Typography>
+              <Typography
+                variant="h4"
+                align="left"
+                color="#b41f27"
+                mt="5px"
+                fs="26px"
+                fontFamily="Asap"
+                fontWeight="lighter"
+                lineHeight="1.2"
+              >
+                {curPrice}
+                &#8372;
+              </Typography>
+
+            </div>
+          ) : (
+            <Typography
+              variant="h4"
+              align="left"
+              color="#111"
+              mt="15px"
+              fs="26px"
+              fontFamily="Asap"
+              fontWeight="lighter"
+              lineHeight="1.2"
+            >
+              {curPrice}
+              &#8372;
+            </Typography>
+          )
+        }
         <Grid
           className={styles.parameters}
           container
