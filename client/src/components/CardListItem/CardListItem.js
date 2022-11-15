@@ -4,20 +4,20 @@ import ButtonComponent from '../Button/ButtonComponent';
 function CardListItem(props) {
   const {
     name,
-    price,
-    picture,
+    currentPrice,
+    imageUrls,
     styleForItemsInSlider,
   } = props;
   return (
 
     <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-      <img className={styles.product_item_img} src={picture} alt="Cake" />
+      <img className={styles.product_item_img} src={imageUrls} alt="Cake" />
       <p className={styles.product_item_name}>
         {name}
       </p>
       <p className={styles.product_item_price}>
         From $
-        {price}
+        {currentPrice}
       </p>
       <ButtonComponent>Shop Now</ButtonComponent>
 
