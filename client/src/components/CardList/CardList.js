@@ -9,16 +9,16 @@ function CardList() {
       {cards.map(({
         category,
         name,
-        price,
-        picture,
-        id,
+        currentPrice,
+        imageUrls,
+        _id,
       }) => (
         <CardListItem
-          key={id}
-          picture={picture}
+          key={_id}
+          imageUrls={imageUrls}
           category={category}
           name={name}
-          price={price}
+          currentPrice={currentPrice}
         />
       ))}
 
