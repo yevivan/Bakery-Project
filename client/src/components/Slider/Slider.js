@@ -63,17 +63,17 @@ function Slider() {
         <button ref={prevBtn} onClick={scrollToPrevtItem} type="button" className={`${styles.btn_prev} ${styles.btn_disabled}`}>&#8249;</button>
         <div ref={scrollerRef} className={styles.slider_cards_track_container}>
           <div className={styles.slider_cards_track} onMouseDown={mouseDownCoords} onMouseMove={mouseSwipeSlides} onMouseUp={mouseUpDepress} aria-hidden="true">
-            {cards.filter((card) => card.isPopular === true).map(({
+            {cards.filter((card) => card.isPopular === "true").map(({
               category,
               name,
               currentPrice,
-              imageUrls,
+              image,
               _id,
             }) => (
-              <div ref={itemRef} className={styles.slider_item_wrapper} key={_id}>
+              <div ref={itemRef} className={styles.slider_item_wrapper}>
                 <CardListItem
                   key={_id}
-                  imageUrls={imageUrls}
+                  image={image}
                   category={category}
                   name={name}
                   currentPrice={currentPrice}

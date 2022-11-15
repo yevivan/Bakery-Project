@@ -3,14 +3,14 @@ import styles from './GridItem.module.scss';
 
 
 function GridItem({
-  category, background, id, gridArea,
+  name, background, id, gridArea,
 }) {
   const itemStyle = `${styles.item}`;
   return (
-    <div style={{ background, gridArea }} className={itemStyle} key={id}>
+    <div style={{ background, gridArea }} className={itemStyle} >
       <div className={styles.blockTitle}>
         <h3 className={styles.title}>
-          {category}
+          {name}
 
         </h3>
       </div>

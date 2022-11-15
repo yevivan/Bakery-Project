@@ -14,6 +14,8 @@ function AppRoutes() {
       <Route path="/catalog/category3" element={<Catalog />} />
       <Route path="/catalog/category4" element={<Catalog />} />
       <Route path="/catalog/current_product" element={<CurrentProduct />} />
+      {/* <Route path="/catalog/:id" element={<CurrentProduct />} /> */}
+      {/*  <Route path="/catalog/:filter" element={<Catalog />} /> */}
       <Route path="/basket" element={<Basket />} />
     </Routes>
   );

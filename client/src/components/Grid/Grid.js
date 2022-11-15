@@ -22,7 +22,7 @@ function Grid() {
 
     <div className={styles.container}>
 
-      {data.map(({ category, picture, id }) => <GridItem background={`url(${picture})`} gridArea={`category${number()}`} category={category} id={id} />)}
+      {data.map(({ name, image, _id }) => <GridItem background={`url(${image})`} gridArea={`category${number()}`} name={name} id={_id} key={_id} />)}
     </div>
 
   );
