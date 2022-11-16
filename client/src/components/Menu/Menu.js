@@ -11,11 +11,13 @@ function Menu() {
       <CloseIcon className={styles.burgerMenuClose} />
       <div className={styles.menu}>
         <Navigation
-          catalog={<p>All item</p>}
-          category1={<p>category1</p>}
-          category2={<p>category2</p>}
+          catalog={<p>All item</p>}// go to /products
+
+          category1={<p>category1</p>}// go to /products?category=category1
+          category2={<p>category2</p>}// go to /products?category=category2
           category3={<p>category3</p>}
           category4={<p>category4</p>}
+
         />
       </div>
     </>

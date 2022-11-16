@@ -5,13 +5,13 @@ function CardListItem(props) {
   const {
     name,
     currentPrice,
-    imageUrls,
+    image,
     styleForItemsInSlider,
   } = props;
   return (
 
     <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-      <img className={styles.product_item_img} src={imageUrls} alt="Cake" />
+      <img className={styles.product_item_img} src={image} alt="Cake" />
       <p className={styles.product_item_name}>
         {name}
       </p>

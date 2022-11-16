@@ -67,13 +67,13 @@ function Slider() {
               category,
               name,
               currentPrice,
-              imageUrls,
+              image,
               _id,
             }) => (
               <div ref={itemRef} className={styles.slider_item_wrapper} key={_id}>
                 <CardListItem
                   key={_id}
-                  imageUrls={imageUrls}
+                  image={image}
                   category={category}
                   name={name}
                   currentPrice={currentPrice}
