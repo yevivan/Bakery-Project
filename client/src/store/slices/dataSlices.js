@@ -9,7 +9,6 @@ const dataSlices = createSlice({
   reducers: {
     addData: (state, action) => {
       state.data = action.payload;
-      console.log(state.data);
     },
   },
 });
