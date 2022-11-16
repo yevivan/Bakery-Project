@@ -23,6 +23,7 @@ function CurrentProduct() {
   const [isPrevPrice, setIsPrevPrice] = useState();
   const counter = useSelector((store) => store.counterProducts.counterProducts);
   const basket = useSelector((store) => store.basketArr.basketArr);
+  // const cards = useSelector((state) => state.data.data);
   const activeParameters = {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
@@ -30,7 +31,6 @@ function CurrentProduct() {
   useEffect(() => {
     if (Number(prevPrice)) {
       setIsPrevPrice(true);
-      console.log(Number(prevPrice));
     } else { setIsPrevPrice(false); }
   }, []);
   return (
