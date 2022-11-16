@@ -13,7 +13,7 @@ function NavigationMenu({
     <nav>
       <ul>
         <li className={`${style}`}>
-          <NavLink to="/catalog">{catalog}</NavLink>
+          <NavLink to="/products">{catalog}</NavLink>
         </li>
         <li className={`${style}`}>
           <NavLink to="/catalog/category1">{category1}</NavLink>
@@ -28,7 +28,7 @@ function NavigationMenu({
           <NavLink to="/catalog/category3">{category4}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/catalog/current_product">{currentProduct}</NavLink>
+          <NavLink to="/products/:id">{currentProduct}</NavLink>
         </li>
       </ul>
     </nav>
