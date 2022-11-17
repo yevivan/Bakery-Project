@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import { Button, SvgIcon, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
-import ProductsCounter from '../PoductsCounter/ProductsCounter';
+import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;

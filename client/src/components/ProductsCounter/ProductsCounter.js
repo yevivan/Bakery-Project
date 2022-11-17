@@ -5,11 +5,11 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import styles from './ProductsCounter.module.scss';
 import { setCounterProducts, incrementCounterProducts, decrementCounterProducts } from '../../store/slices/counterProductsSlices';
 
-function ProductsCounter() {
+function ProductsCounter(props) {
   const dispatch = useDispatch();
   const counter = useSelector((store) => store.counterProducts.counterProducts);
 
-  const maxAmount = 7;
+  const { maxAmount } = props;
 
   const displayCounter = counter <= 0;
   const maxCounter = counter >= maxAmount;
