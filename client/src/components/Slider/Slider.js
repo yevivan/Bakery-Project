@@ -8,7 +8,7 @@ function Slider() {
   const prevBtn = useRef();
   const nextBtn = useRef();
   const scrollerRef = useRef();
-  const itemRef = useRef(null);
+  const itemRef = useRef();
   const scroll = scrollerRef.current;
   // const itemWidth = itemRef.current;
   // console.log(itemWidth.clientWidth);
