@@ -28,7 +28,7 @@ function NavigationMenu({
           <NavLink to="/products?categories=Pastries">{pastries}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/catalog/current_product">{currentProduct}</NavLink>
+          <NavLink to="/products/:id">{currentProduct}</NavLink>
         </li>
       </ul>
       {/* <ul> */}

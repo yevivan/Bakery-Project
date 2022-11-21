@@ -6,6 +6,7 @@ import CardList from '../../CardList/CardList';
 import { fetchCatalog } from '../../../store/slices/catalogSlices';
 
 function Catalog() {
+
   const dispatch = useDispatch();
   // use search Params  чи э категорія, робим запит за цим фільтром
   //     якщл нема, робимо запит на всі товари
@@ -22,6 +23,7 @@ function Catalog() {
 
     // dispatch(fetchCategory());
   }, [search]);
+
 
   return (
     <div>

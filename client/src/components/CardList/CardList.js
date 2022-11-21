@@ -13,10 +13,16 @@ function CardList() {
         currentPrice,
         image,
         _id,
+        itemNo,
       }) => (
         <CardListItem
           key={_id}
+
           image={image}
+
+          id={itemNo}
+          
+
           category={category}
           name={name}
           currentPrice={currentPrice}
