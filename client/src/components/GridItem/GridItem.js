@@ -12,7 +12,7 @@ function GridItem({
 
       <div className={styles.blockTitle}>
         <h3 className={styles.title}>
-          {category}
+          {name}
 
         </h3>
       </div>

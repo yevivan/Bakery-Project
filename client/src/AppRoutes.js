@@ -9,9 +9,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Catalog />} />
-
       <Route path="/products/:id" element={<CurrentProduct />} />
-
       <Route path="/basket" element={<Basket />} />
     </Routes>
   );
