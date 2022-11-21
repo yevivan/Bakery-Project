@@ -3,21 +3,26 @@ import CardListItem from '../CardListItem/CardListItem';
 import styles from './CardList.module.scss';
 
 function CardList() {
-  const cards = useSelector((state) => state.data.data);
+  const cards = useSelector((state) => state.catalog.catalog);
+  console.log(cards);
   return (
-    <div className={styles.card_list}>
+    <div className={styles.cardList}>
       {cards.map(({
         category,
         name,
         currentPrice,
-        imageUrls,
+        image,
         _id,
         itemNo,
       }) => (
         <CardListItem
           key={_id}
+
+          image={image}
+
           id={itemNo}
-          imageUrls={imageUrls}
+          
+
           category={category}
           name={name}
           currentPrice={currentPrice}
