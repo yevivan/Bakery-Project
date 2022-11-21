@@ -11,7 +11,6 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchData());
-
   }, []);
 
   return (

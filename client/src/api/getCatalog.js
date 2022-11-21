@@ -4,7 +4,7 @@ export const getCatalog = async (search) => {
       .then((res) => res.json());
 
     return arrayCatalog.map(({
-      categories, name, currentPrice, imageUrls: [image], _id, isPopular,
+      categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
     }) => ({
       categories,
       name,
@@ -12,6 +12,7 @@ export const getCatalog = async (search) => {
       image,
       _id,
       isPopular,
+      itemNo,
     }));
   }
 
@@ -19,7 +20,7 @@ export const getCatalog = async (search) => {
     .then((res) => res.json());
   const { products: [...arrayCatalog] } = array;
   return arrayCatalog.map(({
-    categories, name, currentPrice, imageUrls: [image], _id, isPopular,
+    categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
   }) => ({
     categories,
     name,
@@ -27,5 +28,6 @@ export const getCatalog = async (search) => {
     image,
     _id,
     isPopular,
+    itemNo,
   }));
 };

@@ -23,6 +23,7 @@ function Grid() {
     <div className={styles.container}>
 
       {data.map(({ name, image, _id }) => <GridItem backgroundImage={`url(${image})`} gridArea={`category${number()}`} name={name} id={_id} key={_id} />)}
+
     </div>
 
   );

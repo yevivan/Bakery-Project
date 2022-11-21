@@ -22,6 +22,8 @@ function CurrentProduct() {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
+  console.log(id);
+
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)
       .then((res) => res.json())

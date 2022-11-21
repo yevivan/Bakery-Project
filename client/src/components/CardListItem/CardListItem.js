@@ -7,14 +7,14 @@ function CardListItem(props) {
     id,
     name,
     currentPrice,
-    imageUrls,
+    image,
     styleForItemsInSlider,
   } = props;
   return (
 
     <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
       <Link to={`/products/${id}`}>
-        <img className={styles.product_item_img} src={imageUrls} alt="Cake" />
+        <img className={styles.product_item_img} src={image} alt="Cake" />
       </Link>
       <p className={styles.product_item_name}>
         {name}
