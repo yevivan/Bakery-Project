@@ -9,12 +9,12 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Catalog />} />
-      {/*<Route path="/catalog/category1" element={<Catalog />} />*/}
-      {/*<Route path="/catalog/category2" element={<Catalog />} />*/}
-      {/*<Route path="/catalog/category3" element={<Catalog />} />*/}
-      {/*<Route path="/catalog/category4" element={<Catalog />} />*/}
-      {/*<Route path="/catalog/:id" element={<CurrentProduct />} />*/}
-       <Route path="/products/:id" element={<CurrentProduct />} />
+      {/* <Route path="/catalog/category1" element={<Catalog />} /> */}
+      {/* <Route path="/catalog/category2" element={<Catalog />} /> */}
+      {/* <Route path="/catalog/category3" element={<Catalog />} /> */}
+      {/* <Route path="/catalog/category4" element={<Catalog />} /> */}
+      {/* <Route path="/catalog/:id" element={<CurrentProduct />} /> */}
+      <Route path="/products/:id" element={<CurrentProduct />} />
 
       <Route path="/basket" element={<Basket />} />
     </Routes>

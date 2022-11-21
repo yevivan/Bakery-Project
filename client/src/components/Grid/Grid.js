@@ -16,13 +16,13 @@ function makeCounter() {
 const number = makeCounter();
 
 function Grid() {
-  const dataArr = useSelector((store) => store.data.data);
-  const data = dataArr.slice(0, 6);
+  const data = useSelector((store) => store.grid.grid);
+  // const data = dataArr.slice(0, 6);
   return (
 
     <div className={styles.container}>
 
-      {data.map(({ name, image, _id }) => <GridItem background={`url(${image})`} gridArea={`category${number()}`} name={name} id={_id} key={_id} />)}
+      {data.map(({ name, image, _id }) => <GridItem backgroundImage={`url(${image})`} gridArea={`category${number()}`} name={name} id={_id} key={_id} />)}
     </div>
 
   );
