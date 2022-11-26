@@ -32,22 +32,22 @@ function ProductsCounter(props) {
     <ButtonGroup className={styles.counter__container} size="small" aria-label="small outlined button group">
       <Button
         className={styles.counter__btn}
-        disabled={maxCounter}
-        onClick={() => { handleIncrement(); }}
-      >
-        +
-      </Button>
-      <Button className={styles.counter__btn} disabled>
-        {counter}
-      </Button>
-      <Button
-        className={styles.counter__btn}
         disabled={displayCounter}
         onClick={() => {
           handleDecrement();
         }}
       >
         -
+      </Button>
+      <Button className={styles.counter__btn} disabled>
+        {counter}
+      </Button>
+      <Button
+        className={styles.counter__btn}
+        disabled={maxCounter}
+        onClick={() => { handleIncrement(); }}
+      >
+        +
       </Button>
     </ButtonGroup>
   );
