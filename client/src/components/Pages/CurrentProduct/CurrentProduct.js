@@ -96,16 +96,17 @@ function CurrentProduct() {
               currProduct.previousPrice ? (
                 <div className={styles.price__box}>
                   <Typography
+                    className={styles.old__price}
                     variant="h6"
                     align="left"
                     color="#111"
                     mt="15px"
                     fs="26px"
-                    fontFamily="Asap"
+                    // fontFamily="Asap"
                     fontWeight="lighter"
                     lineHeight="1.2"
                   >
-                    <strike>{currProduct.previousPrice}</strike>
+                    {currProduct.previousPrice}
                     &#8372;
                   </Typography>
                   <Typography
