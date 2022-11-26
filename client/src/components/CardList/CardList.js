@@ -12,9 +12,11 @@ function CardList() {
         currentPrice,
         imageUrls,
         _id,
+        itemNo,
       }) => (
         <CardListItem
           key={_id}
+          id={itemNo}
           imageUrls={imageUrls}
           category={category}
           name={name}
