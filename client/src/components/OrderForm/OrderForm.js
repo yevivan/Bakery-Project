@@ -64,7 +64,7 @@ function OrderForm() {
             onSubmit={(values, { resetForm }) => {
               console.log(values);
               resetForm();
-              alert('Your order has been accepted');
+              // alert('Your order has been accepted');
             }}
           >
             {({ isValid }) => (
