@@ -10,7 +10,6 @@ function CardListItem(props) {
     image,
     styleForItemsInSlider,
   } = props;
-  console.log(styleForItemsInSlider);
   return (
 
     <div>

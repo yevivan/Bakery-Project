@@ -15,7 +15,6 @@ const sliderSlices = createSlice({
 
 export const fetchSliderItems = () => async (dispatch) => {
   const sliderItems = await getSliderItems();
-  console.log(sliderItems);
   dispatch(addSliderItems(sliderItems));
 };
 
