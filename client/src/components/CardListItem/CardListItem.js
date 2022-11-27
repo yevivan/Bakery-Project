@@ -10,21 +10,23 @@ function CardListItem(props) {
     image,
     styleForItemsInSlider,
   } = props;
+  console.log(styleForItemsInSlider);
   return (
 
-    <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-      <Link to={`/products/${id}`}>
+    <div>
+      <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
         <img className={styles.product_item_img} src={image} alt="Cake" />
-      </Link>
-      <p className={styles.product_item_name}>
-        {name}
-      </p>
-      <p className={styles.product_item_price}>
-        From $
-        {currentPrice}
-      </p>
-      <ButtonComponent>Shop Now</ButtonComponent>
 
+        <p className={styles.product_item_name}>
+          {name}
+        </p>
+        <p className={styles.product_item_price}>
+          From $
+          {currentPrice}
+        </p>
+
+      </Link>
+      <ButtonComponent>Shop Now</ButtonComponent>
     </div>
   );
 }
