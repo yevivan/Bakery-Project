@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Filter from '../../Filter/Filter';
 import CardList from '../../CardList/CardList';
 import { fetchCatalog } from '../../../store/slices/catalogSlices';
+import styles from './Catalog.module.scss';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ function Catalog() {
 
   const [searchParams] = useSearchParams();
   const search = searchParams.get('categories');
-  console.log(search);
-  console.log(Boolean(search));
+  // console.log(search);
+  // console.log(Boolean(search));
 
   useEffect(() => {
     dispatch(fetchCatalog(search));
@@ -24,7 +25,7 @@ function Catalog() {
   }, [search]);
 
   return (
-    <div>
+    <div className={styles.catalog}>
       <p>КATAЛОГ</p>
       <Filter />
       <CardList />

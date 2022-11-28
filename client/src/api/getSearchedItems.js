@@ -7,11 +7,21 @@ export const getSearchedItems = async (searchPhrases) => {
     body: JSON.stringify(searchPhrases),
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log('Success:', data);
-    })
+    // .then((data) => {
+    //   console.log('Success:', data);
+    // })
     .catch((error) => {
       console.error('Error:', error);
     });
-  console.log(searchedItems);
+  return searchedItems.map(({
+    categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
+  }) => ({
+    categories,
+    name,
+    currentPrice,
+    image,
+    _id,
+    isPopular,
+    itemNo,
+  }));
 };

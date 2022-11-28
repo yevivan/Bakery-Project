@@ -1,5 +1,17 @@
+.search_form {
+  display: flex;
+  align-self: center;
+  box-sizing: border-box;
+  width: fit-content;
+}
+
 .search_input {
-  padding: 15px;
+  box-sizing: border-box;
+  width: fit-content;
+  height: 40.25px;
+  padding: 5px;
+  font-size: 20px;
+  font-family: 'Asap', sans-serif;
+  line-height: 18px;
   border: 2px solid #391113;
-  border-radius: 3px;
 }

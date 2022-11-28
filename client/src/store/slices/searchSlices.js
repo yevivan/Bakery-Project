@@ -15,7 +15,6 @@ const searchedItemsSlice = createSlice({
 
 export const fetchSearchedItems = (searchPhrases) => async (dispatch) => {
   const searchedItems = await getSearchedItems(searchPhrases);
-  console.log(searchedItems);
   dispatch(searchItems(searchedItems));
 };
 
