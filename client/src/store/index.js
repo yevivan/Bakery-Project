@@ -6,9 +6,11 @@ import catalogReducer from './slices/catalogSlices';
 import topReducer from './slices/topSlices';
 import gridReducer from './slices/gridSlices';
 import sliderItemsReducer from './slices/sliderSlices';
+import searchedItemsSliceReducer from './slices/searchSlices';
 
 export const store = configureStore({
   reducer: {
+    searchedItems: searchedItemsSliceReducer,
     sliderItems: sliderItemsReducer,
     data: dataReducer,
     counterProducts: counterProductsReducer,

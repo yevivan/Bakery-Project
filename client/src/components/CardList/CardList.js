@@ -4,6 +4,8 @@ import styles from './CardList.module.scss';
 
 function CardList() {
   const cards = useSelector((state) => state.catalog.catalog);
+  const searchedCards = useSelector((state) => state.searchedItems.searchedItems);
+  console.log(searchedCards);
   return (
     <div className={styles.cardList}>
       {cards.map(({
