@@ -4,7 +4,7 @@ import CardListItem from '../CardListItem/CardListItem';
 import styles from './Slider.module.scss';
 
 function Slider() {
-  const cards = useSelector((state) => state.data.data);
+  const cards = useSelector((state) => state.sliderItems.sliderItems);
   const prevBtn = useRef();
   const nextBtn = useRef();
   const scrollerRef = useRef();
