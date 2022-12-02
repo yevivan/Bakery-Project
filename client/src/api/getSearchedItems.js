@@ -1,4 +1,5 @@
 export const getSearchedItems = async (searchPhrases) => {
+  console.log(searchPhrases);
   const searchedItems = await fetch('http://127.0.0.1:5005/products/search', {
     method: 'POST',
     headers: {

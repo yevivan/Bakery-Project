@@ -12,6 +12,7 @@ import { addBasketArr } from '../../../store/slices/basketArr';
 
 function CurrentProduct() {
   const { id } = useParams();
+
   const dispatch = useDispatch();
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
@@ -22,7 +23,6 @@ function CurrentProduct() {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
-  console.log(id);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)

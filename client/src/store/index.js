@@ -5,8 +5,9 @@ import basketArrReducer from './slices/basketArr';
 import catalogReducer from './slices/catalogSlices';
 import topReducer from './slices/topSlices';
 import gridReducer from './slices/gridSlices';
-import sliderItemsReducer from './slices/sliderSlices';
+import filterReducer from './slices/filterSlices';
 import searchedItemsSliceReducer from './slices/searchSlices';
+import sliderItemsReducer from './slices/sliderSlices';
 
 export const store = configureStore({
   reducer: {
@@ -18,5 +19,7 @@ export const store = configureStore({
     catalog: catalogReducer,
     top: topReducer,
     grid: gridReducer,
+    filter: filterReducer,
+
   },
 });
