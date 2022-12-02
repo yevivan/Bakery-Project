@@ -13,12 +13,16 @@ function CardListItem(props) {
   return (
 
     <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-      <Link to={`/products/${id}`}>
-        <img className={styles.product_item_img} src={image} alt="Cake" />
-      </Link>
-      <p className={styles.product_item_name}>
-        {name}
-      </p>
+      <div>
+        <Link className={styles.link} to={`/products/${id}`}>
+          <div><img className={styles.product_item_img} src={image} alt="Cake" /></div>
+
+          <p className={styles.product_item_name}>
+            {name}
+          </p>
+        </Link>
+      </div>
+
       <p className={styles.product_item_price}>
         From $
         {currentPrice}

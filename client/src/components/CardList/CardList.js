@@ -1,14 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import { useEffect } from 'react';
 import CardListItem from '../CardListItem/CardListItem';
 import styles from './CardList.module.scss';
 
+import { fetchCatalog } from '../../store/slices/catalogSlices';
+
 function CardList() {
+  const dispatch = useDispatch();
   const cards = useSelector((state) => state.catalog.catalog);
-  console.log(cards);
+  const filter = useSelector((state) => state.filter.filter, shallowEqual);
+
+  useEffect(() => {
+    dispatch(fetchCatalog(filter));
+  }, [filter]);
+
   return (
     <div className={styles.cardList}>
       {cards.map(({
-        category,
         name,
         currentPrice,
         image,
@@ -19,7 +27,6 @@ function CardList() {
           key={_id}
           image={image}
           id={itemNo}
-          category={category}
           name={name}
           currentPrice={currentPrice}
         />

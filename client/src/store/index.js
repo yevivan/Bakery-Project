@@ -5,6 +5,8 @@ import basketArrReducer from './slices/basketArr';
 import catalogReducer from './slices/catalogSlices';
 import topReducer from './slices/topSlices';
 import gridReducer from './slices/gridSlices';
+import searchReducer from './slices/searchSlices';
+import filterReducer from './slices/filterSlices';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +16,7 @@ export const store = configureStore({
     catalog: catalogReducer,
     top: topReducer,
     grid: gridReducer,
+    search: searchReducer,
+    filter: filterReducer,
   },
 });
