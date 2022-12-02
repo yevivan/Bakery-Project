@@ -1,7 +1,5 @@
-.container {
+.catalog {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-@media (min-width: 993px){
-  .container{
-
-  }}

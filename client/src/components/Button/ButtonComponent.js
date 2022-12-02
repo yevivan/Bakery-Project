@@ -1,9 +1,11 @@
 import Button from '@mui/material/Button';
 import styles from './ButtonComponent.module.scss';
 
-function ButtonComponent() {
+function ButtonComponent(props) {
+  const { text, type } = props;
   return (
     <Button
+      type={type}
       className={styles.button}
       sx={{
         width: {
@@ -24,7 +26,7 @@ function ButtonComponent() {
       }}
       variant="contained"
     >
-      Shop Now
+      {text}
 
     </Button>
   );

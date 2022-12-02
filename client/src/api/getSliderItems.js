@@ -1,9 +1,8 @@
-export const getData = async () => {
-  const arrayData = await fetch('http://127.0.0.1:5005/products')
+export const getSliderItems = async () => {
+  const sliderItemsFiltered = await fetch('http://127.0.0.1:5005/products/filter?isPopular=true')
     .then((res) => res.json());
-  console.log(arrayData);
-
-  return arrayData.map(({
+  const { products: [...sliderItemsArray] } = sliderItemsFiltered;
+  return sliderItemsArray.map(({
     category, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
   }) => ({
     category,

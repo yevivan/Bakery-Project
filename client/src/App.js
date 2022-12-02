@@ -5,12 +5,13 @@ import AppRoutes from './AppRoutes';
 import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
 import './App.scss';
-import { fetchData } from './store/slices/dataSlices';
+// import { fetchData } from './store/slices/dataSlices';
+import { fetchSliderItems } from './store/slices/sliderSlices';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchSliderItems());
   }, []);
 
   return (

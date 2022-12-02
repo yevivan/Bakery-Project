@@ -12,23 +12,20 @@ function CardListItem(props) {
   } = props;
   return (
 
-    <div className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-      <div>
-        <Link className={styles.link} to={`/products/${id}`}>
-          <div><img className={styles.product_item_img} src={image} alt="Cake" /></div>
+    <div>
+      <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
+        <img className={styles.product_item_img} src={image} alt="Cake" />
 
-          <p className={styles.product_item_name}>
-            {name}
-          </p>
-        </Link>
-      </div>
+        <p className={styles.product_item_name}>
+          {name}
+        </p>
+        <p className={styles.product_item_price}>
+          From $
+          {currentPrice}
+        </p>
 
-      <p className={styles.product_item_price}>
-        From $
-        {currentPrice}
-      </p>
-      <ButtonComponent>Shop Now</ButtonComponent>
-
+      </Link>
+      <ButtonComponent text="Shop Now" />
     </div>
   );
 }
