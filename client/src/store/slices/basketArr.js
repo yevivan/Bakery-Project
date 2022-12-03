@@ -3,14 +3,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const basketArrSlices = createSlice({
   name: 'basketArr',
   initialState: {
-    basketArr: [],
+    basketArr: JSON.parse(localStorage.getItem('products')) || [],
   },
   reducers: {
     setBasketArr: (state, action) => {
       state.basketArr = action.payload;
     },
     addBasketArr: (state, action) => {
-      state.basketArr = [...state.basketArr, action.payload];
+      let basket = [...state.basketArr];
+      const index = basket.findIndex((el) => el.product === action.payload.product);
+      if (index === -1) { basket = [...basket, action.payload]; } else {
+        basket[index].cartQuantity += action.payload.cartQuantity;
+      }
+      state.basketArr = [...basket];
+      localStorage.setItem('products', JSON.stringify(basket));
+      console.log(state.basketArr);
     },
     // decrementBasketArr: (state) => {
     //   state.counterProducts -= 1;

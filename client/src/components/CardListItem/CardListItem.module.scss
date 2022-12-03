@@ -36,6 +36,13 @@
   font-family: 'Asap', sans-serif;
 }
 
+.button_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+}
+
 @media (min-width: 0px) and (max-width: 600px) {
   .product_item_slider {
     width: 200px;

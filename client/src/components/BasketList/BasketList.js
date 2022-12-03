@@ -3,13 +3,13 @@ import BasketListItem from '../BasketListItem/BasketListItem';
 import styles from './BasketList.module.scss';
 
 function BasketList() {
-  const data = useSelector((state) => state.data.data, shallowEqual);
+  const sliderItems = useSelector((state) => state.sliderItems.sliderItems, shallowEqual);
   const filter = useSelector((state) => state.filter.filter, shallowEqual);
-  console.log(filter)
-  // console.log(data);
+  console.log(filter);
+  console.log(sliderItems);
   return (
     <div className={styles.basketList}>
-      {data.map((item) => (
+      {sliderItems.map((item) => (
         <BasketListItem key={item.name} item={item} fromCart />
       ))}
     </div>

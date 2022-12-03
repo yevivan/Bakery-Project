@@ -17,6 +17,9 @@ function CurrentProduct() {
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
   const [currProduct, setCurrProduct] = useState();
+
+  // Code to increment product quantity for adding to basket
+  // const [productCartQuantity, setProductCartQuantity] = useState(0);
   const counter = useSelector((store) => store.counterProducts.counterProducts);
   const basket = useSelector((store) => store.basketArr.basketArr);
   const activeParameters = {
@@ -225,7 +228,9 @@ function CurrentProduct() {
               variant="contained"
               className={styles.btn}
               onClick={() => {
-                dispatch(addBasketArr(id));
+                const product = id;
+                const cartQuantity = counter;
+                dispatch(addBasketArr(({ product, cartQuantity })));
                 console.log(id);
                 console.log(basket);
               }}
