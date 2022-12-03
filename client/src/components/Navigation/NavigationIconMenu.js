@@ -14,7 +14,7 @@ function NavigationIconMenu({
         </li>
 
         <li className={`${style}`}>
-          <NavLink to="/basket">{basket}</NavLink>
+          {basket}
         </li>
       </ul>
     </nav>
