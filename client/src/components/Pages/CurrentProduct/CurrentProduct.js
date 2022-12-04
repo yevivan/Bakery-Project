@@ -5,33 +5,46 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { Grid, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-
 import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
 
 function CurrentProduct() {
   const { id } = useParams();
-
   const dispatch = useDispatch();
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
   const [currProduct, setCurrProduct] = useState();
-
-  // Code to increment product quantity for adding to basket
-  // const [productCartQuantity, setProductCartQuantity] = useState(0);
-  const counter = useSelector((store) => store.counterProducts.counterProducts);
-  const basket = useSelector((store) => store.basketArr.basketArr);
+  const [prodQuantity, setProdQuantity] = useState();
+  const [counter, setCounter] = useState(0);
+  console.log(currProduct);
   const activeParameters = {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
+  const displayCounter = counter <= 0;
+  const maxCounter = counter >= prodQuantity;
+  const  handleIncrement = function () {
+    if (maxCounter) {
+      setCounter(counter);
+    } else {
+      setCounter(counter + 1);
+    }
+  }
+  function handleDecrement() {
+    if (displayCounter) {
+      setCounter(counter);
+    } else {
+      setCounter(counter - 1);
+    }
+  }
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrProduct(data);
+        setProdQuantity(data.quantity);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -185,7 +198,12 @@ function CurrentProduct() {
                 </Grid>
               )}
             </Grid>
-            <ProductsCounter maxAmount={currProduct.quantity} />
+            <ProductsCounter
+              maxAmount={prodQuantity}
+              handleDecrement={handleDecrement}
+              handleIncrement={handleIncrement}
+              counter={counter}
+            />
             <Typography
               variant="body1"
               align="left"
@@ -231,8 +249,6 @@ function CurrentProduct() {
                 const product = id;
                 const cartQuantity = counter;
                 dispatch(addBasketArr(({ product, cartQuantity })));
-                console.log(id);
-                console.log(basket);
               }}
             >
               Add To Basket
