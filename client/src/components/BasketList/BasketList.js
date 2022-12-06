@@ -2,6 +2,9 @@ import { useSelector, shallowEqual } from 'react-redux';
 import BasketListItem from '../BasketListItem/BasketListItem';
 import styles from './BasketList.module.scss';
 
+// В корзине только айди и количество. Нужно состыковать с сервером.
+//  Корзина отправляется, сервер отдает вседетали попродукту.
+
 function BasketList() {
   const sliderItems = useSelector((state) => state.sliderItems.sliderItems, shallowEqual);
   const filter = useSelector((state) => state.filter.filter, shallowEqual);

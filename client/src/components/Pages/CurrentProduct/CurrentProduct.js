@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -16,15 +16,15 @@ function CurrentProduct() {
   const [regularWrap, setRegularWrap] = useState(false);
   const [currProduct, setCurrProduct] = useState();
   const [prodQuantity, setProdQuantity] = useState();
+  const [prodId, setProdId] = useState();
   const [counter, setCounter] = useState(0);
-  console.log(currProduct);
   const activeParameters = {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
-  const  handleIncrement = function () {
+  function handleIncrement() {
     if (maxCounter) {
       setCounter(counter);
     } else {
@@ -45,6 +45,8 @@ function CurrentProduct() {
       .then((data) => {
         setCurrProduct(data);
         setProdQuantity(data.quantity);
+        setProdId(data._id);
+        console.log(data._id);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -246,7 +248,7 @@ function CurrentProduct() {
               variant="contained"
               className={styles.btn}
               onClick={() => {
-                const product = id;
+                const product = prodId;
                 const cartQuantity = counter;
                 dispatch(addBasketArr(({ product, cartQuantity })));
               }}

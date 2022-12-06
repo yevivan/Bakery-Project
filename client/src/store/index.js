@@ -8,9 +8,11 @@ import gridReducer from './slices/gridSlices';
 import filterReducer from './slices/filterSlices';
 import searchedItemsSliceReducer from './slices/searchSlices';
 import sliderItemsReducer from './slices/sliderSlices';
+import userLoginReducer from './slices/userLoginSlices';
 
 export const store = configureStore({
   reducer: {
+    userLogin: userLoginReducer,
     searchedItems: searchedItemsSliceReducer,
     sliderItems: sliderItemsReducer,
     data: dataReducer,

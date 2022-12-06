@@ -10,8 +10,6 @@ function CardList() {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.catalog.catalog);
   const searchedCards = useSelector((state) => state.searchedItems.searchedItems);
-  console.log(searchedCards);
-  console.log(cards);
   const renderedCards = searchedCards.length ? searchedCards : cards;
 
   const filter = useSelector((state) => state.filter.filter, shallowEqual);

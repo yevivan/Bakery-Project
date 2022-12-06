@@ -16,12 +16,8 @@ const basketArrSlices = createSlice({
         basket[index].cartQuantity += action.payload.cartQuantity;
       }
       state.basketArr = [...basket];
-      localStorage.setItem('products', JSON.stringify(basket));
-      console.log(state.basketArr);
+      localStorage.setItem('products', JSON.stringify(state.basketArr));
     },
-    // decrementBasketArr: (state) => {
-    //   state.counterProducts -= 1;
-    // },
   },
 });
 
@@ -29,5 +25,4 @@ export default basketArrSlices.reducer;
 export const {
   setBasketArr,
   addBasketArr,
-  //   decrementCounterProducts,
 } = basketArrSlices.actions;
