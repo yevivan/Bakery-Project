@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Search.module.scss';
-import { fetchSearchedItems } from '../../store/slices/searchSlices';
+// import { fetchSearchedItems } from '../../store/slices/searchSlices';
 import ButtonComponent from '../Button/ButtonComponent';
+import { fetchCatalog } from '../../store/slices/catalogSlices';
 
 function Search() {
   const dispatch = useDispatch();
-  const searchPhrases = {};
+  const filter = {};
   const [input, setInput] = useState('');
   function handleInputChange(e) {
     setInput(e.target.value);
@@ -14,8 +15,8 @@ function Search() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    searchPhrases.query = input || ' ';
-    if (searchPhrases.query) { dispatch(fetchSearchedItems(searchPhrases)); }
+    filter.query = input || ' ';
+    if (filter.query) { dispatch(fetchCatalog(filter)); }
   }
   return (
     <form onSubmit={handleSubmit} className={styles.search_form}>

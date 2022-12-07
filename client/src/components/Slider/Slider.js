@@ -55,7 +55,7 @@ function Slider() {
   return (
     <div className={styles.slider}>
       <div className={styles.slider_header}>
-        <h2>Our Customer`s Favorities</h2>
+        <h2 className={styles.title}>Our Customer`s Favorities</h2>
         <span>{mouseDownMessage}</span>
         <p className={styles.slider_header_slogan}>Just a few of our American recipe bestsellers</p>
       </div>
