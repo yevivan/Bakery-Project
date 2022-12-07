@@ -6,9 +6,9 @@ const basketArrSlices = createSlice({
     basketArr: JSON.parse(localStorage.getItem('products')) || [],
   },
   reducers: {
-    setBasketArr: (state, action) => {
-      state.basketArr = action.payload;
-    },
+    // setBasketArr: (state, action) => {
+    //   state.basketArr = action.payload;
+    // },
     addBasketArr: (state, action) => {
       let basket = [...state.basketArr];
       const index = basket.findIndex((el) => el.product === action.payload.product);
@@ -23,6 +23,6 @@ const basketArrSlices = createSlice({
 
 export default basketArrSlices.reducer;
 export const {
-  setBasketArr,
+  // setBasketArr,
   addBasketArr,
 } = basketArrSlices.actions;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -9,8 +9,13 @@ import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
 
+// ADDED ITEMS ARRAY FOR SENDING TO SERVER.
+// IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
+
 function CurrentProduct() {
   const { id } = useParams();
+  const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  console.log(isUserLoggedIn);
   const dispatch = useDispatch();
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
@@ -22,6 +27,7 @@ function CurrentProduct() {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
+
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
   function handleIncrement() {
@@ -46,10 +52,13 @@ function CurrentProduct() {
         setCurrProduct(data);
         setProdQuantity(data.quantity);
         setProdId(data._id);
-        console.log(data._id);
       })
       .catch((err) => console.error(err));
   }, []);
+
+  // HERE ARRAY FOR SENDING TO SERVER IS CREATED
+  const cartItemdataForServer = { product: prodId, cartQuantity: counter };
+  console.log(cartItemdataForServer);
 
   return (
     <Grid
@@ -248,9 +257,11 @@ function CurrentProduct() {
               variant="contained"
               className={styles.btn}
               onClick={() => {
-                const product = prodId;
-                const cartQuantity = counter;
-                dispatch(addBasketArr(({ product, cartQuantity })));
+                // const product = prodId;
+                // New key cart quantity added to cart array
+                currProduct.cartQuantity = counter;
+                // dispatch(addBasketArr(({ product, cartQuantity })));
+                dispatch(addBasketArr(currProduct));
               }}
             >
               Add To Basket

@@ -6,7 +6,7 @@ import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;
-  const { name, currentPrice, image } = item;
+  const { name, currentPrice, imageUrls: [image] } = item;
 
   return (
     <Grid

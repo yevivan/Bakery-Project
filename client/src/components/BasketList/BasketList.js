@@ -6,14 +6,36 @@ import styles from './BasketList.module.scss';
 //  Корзина отправляется, сервер отдает вседетали попродукту.
 
 function BasketList() {
-  const sliderItems = useSelector((state) => state.sliderItems.sliderItems, shallowEqual);
-  const filter = useSelector((state) => state.filter.filter, shallowEqual);
-  console.log(filter);
-  console.log(sliderItems);
+  // const sliderItems = useSelector((state) => state.sliderItems.sliderItems, shallowEqual);
+  // const filter = useSelector((state) => state.filter.filter, shallowEqual);
+  // console.log(filter);
+  // console.log(sliderItems);
+  const cartItemServer = useSelector(
+    (state) => state.cartItemsFromServer.cartItemsFromServer,
+    shallowEqual,
+  );
+
+  // const cartItemSLocal = useSelector(
+  //   (state) => state.basketArr.basketArr,
+  //   shallowEqual,
+  // );
+
+  // const isUserLoged = useSelector(
+  //   (state) => state.userLogin.userLogin,
+  //   shallowEqual,
+  // );
+
+  // const cartArrayToDisplay = isUserLoged ? cartItemServer : cartItemSLocal;
+
+  const { products } = cartItemServer;
+  console.log(products);
+  // console.log(sliderItems);
+
   return (
     <div className={styles.basketList}>
-      {sliderItems.map((item) => (
-        <BasketListItem key={item.name} item={item} fromCart />
+      {products.map(({ product, cartQuantity, _id }) => (
+        <BasketListItem key={_id} item={product} cartQuantity={cartQuantity} />
+        // console.log(product, cartQuantity)
       ))}
     </div>
   );

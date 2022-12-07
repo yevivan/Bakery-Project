@@ -9,9 +9,11 @@ import filterReducer from './slices/filterSlices';
 import searchedItemsSliceReducer from './slices/searchSlices';
 import sliderItemsReducer from './slices/sliderSlices';
 import userLoginReducer from './slices/userLoginSlices';
+import cartArrayFromServerReducer from './slices/basketArrFromServer';
 
 export const store = configureStore({
   reducer: {
+    cartItemsFromServer: cartArrayFromServerReducer,
     userLogin: userLoginReducer,
     searchedItems: searchedItemsSliceReducer,
     sliderItems: sliderItemsReducer,
