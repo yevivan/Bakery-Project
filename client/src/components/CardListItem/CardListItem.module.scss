@@ -5,23 +5,25 @@
   width: 400px;
   margin-top: 50px;
 }
-
+.link {
+  display: flex;
+  flex-direction: column;
+}
 .product_item_slider {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // width: 300px;
   margin-top: 50px;
   // scroll-snap-align: center;
 }
 
 .product_item_img {
-  width: 40%;
-  height: 40%;
+  width: 80%;
+  height: auto;
 }
 
 .product_item_name {
-  margin-top: 60px;
+  margin-top: 20px;
   color: #391113;
   font-weight: 300;
   font-size: 20px;

@@ -1,9 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import Filter from '../../Filter/Filter';
+import Search from '../../Search/Search';
 import CardList from '../../CardList/CardList';
-import { fetchCatalog } from '../../../store/slices/catalogSlices';
+import Filter from '../../Filter/Filter';
+
+import styles from './Catalog.module.scss';
+import { changeFilterCategory } from '../../../store/slices/filterSlices';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -14,18 +16,11 @@ function Catalog() {
 
   const [searchParams] = useSearchParams();
   const search = searchParams.get('categories');
-  console.log(search);
-  console.log(Boolean(search));
-
-  useEffect(() => {
-    dispatch(fetchCatalog(search));
-
-    // dispatch(fetchCategory());
-  }, [search]);
+  dispatch(changeFilterCategory(search));
 
   return (
-    <div>
-      <p>КATAЛОГ</p>
+    <div className={styles.container}>
+      <Search />
       <Filter />
       <CardList />
     </div>
