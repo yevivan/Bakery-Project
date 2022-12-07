@@ -1,26 +1,35 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import {
+  Container, Grid, Typography, TextField,
+} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Account.module.scss';
 
 function Account() {
-  const initialValues = {
+  const initialValuesLogin = {
+    email: '',
+    password: '',
+  };
+  const initialValuesRegistartion = {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    state: '',
+    password: '',
+    passwordConfirmation: '',
+    dateBirth: '',
+    postcode: '',
   };
-  const validationSchema = Yup.object().shape({
+  const validationSchemaLogin = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(8, 'Must be longer than 8 characters')
+      .required('Required'),
+  });
+  const validationSchemaRegistration = Yup.object().shape({
     firstName: Yup.string()
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
@@ -29,15 +38,12 @@ function Account() {
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
       .required('Required'),
-    email: Yup.string().email('Invalid email.').required('Required'),
-    phone: Yup.number()
-      .integer()
-      .typeError('Please enter a valid phone number')
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(8, 'Must be longer than 8 characters')
       .required('Required'),
-    addressLine1: Yup.string().required('Required'),
-    addressLine2: Yup.string(),
-    city: Yup.string().required('Required'),
-    state: Yup.string().required('Required'),
+    passwordConfirmation: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   });
   const theme = createTheme({
     palette: {
@@ -53,12 +59,12 @@ function Account() {
   });
 
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Container maxWidth="md">
+    <Container maxWidth="md">
+      <Grid container direction={{ xs: 'column', sm: 'row' }} spacing={12} wrap="nowrap">
+        <Grid item xs={6} sm={6} md={6}>
           <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
+            initialValues={initialValuesLogin}
+            validationSchema={validationSchemaLogin}
             onSubmit={(values, { resetForm }) => {
               console.log(values);
               resetForm();
@@ -67,405 +73,392 @@ function Account() {
           >
             {({ isValid }) => (
               <Form className={styles.form}>
-                <Grid container direction="row" spacing={12}>
-                  <Grid item xs={6} sm={6} md={6}>
-                    <Grid item xs={12} sm={12} md={12}>
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '50px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'uppercase',
-                          color: '#391113',
-                        }}
-                      >
-                        Login
-                      </Typography>
-                    </Grid>
-
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                <Grid container>
+                  <Grid item xs={12} sm={12} md={12}>
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '50px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'uppercase',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Email address
-                      </Typography>
-
-                      <Textfield name="email" label="Email" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
-                      sx={{
-                        marginBottom: '30px',
-                      }}
-                    >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Password
-                      </Typography>
-
-                      <Textfield name="phone" label="Phone" />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
-                      <ThemeProvider theme={theme}>
-                        <Button
-                          className={styles.checkoutBtn}
-                          color="neutral"
-                          variant="contained"
-                          type="submit"
-                          disabled={!isValid}
-                          sx={{
-                            width: '100%',
-                            backgroundColor: '#391113',
-                            color: '#fa9bc9',
-                            fontFamily: 'Barlow Condensed',
-                            fontWeight: '200',
-                            fontSize: '23px',
-                            textTransform: 'capitalize',
-                            marginBottom: '10px',
-                          }}
-                        >
-                          Log In
-                        </Button>
-                      </ThemeProvider>
-                    </Grid>
+                      Login
+                    </Typography>
                   </Grid>
-                  <Grid item xs={6} sm={6} md={6}>
-                    <Grid item xs={12} sm={12} md={12}>
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '50px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'uppercase',
-                          color: '#391113',
 
-                        }}
-                      >
-                        Create an Account
-                      </Typography>
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Asap',
-                          fontWeight: '300',
-                          fontSize: '12px',
-                          lineHeight: '1.5',
-                          letterSpacing: '0.03em',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          color: '#111',
-                        }}
-                      >
-                        Please let us know more information about you as this will enable us to
-                        tailor what you receive from us to be more relevant. We will not pass
-                        your information to any third parties, it will only be used by The
-                        Hummingbird Bakery.
-                      </Typography>
-
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        First name*
-                      </Typography>
+                      Email address
+                    </Typography>
 
-                      <Textfield name="addressLine1" label="Address Line 1" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                    <Textfield name="email" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '30px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
+                      Password
+                    </Typography>
+
+                    <Textfield name="password" />
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12}>
+                    <ThemeProvider theme={theme}>
+                      <Button
+                        className={styles.checkoutBtn}
+                        color="neutral"
+                        variant="contained"
+                        type="submit"
+                        disabled={!isValid}
                         sx={{
+                          width: '100%',
+                          backgroundColor: '#391113',
+                          color: '#fa9bc9',
                           fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
+                          fontWeight: '200',
+                          fontSize: '23px',
                           textTransform: 'capitalize',
-                          color: '#391113',
+                          marginBottom: '10px',
                         }}
                       >
-                        Last name*
-                      </Typography>
+                        Log In
+                      </Button>
+                    </ThemeProvider>
+                  </Grid>
+                </Grid>
+              </Form>
+            )}
 
-                      <Textfield name="addressLine2" label="Address Line 2" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+          </Formik>
+        </Grid>
+        <Grid item xs={6} sm={6} md={6}>
+          <Formik
+            initialValues={initialValuesRegistartion}
+            validationSchema={validationSchemaRegistration}
+            onSubmit={(values, { resetForm }) => {
+              console.log(values);
+              resetForm();
+              // alert('Your order has been accepted');
+            }}
+          >
+            {({ isValid }) => (
+              <Form className={styles.form}>
+                <Grid container>
+                  <Grid item xs={12} sm={12} md={12}>
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '50px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'uppercase',
+                        color: '#391113',
+
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Email address*
-                      </Typography>
-
-                      <Textfield name="city" label="City" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                      Create an Account
+                    </Typography>
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Asap',
+                        fontWeight: '300',
+                        fontSize: '12px',
+                        lineHeight: '1.5',
+                        letterSpacing: '0.03em',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        color: '#111',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Date of Birth
-                      </Typography>
+                      Please let us know more information about you as this will enable us to
+                      tailor what you receive from us to be more relevant. We will not pass
+                      your information to any third parties, it will only be used by The
+                      Hummingbird Bakery.
+                    </Typography>
 
-                      <Textfield name="state" label="State" />
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Asap',
-                          fontWeight: '300',
-                          fontSize: '12px',
-                          lineHeight: '1.5',
-                          letterSpacing: '0.03em',
-                          marginTop: '10px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          color: '#494949',
-                        }}
-                      >
-                        Birthday + cake, it’s a no-brainer! Let us know when it’s
-                        your birthday so we can help sweeten up your special day!
-                        {' '}
-
-                      </Typography>
-
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Postcode
-                      </Typography>
+                      First name*
+                    </Typography>
 
-                      <Textfield name="city" label="City" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                    <Textfield name="firstName" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Local Bakery
-                      </Typography>
+                      Last name*
+                    </Typography>
 
-                      <Textfield name="city" label="City" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                    <Textfield name="lastName" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '6px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        Password*
-                      </Typography>
+                      Email address*
+                    </Typography>
 
-                      <Textfield name="city" label="City" />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={12}
-                      md={12}
+                    <Textfield name="email" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
                       sx={{
-                        marginBottom: '30px',
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
                       }}
                     >
-                      <Typography
-                        className={styles.title}
+                      Date of Birth
+                    </Typography>
+                    <TextField type="date" />
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Asap',
+                        fontWeight: '300',
+                        fontSize: '12px',
+                        lineHeight: '1.5',
+                        letterSpacing: '0.03em',
+                        marginTop: '10px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        color: '#494949',
+                      }}
+                    >
+                      Birthday + cake, it’s a no-brainer! Let us know when it’s
+                      your birthday so we can help sweeten up your special day!
+                      {' '}
+
+                    </Typography>
+
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Postcode
+                    </Typography>
+
+                    <Textfield name="postcode" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Password*
+                    </Typography>
+
+                    <Textfield name="passwordConfirmation" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '30px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Confirm password*
+                    </Typography>
+
+                    <Textfield name="password" />
+                  </Grid>
+
+                  <Grid item xs={12} sm={12} md={12}>
+                    <ThemeProvider theme={theme}>
+                      <Button
+                        className={styles.checkoutBtn}
+                        color="neutral"
+                        variant="contained"
+                        type="submit"
+                        disabled={!isValid}
                         sx={{
+                          width: '100%',
+                          backgroundColor: '#391113',
+                          color: '#fa9bc9',
                           fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '24px',
-                          marginBottom: '10px',
-                          textAlign: 'left',
+                          fontWeight: '200',
+                          fontSize: '23px',
                           textTransform: 'capitalize',
-                          color: '#391113',
+                          marginBottom: '10px',
                         }}
                       >
-                        Confirm password*
-                      </Typography>
-
-                      <Textfield name="city" label="City" />
-                    </Grid>
-
-                    <Grid item xs={12} sm={12} md={12}>
-                      <ThemeProvider theme={theme}>
-                        <Button
-                          className={styles.checkoutBtn}
-                          color="neutral"
-                          variant="contained"
-                          type="submit"
-                          disabled={!isValid}
-                          sx={{
-                            width: '100%',
-                            backgroundColor: '#391113',
-                            color: '#fa9bc9',
-                            fontFamily: 'Barlow Condensed',
-                            fontWeight: '200',
-                            fontSize: '23px',
-                            textTransform: 'capitalize',
-                            marginBottom: '10px',
-                          }}
-                        >
-                          Register
-                        </Button>
-                      </ThemeProvider>
-                      <Typography
-                        className={styles.title}
-                        sx={{
-                          fontFamily: 'Barlow Condensed',
-                          fontWeight: '300',
-                          fontSize: '18px',
-                          marginBottom: '10px',
-                          textAlign: 'center',
-                          textTransform: 'capitalize',
-                          color: '#391113',
-                        }}
-                      >
-                        *Required fields
-                      </Typography>
-
-                    </Grid>
+                        Register
+                      </Button>
+                    </ThemeProvider>
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '18px',
+                        marginBottom: '10px',
+                        textAlign: 'center',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      *Required fields
+                    </Typography>
 
                   </Grid>
 
@@ -473,9 +466,9 @@ function Account() {
               </Form>
             )}
           </Formik>
-        </Container>
+        </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 }
 export default Account;
