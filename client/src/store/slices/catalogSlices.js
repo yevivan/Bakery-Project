@@ -13,8 +13,8 @@ const catalogSlices = createSlice({
   },
 });
 
-export const fetchCatalog = (filter) => async (dispatch) => {
-  const catalog = await getCatalog(filter);
+export const fetchCatalog = (object) => async (dispatch) => {
+  const catalog = await getCatalog(object);
   dispatch(addCatalog(catalog));
 };
 

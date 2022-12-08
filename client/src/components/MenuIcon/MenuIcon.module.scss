@@ -1,7 +1,12 @@
-div {
+.menuIcon {
   text-decoration: none;
   list-style: none;
-}
-.img:hover {
+  display: flex;
+  gap: 5px}
+.menuIcon:hover {
   opacity: 80%;
+}
+.btn {
+  transition: transform 3s;
+  background: none;
 }
