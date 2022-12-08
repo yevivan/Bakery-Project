@@ -1,6 +1,6 @@
 export const getCatalog = async (object) => {
   console.log(object);
-  if (object.hasOwnProperty('query')) {
+  if ('query' in object) {
     console.log(true);
     const searchedItems = await fetch('http://127.0.0.1:5005/products/search', {
       method: 'POST',
