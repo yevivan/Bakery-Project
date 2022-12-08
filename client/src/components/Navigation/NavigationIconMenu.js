@@ -1,11 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
 function NavigationIconMenu({
-<<<<<<< HEAD
-  basket, searchList, main, style,
-=======
-  basket, catalog, main, style, account,
->>>>>>> af1ed4d1e75c4a54dda7b81159f22ea005019409
+
+  basket, searchList, main, style, account,
+
 }) {
   return (
     <nav>

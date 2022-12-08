@@ -2,7 +2,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
-
 import styles from './Catalog.module.scss';
 import { changeFilterCategory, clearFilter } from '../../../store/slices/filterSlices';
 import CatalogContainer from '../../CatalogContainer/CatalogContainer';
