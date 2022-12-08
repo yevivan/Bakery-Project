@@ -1,8 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-<<<<<<< HEAD
-
-=======
->>>>>>> af1ed4d1e75c4a54dda7b81159f22ea005019409
 import { useState } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
