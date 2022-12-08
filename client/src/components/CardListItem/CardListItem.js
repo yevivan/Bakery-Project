@@ -25,7 +25,7 @@ function CardListItem(props) {
         </p>
 
       </Link>
-      <ButtonComponent>Shop Now</ButtonComponent>
+      <ButtonComponent text="Shop Now" />
     </div>
   );
 }

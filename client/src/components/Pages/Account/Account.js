@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
-  Container, Grid, Typography, TextField,
+  Container, Grid, Typography,
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
@@ -115,7 +115,7 @@ function Account() {
                       Email address
                     </Typography>
 
-                    <Textfield name="email" />
+                    <Textfield name="email" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -141,7 +141,7 @@ function Account() {
                       Password
                     </Typography>
 
-                    <Textfield name="password" />
+                    <Textfield name="password" index="password" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
                     <ThemeProvider theme={theme}>
@@ -245,7 +245,7 @@ function Account() {
                       First name*
                     </Typography>
 
-                    <Textfield name="firstName" />
+                    <Textfield name="firstName" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -271,7 +271,7 @@ function Account() {
                       Last name*
                     </Typography>
 
-                    <Textfield name="lastName" />
+                    <Textfield name="lastName" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -297,7 +297,7 @@ function Account() {
                       Email address*
                     </Typography>
 
-                    <Textfield name="email" />
+                    <Textfield name="email" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -322,7 +322,7 @@ function Account() {
                     >
                       Date of Birth
                     </Typography>
-                    <TextField type="date" />
+                    <Textfield name="dateBirth" index="date" />
                     <Typography
                       className={styles.title}
                       sx={{
@@ -368,7 +368,7 @@ function Account() {
                       Postcode
                     </Typography>
 
-                    <Textfield name="postcode" />
+                    <Textfield name="postcode" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -394,7 +394,7 @@ function Account() {
                       Password*
                     </Typography>
 
-                    <Textfield name="passwordConfirmation" />
+                    <Textfield name="passwordConfirmation" index="password" />
                   </Grid>
                   <Grid
                     item
@@ -420,7 +420,7 @@ function Account() {
                       Confirm password*
                     </Typography>
 
-                    <Textfield name="password" />
+                    <Textfield name="password" index="password" />
                   </Grid>
 
                   <Grid item xs={12} sm={12} md={12}>

@@ -4,7 +4,9 @@ import styles from './BasketList.module.scss';
 
 function BasketList() {
   const data = useSelector((state) => state.data.data, shallowEqual);
-  console.log(data);
+  const filter = useSelector((state) => state.filter.filter, shallowEqual);
+  console.log(filter);
+  // console.log(data);
   return (
     <div className={styles.basketList}>
       {data.map((item) => (

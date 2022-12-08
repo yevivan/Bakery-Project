@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
+// import CardListItem from '../CardListItem/CardListItem';
 import CardListItem from '../CardListItem/CardListItem';
 import styles from './Slider.module.scss';
 
