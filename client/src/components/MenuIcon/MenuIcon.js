@@ -4,7 +4,7 @@ import Navigation from '../Navigation/NavigationIconMenu';
 import styles from './MenuIcon.module.scss';
 // import search from '../../svg/search.svg';
 // import Search from '../Search/Search';
-import SearchForHeader from '../SearchForHeader/SearchForHeader';
+import Search from '../Search/Search';
 import searchSvg from '../../svg/search.svg';
 import closeSvg from '../../svg/close.svg';
 
@@ -21,7 +21,7 @@ function MenuIcon() {
           <button className={styles.btn} onClick={openSearch}>
             <img src={closeSvg} alt="search" />
           </button>
-          <SearchForHeader style={{ transition: '2s' }} />
+          <Search style={{ transition: '2s' }} />
         </>
       ) : (
         <button className={styles.btn} onClick={openSearch}>

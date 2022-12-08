@@ -1,5 +1,5 @@
 import CardList from '../../CardList/CardList';
-import Search from '../../SearchForHeader/SearchForHeader';
+import Search from '../../Search/Search';
 import styles from './SearchList.module.scss';
 
 function SearchList() {

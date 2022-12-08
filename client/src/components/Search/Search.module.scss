@@ -1,0 +1,23 @@
+.searchForm {
+  border: 2px solid #d8cbc0;
+  display: flex;
+  align-items: flex-start;
+}
+.searchInput {
+  color:#391113;
+  font-family: futura-book,Helvetica,sans-serif;
+  background: none;
+  padding-left: 6px;
+
+
+}
+.searchInput::placeholder{
+  color:#d8cbc0;
+  //padding-left: 6px;
+  padding-bottom: 3px;
+  font-family: futura-book,Helvetica,sans-serif;
+}
+
+.btnSearch {
+  background: none;
+}
