@@ -19,7 +19,6 @@ function CardList() {
   useEffect(() => {
     dispatch(fetchCatalog(filter));
   }, [filter]);
-
   return (
     <div className={styles.cardList}>
       {renderedCards.map(({
