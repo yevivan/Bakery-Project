@@ -14,7 +14,6 @@ function CardList() {
   console.log(cards);
   const renderedCards = searchedCards.length ? searchedCards : cards;
 
-
   const filter = useSelector((state) => state.filter.filter, shallowEqual);
 
   useEffect(() => {

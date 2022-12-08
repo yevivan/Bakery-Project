@@ -80,15 +80,19 @@ function CurrentProduct() {
             flexDirection="column"
           >
             <Typography
-              variant="h2"
+              component="h2"
               align="left"
               color="#391113"
-              fs="48px"
+              fontSize={{
+                xs: '35px',
+                sm: '35px',
+                md: '48px',
+              }}
               fontFamily="Asap"
               fontWeight="600"
               lineHeight="1.2"
               textTransform="capitalize"
-              m="0"
+              margin="0"
             >
               {currProduct.name}
             </Typography>
@@ -97,20 +101,20 @@ function CurrentProduct() {
                 <div className={styles.price__box}>
                   <Typography
                     className={styles.old__price}
-                    variant="h6"
+                    component="h6"
                     align="left"
                     color="#111"
                     mt="15px"
-                    fs="26px"
+                    fontSize="19px"
                     // fontFamily="Asap"
-                    fontWeight="lighter"
-                    lineHeight="1.2"
+                    fontWeight="600"
+                    lineHeight="1.5"
                   >
                     {currProduct.previousPrice}
                     &#8372;
                   </Typography>
                   <Typography
-                    variant="h4"
+                    component="h4"
                     align="left"
                     color="#b41f27"
                     mt="5px"
@@ -200,18 +204,29 @@ function CurrentProduct() {
               {currProduct.description}
             </Typography>
             <Button
+              lineHeight="1.4"
+              padding={{
+                xs: '2px 5px',
+                sm: '2px 5px',
+                md: '10px 5px',
+                lg: '10px 5px',
+                xl: '10px 5px',
+              }}
+              fontSize={{
+                xs: '16px',
+                sm: '23px',
+                md: '23px',
+              }}
               sx={{
-                mt: '20px',
                 width: '100%',
-                height: '54px',
                 backgroundColor: '#391113',
                 color: '#fa9bc9',
                 fontFamily: 'Barlow Condensed',
-                lineHeight: '1.40',
-                fontWeight: '200',
-                fontSize: '23px',
+                fontWeight: '400',
                 textTransform: 'capitalize',
+                marginTop: '20px',
                 borderRadius: '0',
+                letterSpacing: '0px',
                 '&:hover': {
                   backgroundColor: '#391113',
                   opacity: '0.6',
@@ -220,10 +235,10 @@ function CurrentProduct() {
                   color: '#391113',
                   backgroundColor: '#fff5d6',
                 },
+                transition: 'all .35s cubic-bezier(.29,.63,.44,1)',
               }}
               disabled={!counter || !(giftWrap || regularWrap)}
               variant="contained"
-              className={styles.btn}
               onClick={() => {
                 dispatch(addBasketArr(id));
                 console.log(id);
