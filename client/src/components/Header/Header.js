@@ -3,6 +3,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import Menu from '../Menu/Menu';
 import MenuIcon from '../MenuIcon/MenuIcon';
+import LoginIcon from '../LoginIcon/LoginIcon';
 import styles from './Header.module.scss';
 
 function Header() {
@@ -12,6 +13,7 @@ function Header() {
       <Logo />
 
       <MenuIcon />
+      <LoginIcon />
     </div>
   );
 }

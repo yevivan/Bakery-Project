@@ -5,7 +5,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import { useField } from 'formik';
 
-function TextfieldWrapper({ name, ...otherProps }) {
+function TextfieldWrapper({ name, index, ...otherProps }) {
   const [field, mata] = useField(name);
 
   const configTextfield = {
@@ -22,6 +22,7 @@ function TextfieldWrapper({ name, ...otherProps }) {
 
   return (
     <TextField
+      type={index}
       {...configTextfield}
       sx={{
         '& label.Mui-focused': {
