@@ -15,6 +15,8 @@ function BasketList() {
     shallowEqual,
   );
 
+  const isUserLoged = useSelector((state) => state.userLogin.isUserLogged);
+
   // const cartItemSLocal = useSelector(
   //   (state) => state.basketArr.basketArr,
   //   shallowEqual,
@@ -30,15 +32,17 @@ function BasketList() {
   const { products } = cartItemServer;
   console.log(products);
   // console.log(sliderItems);
-
-  return (
-    <div className={styles.basketList}>
-      {products.map(({ product, cartQuantity, _id }) => (
-        <BasketListItem key={_id} item={product} cartQuantity={cartQuantity} />
+  if (isUserLoged) {
+    return (
+      <div className={styles.basketList}>
+        {products.map(({ product, cartQuantity, _id }) => (
+          <BasketListItem key={_id} item={product} cartQuantity={cartQuantity} />
         // console.log(product, cartQuantity)
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  }
+  return null;
 }
 
 export default BasketList;

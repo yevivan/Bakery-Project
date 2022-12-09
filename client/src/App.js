@@ -8,17 +8,17 @@ import './App.scss';
 // import { userlogIn } from './api/userLogIn';
 // import { fetchData } from './store/slices/dataSlices';
 import { fetchSliderItems } from './store/slices/sliderSlices';
-import { registeredUserLogin } from './store/slices/userLoginSlices';
-import { getCartItems } from './store/slices/basketArrFromServer';
+// import { registeredUserLogin } from './store/slices/userLoginSlices';
+// import { getCartItems } from './store/slices/basketArrFromServer';
 
 function App() {
   const dispatch = useDispatch();
   //  This is already registered  User Admin
-  const userData = { loginOrEmail: 'feonlinefinal@gmail.com', password: '11111111' };
+  // const userData = { loginOrEmail: 'feonlinefinal@gmail.com', password: '11111111' };
   useEffect(() => {
-    dispatch(registeredUserLogin(userData));
+    // dispatch(registeredUserLogin(userData));
     dispatch(fetchSliderItems());
-    dispatch(getCartItems());
+    // dispatch(getCartItems());
   }, []);
 
   return (

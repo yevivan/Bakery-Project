@@ -10,7 +10,6 @@ export const userlogIn = async (userData) => {
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
-  console.log(user.token);
   localStorage.setItem('token', JSON.stringify(user.token));
 
   return user.success;

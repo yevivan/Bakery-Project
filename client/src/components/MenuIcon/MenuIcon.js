@@ -1,5 +1,6 @@
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Navigation from '../Navigation/NavigationIconMenu';
 import styles from './MenuIcon.module.scss';
 // import search from '../../svg/search.svg';
@@ -9,6 +10,8 @@ import searchSvg from '../../svg/search.svg';
 import closeSvg from '../../svg/close.svg';
 
 function MenuIcon() {
+  const itemsInCart = useSelector((state) => state.cartItemsFromServer.cartItemsFromServer);
+  const { products } = itemsInCart;
   const [openInputSearch, setOpenInputSearch] = useState(false);
   const openSearch = () => {
     setOpenInputSearch((prev) => !prev);
@@ -29,9 +32,15 @@ function MenuIcon() {
         </button>
       ) }
 
-      <Navigation
-        basket={<ShoppingBasketIcon />}
-      />
+      <span>
+        {products ? products.length : null}
+        <Navigation
+
+          basket={<ShoppingBasketIcon />}
+        />
+        {' '}
+
+      </span>
 
     </div>
   );

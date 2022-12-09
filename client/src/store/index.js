@@ -10,9 +10,11 @@ import searchSliceReducer from './slices/searchSlices';
 import sliderItemsReducer from './slices/sliderSlices';
 import userLoginReducer from './slices/userLoginSlices';
 import cartArrayFromServerReducer from './slices/basketArrFromServer';
+import loggedUserReducer from './slices/getLoggedUserSlices';
 
 export const store = configureStore({
   reducer: {
+    loggedUser: loggedUserReducer,
     cartItemsFromServer: cartArrayFromServerReducer,
     userLogin: userLoginReducer,
     search: searchSliceReducer,
