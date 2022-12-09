@@ -13,7 +13,5 @@ export const registerNewUser = async (newUserData) => {
       throw new Error(responseText.message);
     })
     .catch((err) => alert(err.message));
-  console.log(newUser);
-
   return newUser;
 };

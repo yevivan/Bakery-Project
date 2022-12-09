@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
+import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -57,8 +58,8 @@ function CurrentProduct() {
   }, []);
 
   // HERE ARRAY FOR SENDING TO SERVER IS CREATED
-  const cartItemdataForServer = { product: prodId, cartQuantity: counter };
-  console.log(cartItemdataForServer);
+  const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
+  console.log(cartItemDataForServer);
 
   return (
     <Grid
@@ -260,6 +261,8 @@ function CurrentProduct() {
                 // const product = prodId;
                 // New key cart quantity added to cart array
                 currProduct.cartQuantity = counter;
+                console.log(prodId);
+                if (isUserLoggedIn) { sendCartItemToDatabase(prodId); }
                 // dispatch(addBasketArr(({ product, cartQuantity })));
                 dispatch(addBasketArr(currProduct));
               }}
