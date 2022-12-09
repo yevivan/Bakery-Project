@@ -26,8 +26,15 @@ const filterSlices = createSlice({
     addAllFilter: (state, action) => {
       state.filter = action.payload;
     },
+    clearFilter: (state) => {
+      state.filter.chocolate = [];
+      state.filter.sugar = [];
+      state.filter.nuts = [];
+      state.filter.size = [];
+      state.filter.categories = [];
+    },
   },
 });
 
 export default filterSlices.reducer;
-export const { addAllFilter, changeFilterCategory } = filterSlices.actions;
+export const { addAllFilter, changeFilterCategory, clearFilter } = filterSlices.actions;

@@ -1,22 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getSearchedItems } from '../../api/getSearchedItems';
 
-const searchedItemsSlice = createSlice({
-  name: 'searchedItems',
+const searchSlice = createSlice({
+  name: 'search',
   initialState: {
-    searchedItems: [],
+    search: {
+      query: '',
+    },
   },
   reducers: {
-    searchItems: (state, action) => {
-      state.searchedItems = action.payload;
+    addSearch: (state, action) => {
+      state.search.query = action.payload;
+    },
+    clearSearch: (state) => {
+      state.search.query = '';
     },
   },
 });
 
-export const fetchSearchedItems = (searchPhrases) => async (dispatch) => {
-  const searchedItems = await getSearchedItems(searchPhrases);
-  dispatch(searchItems(searchedItems));
-};
+// export const fetchSearchedItems = (searchPhrases) => async (dispatch) => {
+//   const searchedItems = await getSearchedItems(searchPhrases);
+//   dispatch(searchItems(searchedItems));
 
-export default searchedItemsSlice.reducer;
-export const { searchItems } = searchedItemsSlice.actions;
+export default searchSlice.reducer;
+export const { addSearch, clearSearch } = searchSlice.actions;
