@@ -9,6 +9,7 @@ import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
 import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
+import { getCartItems } from '../../../store/slices/basketArrFromServer';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -16,7 +17,6 @@ import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
 function CurrentProduct() {
   const { id } = useParams();
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
-  console.log(isUserLoggedIn);
   const dispatch = useDispatch();
   const [giftWrap, setGiftWrap] = useState(false);
   const [regularWrap, setRegularWrap] = useState(false);
@@ -28,6 +28,18 @@ function CurrentProduct() {
     color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
+
+  function handleSubmit() {
+    currProduct.cartQuantity = counter;
+    if (isUserLoggedIn) {
+      sendCartItemToDatabase(prodId);
+      setTimeout(() => {
+        dispatch(getCartItems());
+      }, 100);
+    } else {
+      dispatch(addBasketArr(currProduct));
+    }
+  }
 
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
@@ -58,8 +70,7 @@ function CurrentProduct() {
   }, []);
 
   // HERE ARRAY FOR SENDING TO SERVER IS CREATED
-  const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
-  console.log(cartItemDataForServer);
+  // const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
 
   return (
     <Grid
@@ -257,15 +268,7 @@ function CurrentProduct() {
               disabled={!counter || !(giftWrap || regularWrap)}
               variant="contained"
               className={styles.btn}
-              onClick={() => {
-                // const product = prodId;
-                // New key cart quantity added to cart array
-                currProduct.cartQuantity = counter;
-                console.log(prodId);
-                if (isUserLoggedIn) { sendCartItemToDatabase(prodId); }
-                // dispatch(addBasketArr(({ product, cartQuantity })));
-                dispatch(addBasketArr(currProduct));
-              }}
+              onClick={handleSubmit}
             >
               Add To Basket
             </Button>
