@@ -17,11 +17,13 @@ function Account() {
   const initialValuesRegistartion = {
     firstName: '',
     lastName: '',
+    login: '',
     email: '',
     password: '',
     passwordConfirmation: '',
     dateBirth: '',
-    postcode: '',
+    phoneNumber: '',
+    gender: '',
   };
   const validationSchemaLogin = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -38,12 +40,17 @@ function Account() {
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
       .required('Required'),
+    login: Yup.string()
+      .min(2, 'Min 2 symbols')
+      .max(20, 'Max 20 symbols')
+      .required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
       .min(8, 'Must be longer than 8 characters')
       .required('Required'),
     passwordConfirmation: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    phoneNumber: Yup.string().matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Phone number is not valid'),
   });
   const theme = createTheme({
     palette: {
@@ -57,7 +64,6 @@ function Account() {
       },
     },
   });
-
   return (
     <Container maxWidth="md">
       <Grid container direction={{ xs: 'column', sm: 'row' }} spacing={12} wrap="nowrap">
@@ -294,10 +300,88 @@ function Account() {
                         color: '#391113',
                       }}
                     >
+                      Login*
+                    </Typography>
+
+                    <Textfield name="login" index="text" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
                       Email address*
                     </Typography>
 
                     <Textfield name="email" index="text" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Password*
+                    </Typography>
+
+                    <Textfield name="passwordConfirmation" index="password" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Confirm password*
+                    </Typography>
+
+                    <Textfield name="password" index="password" />
                   </Grid>
                   <Grid
                     item
@@ -365,36 +449,10 @@ function Account() {
                         color: '#391113',
                       }}
                     >
-                      Postcode
+                      Phone number
                     </Typography>
 
-                    <Textfield name="postcode" index="text" />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    sx={{
-                      marginBottom: '6px',
-                    }}
-                  >
-                    <Typography
-                      className={styles.title}
-                      sx={{
-                        fontFamily: 'Barlow Condensed',
-                        fontWeight: '300',
-                        fontSize: '24px',
-                        marginBottom: '10px',
-                        textAlign: 'left',
-                        textTransform: 'capitalize',
-                        color: '#391113',
-                      }}
-                    >
-                      Password*
-                    </Typography>
-
-                    <Textfield name="passwordConfirmation" index="password" />
+                    <Textfield name="phoneNumber" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -417,12 +475,10 @@ function Account() {
                         color: '#391113',
                       }}
                     >
-                      Confirm password*
+                      Gender
                     </Typography>
-
-                    <Textfield name="password" index="password" />
+                    <Textfield width="100%" name="gender" index="select" />
                   </Grid>
-
                   <Grid item xs={12} sm={12} md={12}>
                     <ThemeProvider theme={theme}>
                       <Button
