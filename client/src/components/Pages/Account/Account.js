@@ -6,16 +6,16 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Account.module.scss';
-// import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-// import { getCartItems } from '../../../store/slices/basketArrFromServer';
-// import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
-// import { registerNewUser } from '../../../api/registerNewUser';
+import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
+import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+import { registerNewUser } from '../../../api/registerNewUser';
 
 function Account() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const initialValuesLogin = {
     loginOrEmail: '',
@@ -88,11 +88,11 @@ function Account() {
             initialValues={initialValuesLogin}
             validationSchema={validationSchemaLogin}
             onSubmit={(values, { resetForm }) => {
-              const userData = values;
-              console.log(userData);
-              // dispatch(registeredUserLogin(values));
-              // dispatch(getCartItems());
-              // dispatch(getLoggedUserFromServer());
+              // const userData = values;
+              // console.log(userData);
+              dispatch(registeredUserLogin(values));
+              dispatch(getCartItems());
+              dispatch(getLoggedUserFromServer());
               resetForm();
               // alert('Your order has been accepted');
             }}
