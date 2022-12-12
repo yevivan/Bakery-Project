@@ -6,41 +6,47 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+// import { useDispatch } from 'react-redux';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Account.module.scss';
+// import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
+// import { getCartItems } from '../../../store/slices/basketArrFromServer';
+// import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+// import { registerNewUser } from '../../../api/registerNewUser';
 
 function Account() {
+  // const dispatch = useDispatch();
+
   const initialValuesLogin = {
-    email: '',
+    loginOrEmail: '',
     password: '',
   };
   const initialValuesRegistartion = {
+    login: '',
     firstName: '',
     lastName: '',
-    login: '',
     email: '',
     password: '',
     passwordConfirmation: '',
-    dateBirth: '',
+    birthdate: '',
     phoneNumber: '',
-    gender: '',
   };
   const validationSchemaLogin = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Required'),
+    loginOrEmail: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
       .min(8, 'Must be longer than 8 characters')
       .required('Required'),
   });
   const validationSchemaRegistration = Yup.object().shape({
+    login: Yup.string()
+      .min(2, 'Min 2 symbols')
+      .max(20, 'Max 20 symbols')
+      .required('Required'),
     firstName: Yup.string()
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
       .required('Required'),
     lastName: Yup.string()
-      .min(2, 'Min 2 symbols')
-      .max(20, 'Max 20 symbols')
-      .required('Required'),
-    login: Yup.string()
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
       .required('Required'),
@@ -65,14 +71,28 @@ function Account() {
     },
   });
   return (
-    <Container maxWidth="md">
-      <Grid container direction={{ xs: 'column', sm: 'row' }} spacing={12} wrap="nowrap">
-        <Grid item xs={6} sm={6} md={6}>
+    <Container maxWidth="lg">
+      <Grid
+        container
+        direction={{ xs: 'column', sm: 'column', md: 'row' }}
+        spacing={{
+          xs: '6', sm: '6', md: '12', lg: '12', xl: '12',
+        }}
+        wrap="nowrap"
+        display="flex"
+        justifyContent="center"
+        alignItems="flex-start"
+      >
+        <Grid item xs={5} sm={5} md={5}>
           <Formik
             initialValues={initialValuesLogin}
             validationSchema={validationSchemaLogin}
             onSubmit={(values, { resetForm }) => {
-              console.log(values);
+              const userData = values;
+              console.log(userData);
+              // dispatch(registeredUserLogin(values));
+              // dispatch(getCartItems());
+              // dispatch(getLoggedUserFromServer());
               resetForm();
               // alert('Your order has been accepted');
             }}
@@ -121,7 +141,7 @@ function Account() {
                       Email address
                     </Typography>
 
-                    <Textfield name="email" index="text" />
+                    <Textfield name="loginOrEmail" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -178,12 +198,13 @@ function Account() {
 
           </Formik>
         </Grid>
-        <Grid item xs={6} sm={6} md={6}>
+        <Grid item xs={5} sm={5} md={5}>
           <Formik
             initialValues={initialValuesRegistartion}
             validationSchema={validationSchemaRegistration}
             onSubmit={(values, { resetForm }) => {
               console.log(values);
+              // registerNewUser(values);
               resetForm();
               // alert('Your order has been accepted');
             }}
@@ -406,7 +427,7 @@ function Account() {
                     >
                       Date of Birth
                     </Typography>
-                    <Textfield name="dateBirth" index="date" />
+                    <Textfield name="birthdate" index="date" />
                     <Typography
                       className={styles.title}
                       sx={{
@@ -416,7 +437,6 @@ function Account() {
                         lineHeight: '1.5',
                         letterSpacing: '0.03em',
                         marginTop: '10px',
-                        marginBottom: '10px',
                         textAlign: 'left',
                         color: '#494949',
                       }}
@@ -434,7 +454,7 @@ function Account() {
                     sm={12}
                     md={12}
                     sx={{
-                      marginBottom: '6px',
+                      marginBottom: '25px',
                     }}
                   >
                     <Typography
@@ -453,31 +473,6 @@ function Account() {
                     </Typography>
 
                     <Textfield name="phoneNumber" index="text" />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    sx={{
-                      marginBottom: '30px',
-                    }}
-                  >
-                    <Typography
-                      className={styles.title}
-                      sx={{
-                        fontFamily: 'Barlow Condensed',
-                        fontWeight: '300',
-                        fontSize: '24px',
-                        marginBottom: '10px',
-                        textAlign: 'left',
-                        textTransform: 'capitalize',
-                        color: '#391113',
-                      }}
-                    >
-                      Gender
-                    </Typography>
-                    <Textfield width="100%" name="gender" index="select" />
                   </Grid>
                   <Grid item xs={12} sm={12} md={12}>
                     <ThemeProvider theme={theme}>

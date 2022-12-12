@@ -6,7 +6,7 @@ import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;
-  const { name, price, picture } = item;
+  const { name, currentPrice, imageUrls: [image] } = item;
 
   return (
     <Grid
@@ -41,7 +41,7 @@ function BasketListItem(props) {
           </Grid>
           <Grid item xs={12} sm={5}>
             <Button href="#" color="inherit" disableElevation sx={{ p: 2 }}>
-              <img src={picture} alt="sweets" width="100%" />
+              <img src={image} alt="sweets" width="100%" />
             </Button>
           </Grid>
           <Grid
@@ -83,7 +83,7 @@ function BasketListItem(props) {
       <Grid item xs={12} sm={2}>
         <Box>
           <Typography content="span" fontSize="inherit" color="black">
-            {price}
+            {currentPrice}
           </Typography>
         </Box>
       </Grid>
@@ -107,7 +107,7 @@ function BasketListItem(props) {
       >
         <Box>
           <Typography content="span" fontSize="inherit" color="black">
-            {price}
+            {currentPrice}
           </Typography>
         </Box>
       </Grid>
