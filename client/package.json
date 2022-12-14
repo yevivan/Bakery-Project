@@ -46,7 +46,7 @@
     "eslint": "eslint src/**/*.js",
     "format": "prettier . --write",
     "start": "npm-run-all -p watch-sass-js start-js",
-    "build": "npm run eslint && npm run stylelint-build && react-scripts build",
+    "build": " react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "stylelint-dev": "stylelint src/**/*.scss --cache --cache-location ./.stylelintcache; exit 0",
