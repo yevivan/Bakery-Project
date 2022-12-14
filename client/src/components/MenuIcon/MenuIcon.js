@@ -15,7 +15,6 @@ function MenuIcon() {
   );
   const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
-  console.log(isuserLoggedIn);
   const { products } = itemsInCartInDatabase;
   const itemsCountInCartInDatabse = products ? products.length : 0;
   const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
@@ -30,13 +29,13 @@ function MenuIcon() {
 
       {openInputSearch ? (
         <>
-          <button className={styles.btn} onClick={openSearch}>
+          <button type="button" className={styles.btn} onClick={openSearch}>
             <img src={closeSvg} alt="search" />
           </button>
           <Search style={{ transition: '2s' }} />
         </>
       ) : (
-        <button className={styles.btn} onClick={openSearch}>
+        <button type="button" className={styles.btn} onClick={openSearch}>
           <img src={searchSvg} alt="search" />
         </button>
       ) }
@@ -44,7 +43,6 @@ function MenuIcon() {
       <span>
         {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage}
         <Navigation
-
           basket={<ShoppingBasketIcon />}
         />
         {' '}

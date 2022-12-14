@@ -6,7 +6,6 @@ function ProductsCounter(props) {
   const {
     handleIncrement, handleDecrement, counter, maxCounter, displayCounter,
   } = props;
- 
   return (
     <ButtonGroup className={styles.counter__container} size="small" aria-label="small outlined button group">
       <Button

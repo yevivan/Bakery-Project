@@ -12,6 +12,6 @@ export const registerNewUser = async (newUserData) => {
       const responseText = await res.json();
       throw new Error(responseText.message);
     })
-    .catch((err) => alert(err.message));
+    .catch((err) => console.log(err.message));
   return newUser;
 };
