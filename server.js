@@ -69,12 +69,15 @@ app.use("/comments", comments);
 app.use("/shipping-methods", shippingMethods);
 app.use("/payment-methods", paymentMethods);
 app.use("/partners", partners);
-app.use("/", mainRoute);
 
+// COMMENTED OTHERWISE DOESNT WORK
+// app.use("/", mainRoute);
+process.env.NODE_ENV = "production"
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
+  console.log("bbbeereregrer");
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
@@ -82,6 +85,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 5005;
-console.log(process.env.PORT);
+console.log(process.env.NODE_ENV);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
