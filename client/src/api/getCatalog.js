@@ -1,6 +1,6 @@
 export const getCatalog = async (object) => {
   if ('query' in object) {
-    const searchedItems = await fetch('http://127.0.0.1:5005/products/search', {
+    const searchedItems = await fetch('/products/search', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
