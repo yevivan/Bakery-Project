@@ -71,13 +71,13 @@ app.use("/payment-methods", paymentMethods);
 app.use("/partners", partners);
 
 // COMMENTED OTHERWISE DOESNT WORK
-// app.use("/", mainRoute);
-process.env.NODE_ENV = "production"
+app.use("/", mainRoute);
+// process.env.NODE_ENV = "production"
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
-  console.log("bbbeereregrer");
+  console.log(process.env.NODE_ENV );
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
