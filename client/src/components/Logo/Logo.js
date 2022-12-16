@@ -5,13 +5,14 @@ import logoPink from '../../svg/logo_pink.svg';
 function Logo() {
   return (
     <div className={styles.logo}>
-      <Link to="/">
-        <img
-          src={logoPink}
-          alt="logo"
-
-        />
-      </Link>
+      <div className={styles.logoDiv}>
+        <Link to="/">
+          <img
+            src={logoPink}
+            alt="logo"
+          />
+        </Link>
+      </div>
     </div>
   );
 }
