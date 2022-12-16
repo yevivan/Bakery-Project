@@ -8,9 +8,7 @@ export const getCatalog = async (object) => {
       body: JSON.stringify(object),
     })
       .then((response) => response.json())
-    // .then((data) => {
-    //   console.log('Success:', data);
-    // })
+
       .catch((error) => {
         console.error('Error:', error);
       });

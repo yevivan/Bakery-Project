@@ -2,11 +2,23 @@
   text-decoration: none;
   list-style: none;
   display: flex;
-  gap: 5px}
+  gap: 20px;
+  width: 42%;
+  justify-content: end;
+  //padding-right: 100px;
+}
 .menuIcon:hover {
   opacity: 80%;
 }
 .btn {
   transition: transform 3s;
   background: none;
+}
+@media(max-width: 991px){
+  .btn {
+    display: none;
+  }
+  .imgAccount {
+    display: none;
+  }
 }
