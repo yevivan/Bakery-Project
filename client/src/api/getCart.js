@@ -1,5 +1,5 @@
 export const getCart = async () => {
-  const cart = await fetch('http://127.0.0.1:5005/cart', {
+  const cart = await fetch('/127.0.0.1:5005/cart', {
     method: 'GET',
     headers: { Authorization: JSON.parse(localStorage.getItem('token')) },
   })

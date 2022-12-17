@@ -1,5 +1,5 @@
 export const sendCartItemToDatabase = async (cartItemsForServer) => {
-  const cartArray = await fetch('http://127.0.0.1:5005/cart', {
+  const cartArray = await fetch('/127.0.0.1:5005/cart', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

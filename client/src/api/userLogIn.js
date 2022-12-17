@@ -1,7 +1,7 @@
 // const userLoginData = { loginOrEmail: 'feonlinefinal@gmail.com', password: '11111111' };
 
 export const userlogIn = async (userData) => {
-  const user = await fetch('http://127.0.0.1:5005/customers/login', {
+  const user = await fetch('/127.0.0.1:5005/customers/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
