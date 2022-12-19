@@ -8,7 +8,7 @@ export const sendCartItemToDatabase = async (cartItemsForServer) => {
     body: JSON.stringify(cartItemsForServer),
   })
     .then((res) => res.json())
-    .catch((err) => console.log(err));
+    .catch((err) => err);
 
   return cartArray;
 };

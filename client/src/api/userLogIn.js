@@ -9,7 +9,7 @@ export const userlogIn = async (userData) => {
     body: JSON.stringify(userData),
   })
     .then((res) => res.json())
-    .catch((err) => console.log(err));
+    .catch((err) => err);
   localStorage.setItem('token', JSON.stringify(user.token));
 
   return user.success;

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from './Catalog.module.scss';
 import { changeFilterCategory, clearFilter } from '../../../store/slices/filterSlices';
 import CatalogContainer from '../../CatalogContainer/CatalogContainer';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function Catalog() {
   const search = searchParams.get('categories');
   dispatch(changeFilterCategory(search));
   dispatch(clearFilter);
+  dispatch(closeMenuMobile(false));
 
   return (
     <div className={styles.container}>

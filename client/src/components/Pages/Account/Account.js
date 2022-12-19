@@ -13,10 +13,11 @@ import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
 import { getCartItems } from '../../../store/slices/basketArrFromServer';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 import { registerNewUser } from '../../../api/registerNewUser';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 function Account() {
   const dispatch = useDispatch();
-
+  dispatch(closeMenuMobile(false));
   const initialValuesLogin = {
     loginOrEmail: '',
     password: '',

@@ -2,13 +2,13 @@
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+// import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 import Navigation from '../Navigation/NavigationIconMenu';
 import styles from './MenuIcon.module.scss';
-// import search from '../../svg/search.svg';
-// import Search from '../Search/Search';
 import Search from '../Search/Search';
-import searchSvg from '../../svg/search.svg';
-import closeSvg from '../../svg/close.svg';
+import LoginIcon from '../LoginIcon/LoginIcon';
 
 function MenuIcon() {
   const itemsInCartInDatabase = useSelector(
@@ -16,7 +16,6 @@ function MenuIcon() {
   );
   const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
-  console.log(isuserLoggedIn);
   const { products } = itemsInCartInDatabase;
   const itemsCountInCartInDatabse = products ? products.length : 0;
   const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
@@ -32,16 +31,22 @@ function MenuIcon() {
       {openInputSearch ? (
         <>
           <button className={styles.btn} onClick={openSearch}>
-            <img src={closeSvg} alt="search" />
+
+            <CloseIcon />
           </button>
-          <Search style={{ transition: '2s' }} />
+          <Search style={{ transition: '2s' }} props={<SearchIcon />} />
         </>
       ) : (
         <button className={styles.btn} onClick={openSearch}>
-          <img src={searchSvg} alt="search" />
+
+          <SearchIcon />
         </button>
       ) }
+      {/* <div className={styles.imgAccount}> */}
+      {/*  <Navigation account={<PersonOutlineOutlinedIcon />} /> */}
+      {/* </div> */}
 
+      <LoginIcon />
       <span>
         {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage}
         <Navigation
