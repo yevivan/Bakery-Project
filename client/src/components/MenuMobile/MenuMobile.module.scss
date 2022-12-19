@@ -66,6 +66,13 @@
     line-height: 22px;
     font-weight: 400
     }
+    .imgAccount {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+
 
 
 @media (min-width: 992px) {

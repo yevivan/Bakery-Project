@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import styles from './Search.module.scss';
 
@@ -11,20 +11,25 @@ import { addSearch } from '../../store/slices/searchSlices';
 function Search({
   style, stylesInput, stylesLabel, props,
 }) {
+  const search = useSelector((state) => state.search.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const search = useSelector((state) => state.search.search);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const query = searchParams.get('query');
+  // dispatch(addSearch(query));
 
   function handleInputChange(e) {
     dispatch(addSearch(e.target.value));
+    console.log(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
 
     if (search.query) {
-      dispatch(fetchCatalog(search)); dispatch(clearFilter());
-      navigate('/search');
+      console.log(search.query);
+      dispatch(fetchCatalog(search));
+      dispatch(clearFilter());
+      navigate(`/search?query=${search.query}`);
     }
   }
 
