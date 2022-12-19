@@ -2,15 +2,17 @@
 
 // ... your code here
 import React from 'react';
-import TextField from '@mui/material/TextField';
+import { TextField } from '@mui/material';
 import { useField } from 'formik';
 
-function TextfieldWrapper({ name, index, ...otherProps }) {
+function TextfieldWrapper({
+  name, index,
+}) {
   const [field, mata] = useField(name);
 
   const configTextfield = {
     ...field,
-    ...otherProps,
+    ...name,
     fullWidth: true,
     variant: 'outlined',
   };
@@ -47,5 +49,4 @@ function TextfieldWrapper({ name, index, ...otherProps }) {
     />
   );
 }
-
 export default TextfieldWrapper;

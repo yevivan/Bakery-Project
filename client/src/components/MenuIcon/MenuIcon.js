@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
