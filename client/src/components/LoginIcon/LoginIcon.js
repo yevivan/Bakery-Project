@@ -10,7 +10,7 @@ function LoginIcon() {
   return (
     <div className={styles.img}>
       <span>{isUserLogged ? `${firstName}  ${lastName}` : 'Log In'}</span>
-      <Navigation account={<PersonOutlineOutlinedIcon />} />
+      <Navigation login={<PersonOutlineOutlinedIcon />} />
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 // import CardList from '../../CardList/CardList';
 // import Filter from '../../Filter/Filter';
 
-
 import styles from './Catalog.module.scss';
 import { changeFilterCategory, clearFilter } from '../../../store/slices/filterSlices';
 import CatalogContainer from '../../CatalogContainer/CatalogContainer';
