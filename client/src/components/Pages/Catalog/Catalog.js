@@ -1,5 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+// import Search from '../../Search/Search';
+// import CardList from '../../CardList/CardList';
+// import Filter from '../../Filter/Filter';
 
 import { useEffect } from 'react';
 import styles from './Catalog.module.scss';
