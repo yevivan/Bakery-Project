@@ -2,11 +2,13 @@
 import { useState } from 'react';
 import { Form, Formik, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import styles from './Filter.module.scss';
 import { addAllFilter } from '../../store/slices/filterSlices';
 
 function Filter() {
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
   const initialValues = useSelector((state) => state.filter.filter);
   const [category, setCategory] = useState(false);
   const openCategory = () => {
@@ -33,7 +35,9 @@ function Filter() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
+          console.log(values);
           dispatch(addAllFilter(values));
+          setSearchParams(values);
         }}
         enableReinitialize
       >
@@ -66,19 +70,31 @@ function Filter() {
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="categories" value="cheesecake" />
+                  <Field
+                    type="checkbox"
+                    name="categories"
+                    value="cheesecake"
+                  />
                   Cheesecake
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="categories" value="tarts" />
+                  <Field
+                    type="checkbox"
+                    name="categories"
+                    value="tarts"
+                  />
                   Tarts
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="categories" value="Pastries" />
+                  <Field
+                    type="checkbox"
+                    name="categories"
+                    value="Pastries"
+                  />
                   Pastries
                 </label>
               </li>
@@ -109,7 +125,11 @@ function Filter() {
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="chocolate" value="false" />
+                  <Field
+                    type="checkbox"
+                    name="chocolate"
+                    value="false"
+                  />
                   WithOut
                 </label>
               </li>
@@ -140,7 +160,11 @@ function Filter() {
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="sugar" value="false" />
+                  <Field
+                    type="checkbox"
+                    name="sugar"
+                    value="false"
+                  />
                   WithOut
                 </label>
               </li>
@@ -150,7 +174,7 @@ function Filter() {
                 <p className={styles.text}>
                   Nuts
                 </p>
-                <div className={styles.divBtn}>{choco ? '-' : '+'}</div>
+                <div className={styles.divBtn}>{nutss ? '-' : '+'}</div>
               </button>
             </div>
             <ul
@@ -171,7 +195,11 @@ function Filter() {
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="nuts" value="false" />
+                  <Field
+                    type="checkbox"
+                    name="nuts"
+                    value="false"
+                  />
                   WithOut
                 </label>
               </li>
@@ -202,13 +230,21 @@ function Filter() {
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="size" value="medium" />
+                  <Field
+                    type="checkbox"
+                    name="size"
+                    value="medium"
+                  />
                   Medium
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field type="checkbox" name="size" value="large" />
+                  <Field
+                    type="checkbox"
+                    name="size"
+                    value="large"
+                  />
                   Large
                 </label>
               </li>

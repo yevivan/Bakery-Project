@@ -1,5 +1,5 @@
 export const getLoggedUser = async () => {
-  const loggedUser = await fetch('http://127.0.0.1:5005/customers/customer', {
+  const loggedUser = await fetch('/customers/customer', {
     method: 'GET',
     headers: { Authorization: JSON.parse(localStorage.getItem('token')) },
   })

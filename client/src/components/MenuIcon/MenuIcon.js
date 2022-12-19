@@ -46,7 +46,7 @@ function MenuIcon() {
       {/*  <Navigation account={<PersonOutlineOutlinedIcon />} /> */}
       {/* </div> */}
 
-      <LoginIcon />
+      <LoginIcon styleLogin={styles.imgAccount} styleLoginText={styles.textAccount} />
       <span>
         {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage}
         <Navigation

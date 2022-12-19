@@ -1,4 +1,5 @@
 export const getCatalog = async (object) => {
+  console.log(object);
   if ('query' in object) {
     const searchedItems = await fetch('/products/search', {
       method: 'POST',
@@ -28,6 +29,8 @@ export const getCatalog = async (object) => {
   const newArr = [];
   filterToArr.forEach((el) => {
     const [key, arr] = el;
+    console.log(el);
+    console.log(arr.length)
     if (arr.length) {
       const newString = `${key.toString()}=${arr.toString()}&`;
       newArr.push(newString);
@@ -35,7 +38,7 @@ export const getCatalog = async (object) => {
   });
 
   if (!newArr.length) {
-    const arrayCatalog = await fetch('http://127.0.0.1:5005/products')
+    const arrayCatalog = await fetch('/products')
       .then((res) => res.json());
 
     return arrayCatalog.map(({
@@ -51,7 +54,8 @@ export const getCatalog = async (object) => {
     }));
   }
   const newStringArr = newArr.join('').slice(0, -1);
-  const array = await fetch(`http://127.0.0.1:5005/products/filter?${newStringArr}`)
+  console.log(newStringArr);
+  const array = await fetch(`/products/filter?${newStringArr}`)
     .then((res) => res.json());
   const { products: [...arrayCatalog] } = array;
   return arrayCatalog.map(({

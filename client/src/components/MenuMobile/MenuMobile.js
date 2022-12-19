@@ -5,6 +5,7 @@ import Search from '../Search/Search';
 import ButtonComponent from '../Button/ButtonComponent';
 import Navigation from '../Navigation/NavigationMenu';
 import styles from './MenuMobile.module.scss';
+import LoginIcon from '../LoginIcon/LoginIcon';
 
 function MenuMobile() {
   const menuMobile = useSelector((state) => state.menuMobile.menuMobile);
@@ -23,8 +24,9 @@ function MenuMobile() {
       <div>
         <Link to="/account">
           <div className={styles.btnAccount}>
-            <div className={styles.icon}><PersonOutlineOutlinedIcon style={{ color: '#f09ec4', fontSize: '40' }} /></div>
-            <p className={styles.textAccount}>MY ACCOUNT</p>
+            <LoginIcon style={{ color: '#f09ec4', fontSize: '40' }} styleLogin={styles.imgAccount} styleLoginText={styles.textAccount} />
+            {/* <div className={styles.icon}><PersonOutlineOutlinedIcon style={{ color: '#f09ec4', fontSize: '40' }} /></div> */}
+            {/* <p className={styles.textAccount}>MY ACCOUNT</p> */}
           </div>
 
         </Link>
