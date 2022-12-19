@@ -1,28 +1,28 @@
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Search from '../../Search/Search';
-import CardList from '../../CardList/CardList';
-import Filter from '../../Filter/Filter';
+// import Search from '../../Search/Search';
+// import CardList from '../../CardList/CardList';
+// import Filter from '../../Filter/Filter';
+
 
 import styles from './Catalog.module.scss';
-import { changeFilterCategory } from '../../../store/slices/filterSlices';
+import { changeFilterCategory, clearFilter } from '../../../store/slices/filterSlices';
+import CatalogContainer from '../../CatalogContainer/CatalogContainer';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 function Catalog() {
   const dispatch = useDispatch();
-  // use search Params  чи э категорія, робим запит за цим фільтром
-  //     якщл нема, робимо запит на всі товари
-  // const { search } = window.location;
-  // console.log(search);
 
   const [searchParams] = useSearchParams();
   const search = searchParams.get('categories');
   dispatch(changeFilterCategory(search));
+  dispatch(clearFilter);
+  dispatch(closeMenuMobile(false));
 
   return (
     <div className={styles.container}>
-      <Search />
-      <Filter />
-      <CardList />
+      <CatalogContainer />
+
     </div>
   );
 }

@@ -1,13 +1,9 @@
-.header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color:#fff;
-  height: 130px;
-  text-decoration: none;
-  gap: 5px;
-  padding: 20px;
+* {
   box-sizing: border-box;
+}
+.header {
+
+  height: 129px ;
 }
 a {
   text-decoration: none;
@@ -25,4 +21,28 @@ ul {
 }
 li {
   list-style: none;
+}
+.containerHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background:#fff;
+  //height: 130px;
+  text-decoration: none;
+  gap: 5px;
+  padding: 15px 30px;
+  box-sizing: border-box;
+}
+@media (max-width: 991px){
+  .header {
+    height: 119px;
+    z-index: 2;
+    //padding: 10px 30px;
+  }
+  .containerHeader{
+    position: relative;
+    z-index: 3;
+    padding: 10px 30px;
+    height: 100%;
+  }
 }

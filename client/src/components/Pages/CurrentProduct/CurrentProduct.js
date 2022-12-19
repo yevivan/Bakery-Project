@@ -5,31 +5,71 @@ import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { Grid, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-
 import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
+import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
+import { getCartItems } from '../../../store/slices/basketArrFromServer';
+
+// ADDED ITEMS ARRAY FOR SENDING TO SERVER.
+// IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
 
 function CurrentProduct() {
   const { id } = useParams();
-
+  const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   const dispatch = useDispatch();
   const [wrap, setWrap] = useState(null);
   const [currProduct, setCurrProduct] = useState();
-  const counter = useSelector((store) => store.counterProducts.counterProducts);
-  const basket = useSelector((store) => store.basketArr.basketArr);
+  const [prodQuantity, setProdQuantity] = useState();
+  const [prodId, setProdId] = useState();
+  const [counter, setCounter] = useState(0);
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
+
+  function handleSubmit() {
+    currProduct.cartQuantity = counter;
+    if (isUserLoggedIn) {
+      sendCartItemToDatabase(prodId);
+      setTimeout(() => {
+        dispatch(getCartItems());
+      }, 100);
+    } else {
+      dispatch(addBasketArr(currProduct));
+    }
+  }
+
+  const displayCounter = counter <= 0;
+  const maxCounter = counter >= prodQuantity;
+  function handleIncrement() {
+    if (maxCounter) {
+      setCounter(counter);
+    } else {
+      setCounter(counter + 1);
+    }
+  }
+  function handleDecrement() {
+    if (displayCounter) {
+      setCounter(counter);
+    } else {
+      setCounter(counter - 1);
+    }
+  }
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrProduct(data);
+        setProdQuantity(data.quantity);
+        // eslint-disable-next-line no-underscore-dangle
+        setProdId(data._id);
       })
       .catch((err) => console.error(err));
   }, []);
+
+  // HERE ARRAY FOR SENDING TO SERVER IS CREATED
+  // const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
 
   return (
     <Grid
@@ -280,7 +320,12 @@ function CurrentProduct() {
                 )}
               </Box>
             </Grid>
-            <ProductsCounter maxAmount={currProduct.quantity} />
+            <ProductsCounter
+              maxAmount={prodQuantity}
+              handleDecrement={handleDecrement}
+              handleIncrement={handleIncrement}
+              counter={counter}
+            />
             <Typography
               component="body1"
               align="left"
@@ -323,11 +368,13 @@ function CurrentProduct() {
               }}
               disabled={!counter || !wrap}
               variant="contained"
-              onClick={() => {
-                dispatch(addBasketArr(id));
-                console.log(id);
-                console.log(basket);
-              }}
+              // onClick={() => {
+              //   dispatch(addBasketArr(id));
+              //   console.log(id);
+              //   console.log(basket);
+              // }}
+              className={styles.btn}
+              onClick={handleSubmit}
             >
               <Typography
                 lineHeight="1.4"

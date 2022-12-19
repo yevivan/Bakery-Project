@@ -1,8 +1,16 @@
 img {
   height: auto;
-  width: 70%;
-  
+  width: 100%;
+
 }
 img:hover {
   opacity: 70%;
+}
+.logo {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.logoDiv {
+  width: 60%;
+  margin-inline: auto;
 }

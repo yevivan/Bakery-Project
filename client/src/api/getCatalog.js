@@ -1,5 +1,30 @@
-export const getCatalog = async (filter) => {
-  const filterToArr = Object.entries(filter);
+export const getCatalog = async (object) => {
+  if ('query' in object) {
+    const searchedItems = await fetch('/products/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(object),
+    })
+      .then((response) => response.json())
+
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    return searchedItems.map(({
+      categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
+    }) => ({
+      categories,
+      name,
+      currentPrice,
+      image,
+      _id,
+      isPopular,
+      itemNo,
+    }));
+  }
+  const filterToArr = Object.entries(object);
   const newArr = [];
   filterToArr.forEach((el) => {
     const [key, arr] = el;

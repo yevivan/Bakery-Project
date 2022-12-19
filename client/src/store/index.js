@@ -6,12 +6,19 @@ import catalogReducer from './slices/catalogSlices';
 import topReducer from './slices/topSlices';
 import gridReducer from './slices/gridSlices';
 import filterReducer from './slices/filterSlices';
-import searchedItemsSliceReducer from './slices/searchSlices';
+import searchSliceReducer from './slices/searchSlices';
 import sliderItemsReducer from './slices/sliderSlices';
+import userLoginReducer from './slices/userLoginSlices';
+import cartArrayFromServerReducer from './slices/basketArrFromServer';
+import loggedUserReducer from './slices/getLoggedUserSlices';
+import menuMobileReducer from './slices/menuMobileSlices';
 
 export const store = configureStore({
   reducer: {
-    searchedItems: searchedItemsSliceReducer,
+    loggedUser: loggedUserReducer,
+    cartItemsFromServer: cartArrayFromServerReducer,
+    userLogin: userLoginReducer,
+    search: searchSliceReducer,
     sliderItems: sliderItemsReducer,
     data: dataReducer,
     counterProducts: counterProductsReducer,
@@ -20,6 +27,7 @@ export const store = configureStore({
     top: topReducer,
     grid: gridReducer,
     filter: filterReducer,
+    menuMobile: menuMobileReducer,
 
   },
 });

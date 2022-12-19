@@ -15,17 +15,17 @@ function CardListItem(props) {
     <div>
       <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
         <img className={styles.product_item_img} src={image} alt="Cake" />
-
-        <p className={styles.product_item_name}>
-          {name}
-        </p>
-        <p className={styles.product_item_price}>
-          From $
-          {currentPrice}
-        </p>
-
       </Link>
-      <ButtonComponent text="Shop Now" />
+      <p className={styles.product_item_name}>
+        {name}
+      </p>
+      <p className={styles.product_item_price}>
+        From $
+        {currentPrice}
+      </p>
+      <Link to={`/products/${id}`} className={styles.button_link}>
+        <ButtonComponent text="Shop Now" />
+      </Link>
     </div>
   );
 }

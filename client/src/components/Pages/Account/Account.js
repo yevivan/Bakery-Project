@@ -6,30 +6,43 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Account.module.scss';
+import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
+import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+import { registerNewUser } from '../../../api/registerNewUser';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 function Account() {
+  const dispatch = useDispatch();
+  dispatch(closeMenuMobile(false));
   const initialValuesLogin = {
-    email: '',
+    loginOrEmail: '',
     password: '',
   };
   const initialValuesRegistartion = {
+    login: '',
     firstName: '',
     lastName: '',
     email: '',
     password: '',
     passwordConfirmation: '',
-    dateBirth: '',
-    postcode: '',
+    birthdate: '',
+    phoneNumber: '',
   };
   const validationSchemaLogin = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Required'),
+    loginOrEmail: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string()
       .min(8, 'Must be longer than 8 characters')
       .required('Required'),
   });
   const validationSchemaRegistration = Yup.object().shape({
+    login: Yup.string()
+      .min(2, 'Min 2 symbols')
+      .max(20, 'Max 20 symbols')
+      .required('Required'),
     firstName: Yup.string()
       .min(2, 'Min 2 symbols')
       .max(20, 'Max 20 symbols')
@@ -44,6 +57,7 @@ function Account() {
       .required('Required'),
     passwordConfirmation: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    phoneNumber: Yup.string().matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Phone number is not valid'),
   });
   const theme = createTheme({
     palette: {
@@ -57,16 +71,29 @@ function Account() {
       },
     },
   });
-
   return (
-    <Container maxWidth="md">
-      <Grid container direction={{ xs: 'column', sm: 'row' }} spacing={12} wrap="nowrap">
-        <Grid item xs={6} sm={6} md={6}>
+    <Container maxWidth="lg">
+      <Grid
+        container
+        direction={{ xs: 'column', sm: 'column', md: 'row' }}
+        spacing={{
+          xs: '6', sm: '6', md: '12', lg: '12', xl: '12',
+        }}
+        wrap="nowrap"
+        display="flex"
+        justifyContent="center"
+        alignItems="flex-start"
+      >
+        <Grid item xs={5} sm={5} md={5}>
           <Formik
             initialValues={initialValuesLogin}
             validationSchema={validationSchemaLogin}
             onSubmit={(values, { resetForm }) => {
-              console.log(values);
+              // const userData = values;
+              // console.log(userData);
+              dispatch(registeredUserLogin(values));
+              dispatch(getCartItems());
+              dispatch(getLoggedUserFromServer());
               resetForm();
               // alert('Your order has been accepted');
             }}
@@ -115,7 +142,7 @@ function Account() {
                       Email address
                     </Typography>
 
-                    <Textfield name="email" index="text" />
+                    <Textfield name="loginOrEmail" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -172,12 +199,13 @@ function Account() {
 
           </Formik>
         </Grid>
-        <Grid item xs={6} sm={6} md={6}>
+        <Grid item xs={5} sm={5} md={5}>
           <Formik
             initialValues={initialValuesRegistartion}
             validationSchema={validationSchemaRegistration}
             onSubmit={(values, { resetForm }) => {
               console.log(values);
+              // registerNewUser(values);
               resetForm();
               // alert('Your order has been accepted');
             }}
@@ -294,81 +322,36 @@ function Account() {
                         color: '#391113',
                       }}
                     >
+                      Login*
+                    </Typography>
+
+                    <Textfield name="login" index="text" />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
                       Email address*
                     </Typography>
 
                     <Textfield name="email" index="text" />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    sx={{
-                      marginBottom: '6px',
-                    }}
-                  >
-                    <Typography
-                      className={styles.title}
-                      sx={{
-                        fontFamily: 'Barlow Condensed',
-                        fontWeight: '300',
-                        fontSize: '24px',
-                        marginBottom: '10px',
-                        textAlign: 'left',
-                        textTransform: 'capitalize',
-                        color: '#391113',
-                      }}
-                    >
-                      Date of Birth
-                    </Typography>
-                    <Textfield name="dateBirth" index="date" />
-                    <Typography
-                      className={styles.title}
-                      sx={{
-                        fontFamily: 'Asap',
-                        fontWeight: '300',
-                        fontSize: '12px',
-                        lineHeight: '1.5',
-                        letterSpacing: '0.03em',
-                        marginTop: '10px',
-                        marginBottom: '10px',
-                        textAlign: 'left',
-                        color: '#494949',
-                      }}
-                    >
-                      Birthday + cake, it’s a no-brainer! Let us know when it’s
-                      your birthday so we can help sweeten up your special day!
-                      {' '}
-
-                    </Typography>
-
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    sx={{
-                      marginBottom: '6px',
-                    }}
-                  >
-                    <Typography
-                      className={styles.title}
-                      sx={{
-                        fontFamily: 'Barlow Condensed',
-                        fontWeight: '300',
-                        fontSize: '24px',
-                        marginBottom: '10px',
-                        textAlign: 'left',
-                        textTransform: 'capitalize',
-                        color: '#391113',
-                      }}
-                    >
-                      Postcode
-                    </Typography>
-
-                    <Textfield name="postcode" index="text" />
                   </Grid>
                   <Grid
                     item
@@ -402,7 +385,7 @@ function Account() {
                     sm={12}
                     md={12}
                     sx={{
-                      marginBottom: '30px',
+                      marginBottom: '6px',
                     }}
                   >
                     <Typography
@@ -422,7 +405,76 @@ function Account() {
 
                     <Textfield name="password" index="password" />
                   </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Date of Birth
+                    </Typography>
+                    <Textfield name="birthdate" index="date" />
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Asap',
+                        fontWeight: '300',
+                        fontSize: '12px',
+                        lineHeight: '1.5',
+                        letterSpacing: '0.03em',
+                        marginTop: '10px',
+                        textAlign: 'left',
+                        color: '#494949',
+                      }}
+                    >
+                      Birthday + cake, it’s a no-brainer! Let us know when it’s
+                      your birthday so we can help sweeten up your special day!
+                      {' '}
 
+                    </Typography>
+
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    sx={{
+                      marginBottom: '25px',
+                    }}
+                  >
+                    <Typography
+                      className={styles.title}
+                      sx={{
+                        fontFamily: 'Barlow Condensed',
+                        fontWeight: '300',
+                        fontSize: '24px',
+                        marginBottom: '10px',
+                        textAlign: 'left',
+                        textTransform: 'capitalize',
+                        color: '#391113',
+                      }}
+                    >
+                      Phone number
+                    </Typography>
+
+                    <Textfield name="phoneNumber" index="text" />
+                  </Grid>
                   <Grid item xs={12} sm={12} md={12}>
                     <ThemeProvider theme={theme}>
                       <Button
