@@ -1,5 +1,4 @@
 export const getCatalog = async (object) => {
-  console.log(object);
   if ('query' in object) {
     const searchedItems = await fetch('/products/search', {
       method: 'POST',
@@ -29,8 +28,6 @@ export const getCatalog = async (object) => {
   const newArr = [];
   filterToArr.forEach((el) => {
     const [key, arr] = el;
-    console.log(el);
-    console.log(arr.length)
     if (arr.length) {
       const newString = `${key.toString()}=${arr.toString()}&`;
       newArr.push(newString);
