@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+// import { useSearchParams } from 'react-router-dom';
+// import { useEffect } from 'react';
 import CardList from '../../CardList/CardList';
 import Search from '../../Search/Search';
 import styles from './SearchList.module.scss';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
-import { addSearch } from '../../../store/slices/searchSlices';
-import { fetchCatalog } from '../../../store/slices/catalogSlices';
+// import { addSearch } from '../../../store/slices/searchSlices';
+// import { fetchCatalog } from '../../../store/slices/catalogSlices';
 import ButtonComponent from '../../Button/ButtonComponent';
 
 function SearchList() {

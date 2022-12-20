@@ -1,5 +1,4 @@
 export const sendCartItemToDatabase = async (productId) => {
-  console.log(productId);
   const cartArray = await fetch(`/cart/${productId}`, {
     method: 'PUT',
     headers: {
