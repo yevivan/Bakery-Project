@@ -11,6 +11,7 @@ import sliderItemsReducer from './slices/sliderSlices';
 import userLoginReducer from './slices/userLoginSlices';
 import cartArrayFromServerReducer from './slices/basketArrFromServer';
 import loggedUserReducer from './slices/getLoggedUserSlices';
+import menuMobileReducer from './slices/menuMobileSlices';
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     top: topReducer,
     grid: gridReducer,
     filter: filterReducer,
+    menuMobile: menuMobileReducer,
 
   },
 });

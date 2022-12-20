@@ -1,45 +1,50 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import styles from './Search.module.scss';
 
 import { fetchCatalog } from '../../store/slices/catalogSlices';
-import searchSvg from '../../svg/search.svg';
 
 import { clearFilter } from '../../store/slices/filterSlices';
 import { addSearch } from '../../store/slices/searchSlices';
 
-function Search({ style }) {
+function Search({
+  style, stylesInput, stylesLabel, props,
+}) {
+  const search = useSelector((state) => state.search.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const query = searchParams.get('query');
+  // dispatch(addSearch(query));
 
-  const search = useSelector((state) => state.search.search);
-
-  console.log(search);
   function handleInputChange(e) {
     dispatch(addSearch(e.target.value));
+    console.log(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
-    // search.query = input || ' ';
-    console.log(search);
+
     if (search.query) {
-      dispatch(fetchCatalog(search)); dispatch(clearFilter());
-      navigate('/search');
+      console.log(search.query);
+      dispatch(fetchCatalog(search));
+      dispatch(clearFilter());
+      navigate(`/search?query=${search.query}`);
     }
   }
 
   return (
     <div style={style}>
       <form className={styles.searchForm} style={styles} onSubmit={handleSubmit}>
-        <label htmlFor="search">
-          <input type="search" value={search.query} onInput={handleInputChange} name="search" placeholder="search" className={styles.searchInput} />
+        <label htmlFor="search" style={stylesLabel}>
+          <input type="search" value={search.query} onInput={handleInputChange} name="search" placeholder="search" className={styles.searchInput} style={stylesInput} />
         </label>
 
         <button type="submit" className={styles.btnSearch}>
 
           <div>
-            <img src={searchSvg} alt="search" />
+            {props}
+
           </div>
 
         </button>

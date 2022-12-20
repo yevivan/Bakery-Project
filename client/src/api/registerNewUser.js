@@ -1,5 +1,5 @@
 export const registerNewUser = async (newUserData) => {
-  const newUser = await fetch('/127.0.0.1:5005/customers', {
+  const newUser = await fetch('/customers', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
