@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+// import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { useSelector } from 'react-redux';
 import Search from '../Search/Search';
 import ButtonComponent from '../Button/ButtonComponent';
