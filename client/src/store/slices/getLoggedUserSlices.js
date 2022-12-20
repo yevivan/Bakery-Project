@@ -17,6 +17,7 @@ export const getLoggedUserSlice = createSlice({
 export const getLoggedUserFromServer = () => async (dispatch) => {
   const user = await getLoggedUser();
   dispatch(setLoggeUser(user));
+  return user;
 };
 
 export default getLoggedUserSlice.reducer;

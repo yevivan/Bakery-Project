@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -6,8 +8,9 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
@@ -16,7 +19,8 @@ import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlic
 
 function Login() {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.loggedUser.loggedUser);
   const initialValuesLogin = {
     loginOrEmail: '',
     password: '',
@@ -39,28 +43,34 @@ function Login() {
       },
     },
   });
+  // eslint-disable-next-line consistent-return
+  const isLogin = (obj) => {
+    for (const i in obj) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (obj.hasOwnProperty(i)) { return false; }
+    }
+    navigate('/');
+  };
 
   return (
     <Container
       maxWidth="sm"
-      display="flex"
-      justifyContent="center"
-      alignItem="flex-start"
       sx={{
         marginBottom: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       }}
     >
       <Formik
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
-          // const userData = values;
-          // console.log(userData);
           dispatch(registeredUserLogin(values));
           dispatch(getCartItems());
           dispatch(getLoggedUserFromServer());
+          isLogin(user);
           resetForm();
-          // alert('Your order has been accepted');
         }}
       >
         {({ isValid }) => (

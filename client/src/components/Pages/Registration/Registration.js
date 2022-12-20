@@ -59,11 +59,11 @@ function Registration() {
   return (
     <Container
       maxWidth="sm"
-      display="flex"
-      justifyContent="center"
-      alignItem="flex-start"
       sx={{
         marginBottom: '40px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       }}
     >
       <Formik
