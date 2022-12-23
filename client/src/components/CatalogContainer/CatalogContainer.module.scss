@@ -1,0 +1,26 @@
+.catalogContainer {
+    display: flex;
+    flex-direction: row;
+    max-width: 1500px;
+    margin-inline: auto;
+    justify-items: center;
+    gap: 30px;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .catalogContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+@media (max-width: 767px) {
+    .catalogContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btnFilter {
+        display: block;
+    }
+}

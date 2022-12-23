@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 // import CardList from '../../CardList/CardList';
 // import Filter from '../../Filter/Filter';
 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import styles from './Catalog.module.scss';
-import { changeFilterCategory, clearFilter, addAllFilter } from '../../../store/slices/filterSlices';
+import { addAllFilter } from '../../../store/slices/filterSlices';
 import CatalogContainer from '../../CatalogContainer/CatalogContainer';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 import { clearSearch } from '../../../store/slices/searchSlices';
@@ -32,8 +32,6 @@ function Catalog() {
   };
   dispatch(addAllFilter(search));
 
-
-
   // const search = searchParams.get('categories');
   // console.log(search)
   // dispatch(changeFilterCategory(search));
@@ -44,10 +42,10 @@ function Catalog() {
   dispatch(closeMenuMobile(false));
 
   return (
-    <div className={styles.container}>
+    <div className={styles.catalog}>
       <CatalogContainer />
-
     </div>
+
   );
 }
 export default Catalog;

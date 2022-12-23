@@ -44,12 +44,12 @@ function Slider() {
   }
 
   function scrollToPrevtItem() {
-    scroll.scrollLeft -= 100;
+    scroll.scrollLeft -= 255;
     console.log(scroll.scrollLeft);
   }
 
   function scrollToNextItem() {
-    scroll.scrollLeft += 100;
+    scroll.scrollLeft += 255;
     console.log(scroll.scrollLeft);
   }
 

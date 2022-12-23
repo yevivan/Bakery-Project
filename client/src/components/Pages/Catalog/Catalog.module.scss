@@ -1,5 +1,22 @@
 .catalog {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
+//@media (min-width: 1440px){
+//  .catalog {
+//    width: 1340px;
+//  }
+//}
+//@media (max-width: 1439px) and (min-width: 1200px){
+//  .catalog {
+//    width: 1100px;
+//  }
+//}
+//@media (max-width: 1199px) and (min-width: 992px){
+//  .catalog {
+//    width: 850px;
+//  }
+//}
