@@ -7,8 +7,9 @@ function NavigationMenu({
   cheesecake,
   tarts,
   pastries,
-  currentProduct,
+  // currentProduct,
   style,
+  styleMenu,
 }) {
   // const dispatch = useDispatch();
   // const arr = [
@@ -25,7 +26,7 @@ function NavigationMenu({
 
     <nav>
 
-      <ul>
+      <ul className={`${styleMenu}`}>
         {/* {arr.map(({ categories, name }) => ( */}
         {/*  <li> */}
         {/*    <NavLink */}
@@ -51,9 +52,9 @@ function NavigationMenu({
         <li className={`${style}`}>
           <NavLink to="/products?categories=Pastries">{pastries}</NavLink>
         </li>
-        <li className={`${style}`}>
-          <NavLink to="/products/:id">{currentProduct}</NavLink>
-        </li>
+        {/* <li className={`${style}`}> */}
+        {/*  <NavLink to="/products/:id">{currentProduct}</NavLink> */}
+        {/* </li> */}
       </ul>
 
     </nav>

@@ -18,14 +18,12 @@ function CurrentProduct() {
   const { id } = useParams();
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   const dispatch = useDispatch();
-  const [giftWrap, setGiftWrap] = useState(false);
-  const [regularWrap, setRegularWrap] = useState(false);
+  const [wrap, setWrap] = useState(null);
   const [currProduct, setCurrProduct] = useState();
   const [prodQuantity, setProdQuantity] = useState();
   const [prodId, setProdId] = useState();
   const [counter, setCounter] = useState(0);
   const activeParameters = {
-    color: '#391113',
     borderBottom: '2px solid #fa9bc9',
   };
 
@@ -64,6 +62,7 @@ function CurrentProduct() {
       .then((data) => {
         setCurrProduct(data);
         setProdQuantity(data.quantity);
+        // eslint-disable-next-line no-underscore-dangle
         setProdId(data._id);
       })
       .catch((err) => console.error(err));
@@ -79,15 +78,22 @@ function CurrentProduct() {
       sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
+        flexWrap: 'nowrap',
       }}
-      flexWrap="nowrap"
-      padding="0 20px 0 20px"
-      display="flex"
-      direction={{
-        md: 'row',
-        lg: 'column',
+      margin={{
+        xs: '15px 0',
+        sm: '25px 0',
+        md: '50px 0',
+        lg: '75px 0',
+        xl: '75px 0',
       }}
-      margin="75px 0 75px 0"
+      padding={{
+        xs: '0 30px',
+        sm: '0 30px',
+        md: '0 30px',
+        lg: '0 20px',
+        xl: '0 20px',
+      }}
       gap="60px"
     >
       {currProduct && (
@@ -119,15 +125,19 @@ function CurrentProduct() {
             flexDirection="column"
           >
             <Typography
-              variant="h2"
+              component="h2"
               align="left"
               color="#391113"
-              fs="48px"
+              fontSize={{
+                xs: '35px',
+                sm: '35px',
+                md: '48px',
+              }}
               fontFamily="Asap"
               fontWeight="600"
               lineHeight="1.2"
               textTransform="capitalize"
-              m="0"
+              margin="0"
             >
               {currProduct.name}
             </Typography>
@@ -136,20 +146,20 @@ function CurrentProduct() {
                 <div className={styles.price__box}>
                   <Typography
                     className={styles.old__price}
-                    variant="h6"
+                    component="h6"
                     align="left"
                     color="#111"
                     mt="15px"
-                    fs="26px"
+                    fontSize="19px"
                     // fontFamily="Asap"
-                    fontWeight="lighter"
-                    lineHeight="1.2"
+                    fontWeight="600"
+                    lineHeight="1.5"
                   >
                     {currProduct.previousPrice}
                     &#8372;
                   </Typography>
                   <Typography
-                    variant="h4"
+                    component="h4"
                     align="left"
                     color="#b41f27"
                     mt="5px"
@@ -184,42 +194,131 @@ function CurrentProduct() {
               container
               mt="15px"
               sx={{
-                maxWidth: '235px',
-                display: 'flexbox',
-                alignItems: 'center',
-                justifyContent: 'space-between',
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: '10px',
+                flexWrap: 'nowrap',
+                maxWidth: '250px',
+                alignItems: { xs: 'flex-start', md: 'center' },
+                justifyContent: { xs: 'flex-start', md: 'space-between' },
               }}
             >
-              <CardGiftcardIcon
-                onClick={() => {
-                  setGiftWrap(true);
-                  setRegularWrap(false);
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '10px',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
-              />
-              {giftWrap ? (
-                <Grid item xs>
-                  <span style={activeParameters}>Gift wrap</span>
-                </Grid>
-              ) : (
-                <Grid item xs>
-                  <span>Gift wrap</span>
-                </Grid>
-              )}
-              <LocalMallOutlinedIcon
-                onClick={() => {
-                  setGiftWrap(false);
-                  setRegularWrap(true);
+              >
+                <CardGiftcardIcon
+                  onClick={() => {
+                    setWrap('gift');
+                  }}
+                />
+                {wrap === 'gift' ? (
+                  <Grid item xs>
+                    <Typography
+                      color="#391113"
+                      fs={{
+                        xs: '14px',
+                        sm: '14px',
+                        md: '16px',
+                        lg: '16px',
+                        xl: '18px',
+                      }}
+                      fontFamily="Asap"
+                      fontWeight="lighter"
+                      lineHeight="1.2"
+                      width="100%"
+                      style={activeParameters}
+                    >
+                      Gift wrap
+
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid item xs>
+                    <Typography
+                      color="#391113"
+                      fs={{
+                        xs: '14px',
+                        sm: '14px',
+                        md: '16px',
+                        lg: '16px',
+                        xl: '18px',
+                      }}
+                      fontFamily="Asap"
+                      fontWeight="lighter"
+                      lineHeight="1.2"
+                      width="100%"
+                    >
+                      Gift wrap
+
+                    </Typography>
+                  </Grid>
+                )}
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '10px',
+                  flexWrap: 'nowrap',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
                 }}
-              />
-              {regularWrap ? (
-                <Grid item xs>
-                  <span style={activeParameters}>Regular wrap</span>
-                </Grid>
-              ) : (
-                <Grid item xs>
-                  <span>Regular wrap</span>
-                </Grid>
-              )}
+              >
+                <LocalMallOutlinedIcon
+                  onClick={() => {
+                    setWrap('regular');
+                  }}
+                />
+                {wrap === 'regular' ? (
+                  <Grid item xs>
+                    <Typography
+                      color="#391113"
+                      fs={{
+                        xs: '14px',
+                        sm: '14px',
+                        md: '16px',
+                        lg: '16px',
+                        xl: '18px',
+                      }}
+                      fontFamily="Asap"
+                      fontWeight="lighter"
+                      lineHeight="1.2"
+                      width="100%"
+                      style={activeParameters}
+                    >
+                      Regular wrap
+
+                    </Typography>
+                  </Grid>
+                ) : (
+                  <Grid item xs>
+                    <Typography
+                      color="#391113"
+                      fs={{
+                        xs: '14px',
+                        sm: '14px',
+                        md: '16px',
+                        lg: '16px',
+                        xl: '18px',
+                      }}
+                      fontFamily="Asap"
+                      fontWeight="lighter"
+                      lineHeight="1.2"
+                      width="100%"
+                    >
+                      Regular wrap
+
+                    </Typography>
+                  </Grid>
+                )}
+              </Box>
             </Grid>
             <ProductsCounter
               maxAmount={prodQuantity}
@@ -228,10 +327,16 @@ function CurrentProduct() {
               counter={counter}
             />
             <Typography
-              variant="body1"
+              component="body1"
               align="left"
               color="#494949"
-              fs="14px"
+              fs={{
+                xs: '14px',
+                sm: '14px',
+                md: '16px',
+                lg: '16px',
+                xl: '18px',
+              }}
               fontFamily="Asap"
               fontWeight="lighter"
               lineHeight="1.2"
@@ -245,17 +350,12 @@ function CurrentProduct() {
             </Typography>
             <Button
               sx={{
-                mt: '20px',
                 width: '100%',
-                height: '54px',
                 backgroundColor: '#391113',
                 color: '#fa9bc9',
-                fontFamily: 'Barlow Condensed',
-                lineHeight: '1.40',
-                fontWeight: '200',
-                fontSize: '23px',
-                textTransform: 'capitalize',
+                marginTop: '20px',
                 borderRadius: '0',
+                letterSpacing: '0px',
                 '&:hover': {
                   backgroundColor: '#391113',
                   opacity: '0.6',
@@ -264,13 +364,39 @@ function CurrentProduct() {
                   color: '#391113',
                   backgroundColor: '#fff5d6',
                 },
+                transition: 'all .35s cubic-bezier(.29,.63,.44,1)',
               }}
-              disabled={!counter || !(giftWrap || regularWrap)}
+              disabled={!counter || !wrap}
               variant="contained"
+              // onClick={() => {
+              //   dispatch(addBasketArr(id));
+              //   console.log(id);
+              //   console.log(basket);
+              // }}
               className={styles.btn}
               onClick={handleSubmit}
             >
-              Add To Basket
+              <Typography
+                lineHeight="1.4"
+                fontFamily="Barlow Condensed"
+                fontWeight="400"
+                textTransform="capitalize"
+                padding={{
+                  xs: '2px 5px',
+                  sm: '2px 5px',
+                  md: '10px 5px',
+                  lg: '10px 5px',
+                  xl: '10px 5px',
+                }}
+                fontSize={{
+                  xs: '16px',
+                  sm: '23px',
+                  md: '23px',
+                }}
+
+              >
+                Add To Basket
+              </Typography>
             </Button>
           </Grid>
         </>

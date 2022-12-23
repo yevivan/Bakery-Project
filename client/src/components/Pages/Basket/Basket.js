@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-
+import { useDispatch } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import BasketList from '../../BasketList/BasketList';
 import OrderForm from '../../OrderForm/OrderForm';
 import styles from './Basket.module.scss';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -16,6 +17,8 @@ const Item = styled(Box)(({ theme }) => ({
 }));
 
 function Basket() {
+  const dispatch = useDispatch();
+  dispatch(closeMenuMobile(false));
   return (
     <Container maxWidth="xl" sx={{ mb: 7 }}>
       <h1 className={styles.title}>My Basket</h1>

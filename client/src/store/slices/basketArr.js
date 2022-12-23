@@ -11,6 +11,7 @@ const basketArrSlices = createSlice({
     // },
     addBasketArr: (state, action) => {
       let basket = [...state.basketArr];
+      // eslint-disable-next-line no-underscore-dangle
       const index = basket.findIndex((el) => el._id === action.payload._id);
       if (index === -1) { basket = [...basket, action.payload]; } else {
         basket[index].cartQuantity += action.payload.cartQuantity;

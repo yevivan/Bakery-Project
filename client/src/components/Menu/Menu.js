@@ -1,34 +1,39 @@
-import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch, useSelector } from 'react-redux';
 import Navigation from '../Navigation/NavigationMenu';
 import styles from './Menu.module.scss';
+import menuSvg from '../../svg/menu.svg';
+import { changeMenuMobile } from '../../store/slices/menuMobileSlices';
 
 function Menu() {
+  const menuMobile = useSelector((state) => state.menuMobile.menuMobile);
+  console.log(menuMobile);
+  const dispatch = useDispatch();
   return (
 
-    <>
-      <MenuIcon className={styles.burgerMenu} />
-      <CloseIcon className={styles.burgerMenuClose} />
-      <div className={styles.menu}>
-        <Navigation
-          catalog={<p>All products</p>}// go to /products
-          cake={<p>Cake</p>}// go to /products?category=category1
-          cheesecake={<p>Cheesecake</p>}// go to /products?category=category2
-          tarts={<p>Tarts</p>}
-          pastries={<p>Pastries</p>}
+    <div className={styles.menuContainer}>
 
-        />
-        {/* <Navigation */}
-        {/*    catalog={<p>All item</p>}// go to /products */}
+      <button
+        onClick={() => {
+          dispatch(changeMenuMobile(menuMobile));
+        }}
+        type="button"
+        className={styles.burgerBtn}
+      >
+        {menuMobile ? <CloseIcon style={{ color: '#f09ec4', fontSize: '30' }} /> : <img src={menuSvg} alt="menu" />}
+      </button>
 
-        {/*    category1={<p>category1</p>}// go to /products?category=category1 */}
-        {/*    category2={<p>category2</p>}// go to /products?category=category2 */}
-        {/*    category3={<p>category3</p>} */}
-        {/*    category4={<p>category4</p>} */}
+      <Navigation
+        styleMenu={styles.menu}
+        style={styles.menuItem}
+        catalog={<p>All products</p>}
+        cake={<p>Cake</p>}
+        cheesecake={<p>Cheesecake</p>}
+        tarts={<p>Tarts</p>}
+        pastries={<p>Pastries</p>}
+      />
 
-        {/* /> */}
-      </div>
-    </>
+    </div>
 
   );
 }

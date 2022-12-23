@@ -1,6 +1,6 @@
 export const sendCartItemToDatabase = async (productId) => {
   console.log(productId);
-  const cartArray = await fetch(`http://127.0.0.1:5005/cart/${productId}`, {
+  const cartArray = await fetch(`/cart/${productId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

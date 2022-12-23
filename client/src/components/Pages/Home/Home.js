@@ -14,7 +14,6 @@ function Home() {
   }, []);
   return (
     <>
-      <p>HOME</p>
       <Top />
       <Slider />
       <Grid />

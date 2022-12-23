@@ -2,11 +2,33 @@
   text-decoration: none;
   list-style: none;
   display: flex;
-  gap: 5px}
+  gap: 20px;
+  width: 42%;
+  justify-content: end;
+  //padding-right: 100px;
+  align-items: flex-end;
+}
 .menuIcon:hover {
   opacity: 80%;
 }
 .btn {
   transition: transform 3s;
   background: none;
+}
+.imgAccount {
+
+}
+.imgAccount:hover {
+  opacity: 80%;
+}
+.textAccount {
+  color:#f09ec4;
+}
+@media(max-width: 991px){
+  .btn {
+    display: none;
+  }
+  .imgAccount {
+    display: none;
+  }
 }
