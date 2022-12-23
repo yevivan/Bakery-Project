@@ -51,7 +51,6 @@ export const getCatalog = async (object) => {
     }));
   }
   const newStringArr = newArr.join('').slice(0, -1);
-  console.log(newStringArr);
   const array = await fetch(`/products/filter?${newStringArr}`)
     .then((res) => res.json());
   const { products: [...arrayCatalog] } = array;
