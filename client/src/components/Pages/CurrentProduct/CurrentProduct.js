@@ -7,10 +7,8 @@ import { Grid, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
-import { addBasketArr } from '../../../store/slices/basketArr';
-// import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
-// import { getCartItems } from '../../../store/slices/basketArrFromServer';
-import { getCartItems, updateCartOnserver } from '../../../store/slices/cartItems';
+import { getCartItems, updateCartOnserver, addCartItemsToLocal } from '../../../store/slices/cartItems';
+import { addCartToLocalStorage } from '../../../commonHelpers/addCartItemToLocalStorage';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -27,35 +25,21 @@ function CurrentProduct() {
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
-  // const cartItemData = {};
-  // cartItemData.product = prodId;
-  // cartItemData.cartQuantity = counter;
 
   // HERE ARRAY FOR SENDING TO SERVER IS CREATED
-  const cartItemData = { products: [{ product: prodId, cartQuantity: counter }] };
-
-  // function handleSubmit() {
-  //   if (isUserLoggedIn) {
-  //     sendCartItemToDatabase(prodId);
-  //     setTimeout(() => {
-  //       dispatch(getCartItems());
-  //     }, 100);
-  //   } else {
-  //     dispatch(addBasketArr(cartItemData));
-  //     console.log(cartItemData);
-  //   }
-  // }
+  const cartItemData = {
+    products: [{ product: prodId, cartQuantity: counter, itemNo: id }],
+  };
 
   function handleSubmit() {
     if (isUserLoggedIn) {
-      console.log(cartItemData);
       dispatch(updateCartOnserver(cartItemData));
       setTimeout(() => {
         dispatch(getCartItems());
       }, 100);
     } else {
-      dispatch(addBasketArr(cartItemData));
-      console.log(cartItemData);
+      addCartToLocalStorage(cartItemData);
+      // dispatch(addCartItemsToLocal(cartItemData));
     }
   }
 
@@ -82,7 +66,6 @@ function CurrentProduct() {
       .then((data) => {
         setCurrProduct(data);
         setProdQuantity(data.quantity);
-
         setProdId(data._id);
       })
       .catch((err) => console.error(err));

@@ -14,6 +14,7 @@ import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
 // import { getCartItems } from '../../../store/slices/basketArrFromServer';
 import { getCartItems } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+import { updateLocalStorageCartsFromserver } from '../../../commonHelpers/updateLocalStorCartItemsFromServer';
 
 function Login() {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ function Login() {
           dispatch(registeredUserLogin(values));
           dispatch(getCartItems());
           dispatch(getLoggedUserFromServer());
+          updateLocalStorageCartsFromserver();
           resetForm();
           // alert('Your order has been accepted');
         }}

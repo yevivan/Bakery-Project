@@ -14,13 +14,13 @@ function MenuIcon() {
   // const itemsInCartInDatabase = useSelector(
   //   (state) => state.cartItemsFromServer.cartItemsFromServer,
   // );
-  const itemsInCartInDatabase = useSelector(
+  const itemsInCart = useSelector(
     (state) => state.cartItems.cartItems,
   );
   // const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   // const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
-  const { products } = itemsInCartInDatabase;
-  const itemsCountInCartInDatabse = products ? products.length : 0;
+  // const { products } = itemsInCartInDatabase;
+  const itemsInCartCount = itemsInCart ? itemsInCart.length : 0;
   // const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
 
   const [openInputSearch, setOpenInputSearch] = useState(false);
@@ -52,7 +52,7 @@ function MenuIcon() {
       <LoginIcon styleLogin={styles.imgAccount} styleLoginText={styles.textAccount} style={{ color: '#f09ec4', fontSize: '30' }} />
       <span>
         {/* {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage} */}
-        {itemsCountInCartInDatabse}
+        {itemsInCartCount}
         <Navigation
           basket={<ShoppingBasketIcon />}
         />
