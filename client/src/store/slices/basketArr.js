@@ -6,13 +6,9 @@ const basketArrSlices = createSlice({
     basketArr: JSON.parse(localStorage.getItem('products')) || [],
   },
   reducers: {
-    // setBasketArr: (state, action) => {
-    //   state.basketArr = action.payload;
-    // },
     addBasketArr: (state, action) => {
       let basket = [...state.basketArr];
-      // eslint-disable-next-line no-underscore-dangle
-      const index = basket.findIndex((el) => el._id === action.payload._id);
+      const index = basket.findIndex((el) => el.product === action.payload.product);
       if (index === -1) { basket = [...basket, action.payload]; } else {
         basket[index].cartQuantity += action.payload.cartQuantity;
       }

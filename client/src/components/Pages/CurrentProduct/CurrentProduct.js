@@ -8,8 +8,9 @@ import { useParams } from 'react-router-dom';
 import styles from './CurrentProduct.module.scss';
 import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { addBasketArr } from '../../../store/slices/basketArr';
-import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
-import { getCartItems } from '../../../store/slices/basketArrFromServer';
+// import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
+// import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { getCartItems, updateCartOnserver } from '../../../store/slices/cartItems';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -26,16 +27,35 @@ function CurrentProduct() {
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
+  // const cartItemData = {};
+  // cartItemData.product = prodId;
+  // cartItemData.cartQuantity = counter;
+
+  // HERE ARRAY FOR SENDING TO SERVER IS CREATED
+  const cartItemData = { products: [{ product: prodId, cartQuantity: counter }] };
+
+  // function handleSubmit() {
+  //   if (isUserLoggedIn) {
+  //     sendCartItemToDatabase(prodId);
+  //     setTimeout(() => {
+  //       dispatch(getCartItems());
+  //     }, 100);
+  //   } else {
+  //     dispatch(addBasketArr(cartItemData));
+  //     console.log(cartItemData);
+  //   }
+  // }
 
   function handleSubmit() {
-    currProduct.cartQuantity = counter;
     if (isUserLoggedIn) {
-      sendCartItemToDatabase(prodId);
+      console.log(cartItemData);
+      dispatch(updateCartOnserver(cartItemData));
       setTimeout(() => {
         dispatch(getCartItems());
       }, 100);
     } else {
-      dispatch(addBasketArr(currProduct));
+      dispatch(addBasketArr(cartItemData));
+      console.log(cartItemData);
     }
   }
 
@@ -62,14 +82,11 @@ function CurrentProduct() {
       .then((data) => {
         setCurrProduct(data);
         setProdQuantity(data.quantity);
-        // eslint-disable-next-line no-underscore-dangle
+
         setProdId(data._id);
       })
       .catch((err) => console.error(err));
   }, []);
-
-  // HERE ARRAY FOR SENDING TO SERVER IS CREATED
-  // const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
 
   return (
     <Grid

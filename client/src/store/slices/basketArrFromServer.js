@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCart } from '../../api/getCart';
+import { getCartFromDatabase } from '../../api/getCartFromDatabase';
 
 export const getCartFromServer = createSlice({
   name: 'cartItemsFromserver',
@@ -15,7 +15,7 @@ export const getCartFromServer = createSlice({
 });
 
 export const getCartItems = () => async (dispatch) => {
-  const itemsArrayFromServer = await getCart();
+  const itemsArrayFromServer = await getCartFromDatabase();
   dispatch(setCartArrayFromserver(itemsArrayFromServer));
 };
 

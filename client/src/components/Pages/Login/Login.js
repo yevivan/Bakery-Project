@@ -11,7 +11,8 @@ import { NavLink } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import { getCartItems } from '../../../store/slices/basketArrFromServer';
+// import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { getCartItems } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 
 function Login() {
