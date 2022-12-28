@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import { Button, SvgIcon, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useState } from 'react';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
@@ -10,6 +11,9 @@ function BasketListItem(props) {
     name, currentPrice, imageUrls: [image], cartQuantity,
   } = item;
 
+  // function changeCartItemQuantity(counter) {
+  //   setCartQuantity(counter);
+  // }
   return (
     <Grid
       container
@@ -91,7 +95,12 @@ function BasketListItem(props) {
       </Grid>
       <Grid item xs={12} sm={2}>
         <Box>
-          <ProductsCounter key={name} cartQuantityOnserver={cartQuantity} sx={{ border: '3px solid #d8cbc0' }} />
+          <ProductsCounter
+            key={name}
+            cartQuantityOnserver={cartQuantity}
+            setCartQuantity={addCartQuantity}
+            sx={{ border: '3px solid #d8cbc0' }}
+          />
         </Box>
       </Grid>
       <Grid

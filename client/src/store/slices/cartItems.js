@@ -60,8 +60,6 @@ export const setUpdatedCartItemsFromLocal = () => async (dispatch) => {
     // dispatch(setCartItemsFromLocalStorage(itemsArray));
     // itemsArray.concat([item]);
   });
-
-  console.log(111111);
   setTimeout(() => {
     dispatch(setCartItemsFromLocalStorage(itemsArray));
   }, 2000);

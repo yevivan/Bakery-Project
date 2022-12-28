@@ -31,9 +31,9 @@ function CurrentProduct() {
   const cartItemData = {
     products: [{ product: prodId, cartQuantity, itemNo: id }],
   };
-  console.log(cartQuantity);
-  function addCartQuantity() {
-    setCartQuantity(cartQuantity + 1);
+
+  function changeCartItemQuantity(counter) {
+    setCartQuantity(counter);
   }
 
   function handleSubmit() {
@@ -326,11 +326,11 @@ function CurrentProduct() {
               </Box>
             </Grid>
             <ProductsCounter
-              maxAmount={prodQuantity}
+              prodQuantity={prodQuantity}
               // handleDecrement={handleDecrement}
               // handleIncrement={handleIncrement}
               // counter={counter}
-              setCartQuantity={11111}
+              changeCartItemQuantity={changeCartItemQuantity}
             />
             <Typography
               component="body1"
@@ -372,7 +372,7 @@ function CurrentProduct() {
                 },
                 transition: 'all .35s cubic-bezier(.29,.63,.44,1)',
               }}
-              disabled={!counter || !wrap}
+              disabled={!cartQuantity || !wrap}
               variant="contained"
               // onClick={() => {
               //   dispatch(addBasketArr(id));

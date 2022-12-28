@@ -7,12 +7,11 @@ function ProductsCounter(props) {
   // const {
   //   handleIncrement, handleDecrement, counter, maxCounter, displayCounter,
   // } = props;
-  const { prodQuantity, setCartQuantity, cartQuantityOnServer } = props;
+  const { prodQuantity, changeCartItemQuantity, cartQuantityOnServer } = props;
   const [counter, setCounter] = useState(0);
   // setCounter(cartQuantityOnServer);
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
-  console.log(prodQuantity);
   function handleIncrement() {
     if (maxCounter) {
       setCounter(counter);
@@ -28,9 +27,9 @@ function ProductsCounter(props) {
     }
   }
 
-  // useEffect(() => {
-  //   addCartQuantity(counter);
-  // });
+  useEffect(() => {
+    changeCartItemQuantity(counter);
+  });
 
   return (
     <ButtonGroup className={styles.counter__container} size="small" aria-label="small outlined button group">
@@ -39,7 +38,6 @@ function ProductsCounter(props) {
         disabled={displayCounter}
         onClick={() => {
           handleDecrement();
-          addCartQuantity();
         }}
       >
         -
