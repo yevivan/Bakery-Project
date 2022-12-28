@@ -5,8 +5,8 @@ export const updateLocalStorageCartsFromserver = () => {
   const itemsArray = [];
   cartItemsInLocalStorage.forEach(async (element) => {
     const item = await getOneProductfromDb(element.itemNo);
-    console.log(itemsArray);
-    console.log(item);
+    // console.log(itemsArray);
+    // console.log(item);
     item.cartQuantity = element.cartQuantity;
     itemsArray.push(item);
   });

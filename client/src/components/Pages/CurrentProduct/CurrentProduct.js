@@ -21,15 +21,20 @@ function CurrentProduct() {
   const [currProduct, setCurrProduct] = useState();
   const [prodQuantity, setProdQuantity] = useState();
   const [prodId, setProdId] = useState();
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState(0);
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
 
   // HERE ARRAY FOR SENDING TO SERVER IS CREATED
   const cartItemData = {
-    products: [{ product: prodId, cartQuantity: counter, itemNo: id }],
+    products: [{ product: prodId, cartQuantity, itemNo: id }],
   };
+  console.log(cartQuantity);
+  function addCartQuantity(item) {
+    setCartQuantity(item);
+  }
 
   function handleSubmit() {
     if (isUserLoggedIn) {
@@ -43,22 +48,22 @@ function CurrentProduct() {
     }
   }
 
-  const displayCounter = counter <= 0;
-  const maxCounter = counter >= prodQuantity;
-  function handleIncrement() {
-    if (maxCounter) {
-      setCounter(counter);
-    } else {
-      setCounter(counter + 1);
-    }
-  }
-  function handleDecrement() {
-    if (displayCounter) {
-      setCounter(counter);
-    } else {
-      setCounter(counter - 1);
-    }
-  }
+  // const displayCounter = counter <= 0;
+  // const maxCounter = counter >= prodQuantity;
+  // function handleIncrement() {
+  //   if (maxCounter) {
+  //     setCounter(counter);
+  //   } else {
+  //     setCounter(counter + 1);
+  //   }
+  // }
+  // function handleDecrement() {
+  //   if (displayCounter) {
+  //     setCounter(counter);
+  //   } else {
+  //     setCounter(counter - 1);
+  //   }
+  // }
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)
@@ -322,9 +327,10 @@ function CurrentProduct() {
             </Grid>
             <ProductsCounter
               maxAmount={prodQuantity}
-              handleDecrement={handleDecrement}
-              handleIncrement={handleIncrement}
-              counter={counter}
+              // handleDecrement={handleDecrement}
+              // handleIncrement={handleIncrement}
+              // counter={counter}
+              setCartQuantity={addCartQuantity}
             />
             <Typography
               component="body1"

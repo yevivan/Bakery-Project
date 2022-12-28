@@ -6,7 +6,9 @@ import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;
-  const { name, currentPrice, imageUrls: [image] } = item;
+  const {
+    name, currentPrice, imageUrls: [image], cartQuantity,
+  } = item;
 
   return (
     <Grid
@@ -89,7 +91,7 @@ function BasketListItem(props) {
       </Grid>
       <Grid item xs={12} sm={2}>
         <Box>
-          <ProductsCounter key={name} sx={{ border: '3px solid #d8cbc0' }} />
+          <ProductsCounter key={name} cartQuantityOnserver={cartQuantity} sx={{ border: '3px solid #d8cbc0' }} />
         </Box>
       </Grid>
       <Grid

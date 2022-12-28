@@ -10,11 +10,10 @@ function BasketList() {
     (state) => state.cartItems.cartItems,
     shallowEqual,
   );
-
   let cartProducts;
   if (cartItems) {
-    cartProducts = cartItems.map(({ product, cartQuantity, _id }) => (
-      <BasketListItem key={_id} item={product} cartQuantity={cartQuantity} />
+    cartProducts = cartItems.map((cartItem) => (
+      <BasketListItem key={cartItem._id} item={cartItem} />
     ));
   } else { cartProducts = null; }
 

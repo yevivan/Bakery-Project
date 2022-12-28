@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getCartFromDatabase } from '../../api/getCartFromDatabase';
 import { updateCartDataOnserver } from '../../api/updateCartOnServer';
 import { updateLocalStorageCartsFromserver } from '../../commonHelpers/updateLocalStorCartItemsFromServer';
+import { getOneProductfromDb } from '../../api/getOneItemFromDb';
 
 const cartItemsSlice = createSlice({
   name: 'cartItems',
@@ -24,6 +25,7 @@ const cartItemsSlice = createSlice({
     // },
     setCartItemsFromLocalStorage: (state, action) => {
       state.cartItems = action.payload;
+      console.log(state.cartItems);
     },
 
     setCartItemsFromDatabase: (state, action) => {
@@ -38,13 +40,33 @@ const cartItemsSlice = createSlice({
 
 // This function gets carts from local Storage, updates info about each item and sets updated info to state
 
-export const setUpdatedCartItemsFromLocal = () => (dispatch) => {
-  const updatedLocalCartItems = updateLocalStorageCartsFromserver();
-  console.log(updatedLocalCartItems);
-  if (updatedLocalCartItems) {
-    dispatch(setCartItemsFromLocalStorage(updatedLocalCartItems));
-    console.log(updatedLocalCartItems);
-  }
+// export const setUpdatedCartItemsFromLocal = () => async (dispatch) => {
+//   const updatedLocalCartItems = await updateLocalStorageCartsFromserver();
+//   console.log(updatedLocalCartItems);
+//   if (updatedLocalCartItems) {
+//     dispatch(setCartItemsFromLocalStorage(updatedLocalCartItems));
+//     console.log(updatedLocalCartItems);
+//   }
+// };
+// const itemsArray = [];
+export const setUpdatedCartItemsFromLocal = () => async (dispatch) => {
+  const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('products')) || [];
+  const itemsArray = [];
+  cartItemsInLocalStorage.forEach(async (element) => {
+    const item = await getOneProductfromDb(element.itemNo);
+    item.cartQuantity = element.cartQuantity;
+    console.log(item);
+    itemsArray.push(item);
+    // dispatch(setCartItemsFromLocalStorage(itemsArray));
+    // itemsArray.concat([item]);
+  });
+
+  console.log(111111);
+  setTimeout(() => {
+    dispatch(setCartItemsFromLocalStorage(itemsArray));
+  }, 2000);
+  //   dispatch(setCartItemsFromLocalStorage(itemsArray));
+  console.log(itemsArray);
 };
 
 // This function downloads cartItems from DB if any and setsto state
