@@ -63,7 +63,7 @@ function Login() {
           dispatch(getCartItems());
           dispatch(getLoggedUserFromServer());
           // updateLocalStorageCartsFromserver();
-          dispatch(setUpdatedCartItemsFromLocal());
+          // dispatch(setUpdatedCartItemsFromLocal());
           resetForm();
           // alert('Your order has been accepted');
         }}
