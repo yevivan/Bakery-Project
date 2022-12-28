@@ -32,8 +32,8 @@ function CurrentProduct() {
     products: [{ product: prodId, cartQuantity, itemNo: id }],
   };
   console.log(cartQuantity);
-  function addCartQuantity(item) {
-    setCartQuantity(item);
+  function addCartQuantity() {
+    setCartQuantity(cartQuantity + 1);
   }
 
   function handleSubmit() {
@@ -330,7 +330,7 @@ function CurrentProduct() {
               // handleDecrement={handleDecrement}
               // handleIncrement={handleIncrement}
               // counter={counter}
-              setCartQuantity={addCartQuantity}
+              setCartQuantity={11111}
             />
             <Typography
               component="body1"

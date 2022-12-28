@@ -7,11 +7,12 @@ function ProductsCounter(props) {
   // const {
   //   handleIncrement, handleDecrement, counter, maxCounter, displayCounter,
   // } = props;
-  const { prodQuantity, addCartQuantity, cartQuantityOnServer } = props;
+  const { prodQuantity, setCartQuantity, cartQuantityOnServer } = props;
   const [counter, setCounter] = useState(0);
   // setCounter(cartQuantityOnServer);
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
+  console.log(prodQuantity);
   function handleIncrement() {
     if (maxCounter) {
       setCounter(counter);
@@ -38,7 +39,7 @@ function ProductsCounter(props) {
         disabled={displayCounter}
         onClick={() => {
           handleDecrement();
-          addCartQuantity(counter);
+          addCartQuantity();
         }}
       >
         -
