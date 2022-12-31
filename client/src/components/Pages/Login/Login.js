@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -6,19 +6,30 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-// import { getCartItems } from '../../../store/slices/basketArrFromServer';
-import { getCartItems } from '../../../store/slices/cartItems';
+import { getCartItems, updateCartOnserver } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
-import { updateLocalStorageCartsFromserver } from '../../../commonHelpers/updateLocalStorCartItemsFromServer';
-import { setUpdatedCartItemsFromLocal } from '../../../store/slices/cartItems';
+import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/moveCartItemsToServer';
 
 function Login() {
   const dispatch = useDispatch();
+  const cartItemsInDb = useSelector((state) => state.cartItems.cartItems);
+  const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  // const [mergedCartArr, setMergedCartArr] = useState([]);
+  console.log(isUserLoggedIn);
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      dispatch(getCartItems()).then(() => { console.log(cartItemsInDb); });
+      mergeLocalCartArrAndArrInDb(cartItemsInDb);
+      // dispatch(updateCartOnserver(mergedArray));
+
+      console.log(1111);
+    }
+  }, [isUserLoggedIn]);
 
   const initialValuesLogin = {
     loginOrEmail: '',
@@ -59,11 +70,13 @@ function Login() {
         onSubmit={(values, { resetForm }) => {
           // const userData = values;
           // console.log(userData);
-          dispatch(registeredUserLogin(values));
-          dispatch(getCartItems());
-          dispatch(getLoggedUserFromServer());
+          dispatch(registeredUserLogin(values)).then(() => {
+            dispatch(getLoggedUserFromServer());
+          });
+
           // updateLocalStorageCartsFromserver();
           // dispatch(setUpdatedCartItemsFromLocal());
+
           resetForm();
           // alert('Your order has been accepted');
         }}

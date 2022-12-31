@@ -1,21 +1,29 @@
-import { useSelector } from 'react-redux';
-import { updateCartDataOnserver } from '../api/updateCartOnServer';
+// This function gets cart arrays from local storage and from DB when user logs in
 
-const isUserLogged = useSelector((state) => state.userLogin.isUserLogged);
-const cartItemsInLocal = useSelector((state) => state.basketArr.basketArr);
-const cartItemsOnServer = useSelector((state) => state.cartItemsFromServer.cartItemsFromServer);
-
-export const moveItemsToServerCart = () => {
-  let cartItemsArr = [];
-  if (isUserLogged && cartItemsOnServer && cartItemsInLocal.length) {
-    const { products } = cartItemsOnServer;
-    cartItemsArr = [...products];
-    cartItemsArr.forEach(el => {
-        cartItemsOnServer.forEach (element => {
-            if (el._id === element.product) {
-                el.
-            }
-        })
-    })
-  }
+export const mergeLocalCartArrAndArrInDb = (cartItemsInDb) => {
+  const cartItemsInLocal = JSON.parse(localStorage.getItem('products')) || [];
+  let cartItemsArr = cartItemsInDb.map(({
+    cartQuantity, product: { _id: product, quantity, itemNo },
+  }) => ({
+    product,
+    cartQuantity,
+    itemNo,
+    quantity,
+  }));
+  console.log(cartItemsArr);
+  console.log(cartItemsInLocal);
+  cartItemsArr.forEach((el) => {
+    cartItemsInLocal.forEach((element) => {
+      if (el.itemNo === element.itemNo) {
+        el.cartQuantity += element.cartQuantity;
+        console.log(el.cartQuantity);
+        el.cartQuantity = el.cartQuantity <= el.quantity ? el.cartQuantity : el.quantity;
+      }
+    });
+  });
+  cartItemsArr = [...new Set([...cartItemsArr, ...cartItemsInLocal])];
+  console.log(cartItemsArr);
+  return {
+    products: cartItemsArr,
+  };
 };

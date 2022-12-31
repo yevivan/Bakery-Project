@@ -17,6 +17,7 @@ function MenuIcon() {
   const itemsInCart = useSelector(
     (state) => state.cartItems.cartItems,
   );
+
   // const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
   // const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
   // const { products } = itemsInCartInDatabase;

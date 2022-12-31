@@ -25,7 +25,6 @@ const cartItemsSlice = createSlice({
     // },
     setCartItemsFromLocalStorage: (state, action) => {
       state.cartItems = action.payload;
-      console.log(state.cartItems);
     },
 
     setCartItemsFromDatabase: (state, action) => {
@@ -52,18 +51,12 @@ const cartItemsSlice = createSlice({
 export const setUpdatedCartItemsFromLocal = () => async (dispatch) => {
   const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('products')) || [];
   const itemsArray = [];
-  cartItemsInLocalStorage.forEach(async (element) => {
+  for (const element of cartItemsInLocalStorage) {
     const item = await getOneProductfromDb(element.itemNo);
     item.cartQuantity = element.cartQuantity;
-    console.log(item);
     itemsArray.push(item);
-    // dispatch(setCartItemsFromLocalStorage(itemsArray));
-    // itemsArray.concat([item]);
-  });
-  setTimeout(() => {
-    dispatch(setCartItemsFromLocalStorage(itemsArray));
-  }, 2000);
-  //   dispatch(setCartItemsFromLocalStorage(itemsArray));
+  }
+  dispatch(setCartItemsFromLocalStorage(itemsArray));
   console.log(itemsArray);
 };
 
@@ -80,8 +73,8 @@ export const getCartItems = () => async (dispatch) => {
 // This function sends data to cart in DB, receives response and sets cart to sate
 export const updateCartOnserver = (cartItemData) => async (dispatch) => {
   const updatedItemsInDb = await updateCartDataOnserver(cartItemData);
-  console.log(updatedItemsInDb);
   const { products } = updatedItemsInDb;
+  console.log(updatedItemsInDb);
   dispatch(setCartItemsFromDatabase(products));
 };
 

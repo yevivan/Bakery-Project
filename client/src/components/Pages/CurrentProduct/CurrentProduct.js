@@ -29,7 +29,9 @@ function CurrentProduct() {
 
   // HERE ARRAY FOR SENDING TO SERVER IS CREATED
   const cartItemData = {
-    products: [{ product: prodId, cartQuantity, itemNo: id }],
+    products: [{
+      product: prodId, cartQuantity, itemNo: id, quantity: prodQuantity,
+    }],
   };
 
   function changeCartItemQuantity(counter) {

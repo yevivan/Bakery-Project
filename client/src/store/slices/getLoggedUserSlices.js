@@ -4,7 +4,7 @@ import { getLoggedUser } from '../../api/getLoggedUser';
 export const getLoggedUserSlice = createSlice({
   name: 'loggedUser',
   initialState: {
-    loggedUser: {},
+    loggedUser: 0,
   },
   reducers: {
     setLoggeUser: (state, action) => {
