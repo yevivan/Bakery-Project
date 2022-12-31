@@ -17,18 +17,20 @@ import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/moveCartItem
 
 function Login() {
   const dispatch = useDispatch();
-  const cartItemsInDb = useSelector((state) => state.cartItems.cartItems);
+  const cartItemsInLocal = useSelector((state) => state.cartItems.cartItems);
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
-  // const [mergedCartArr, setMergedCartArr] = useState([]);
   console.log(isUserLoggedIn);
   useEffect(() => {
-    if (isUserLoggedIn) {
-      dispatch(getCartItems()).then(() => { console.log(cartItemsInDb); });
-      mergeLocalCartArrAndArrInDb(cartItemsInDb);
-      // dispatch(updateCartOnserver(mergedArray));
-
-      console.log(1111);
-    }
+    const mergeLocaAndDb = async () => {
+    // dispatch(getCartItems());
+      if (isUserLoggedIn) {
+        console.log(cartItemsInLocal);
+        const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemsInLocal);
+        dispatch(updateCartOnserver(mergedArray));
+        console.log(mergedArray);
+      }
+    };
+    mergeLocaAndDb();
   }, [isUserLoggedIn]);
 
   const initialValuesLogin = {

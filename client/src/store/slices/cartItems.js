@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCartFromDatabase } from '../../api/getCartFromDatabase';
 import { updateCartDataOnserver } from '../../api/updateCartOnServer';
-import { updateLocalStorageCartsFromserver } from '../../commonHelpers/updateLocalStorCartItemsFromServer';
 import { getOneProductfromDb } from '../../api/getOneItemFromDb';
+import { mergeLocalCartArrAndArrInDb } from '../../commonHelpers/moveCartItemsToServer';
 
 const cartItemsSlice = createSlice({
   name: 'cartItems',
