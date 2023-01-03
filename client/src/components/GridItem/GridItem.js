@@ -1,5 +1,6 @@
 /* eslint-disable */
 import styles from './GridItem.module.scss';
+import { Link } from 'react-router-dom'
 
 
 function GridItem({
@@ -8,15 +9,19 @@ function GridItem({
 }) {
   const itemStyle = `${styles.item}`;
   return (
-    <div style={{ backgroundImage, gridArea }} className={itemStyle} >
 
-      <div className={styles.blockTitle}>
-        <h3 className={styles.title}>
-          {name}
+          <div style={{ backgroundImage, gridArea }} className={itemStyle} >
+              <Link to={`/products/${id}`}>
+          <div className={styles.blockTitle}>
+              <h3 className={styles.title}>
+                  {name}
 
-        </h3>
+              </h3>
+          </div>
+              </Link>
       </div>
-    </div>
+
+
   );
 }
 export default GridItem;

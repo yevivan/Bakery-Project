@@ -6,6 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styles from './Footer.module.scss';
+import logo from '../../svg/logo_footer.svg';
 
 function Footer() {
   return (
@@ -15,7 +16,7 @@ function Footer() {
           <div className={styles.footerLogoContainer}>
             <div className={styles.footerLogo}>
               <img
-                src="//cdn.shopify.com/s/files/1/1703/7103/t/32/assets/logo-footer.svg?v=158320001681363172281502735319"
+                src={logo}
                 alt="logo"
               />
             </div>

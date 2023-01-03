@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -43,14 +41,14 @@ function Login() {
       },
     },
   });
-  // eslint-disable-next-line consistent-return
-  const isLogin = (obj) => {
+  function isLogin(obj) {
+    // eslint-disable-next-line no-restricted-syntax
     for (const i in obj) {
       // eslint-disable-next-line no-prototype-builtins
       if (obj.hasOwnProperty(i)) { return false; }
     }
-    navigate('/');
-  };
+    return navigate('/');
+  }
 
   return (
     <Container

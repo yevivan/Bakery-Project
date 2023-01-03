@@ -6,13 +6,14 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-// import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Registration.module.scss';
 import { registerNewUser } from '../../../api/registerNewUser';
 
 function Registration() {
-//   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const initialValuesRegistartion = {
     login: '',
     firstName: '',
@@ -72,8 +73,8 @@ function Registration() {
         onSubmit={(values, { resetForm }) => {
           console.log(values);
           registerNewUser(values);
+          navigate('/');
           resetForm();
-          // alert('Your order has been accepted');
         }}
       >
         {({ isValid }) => (
