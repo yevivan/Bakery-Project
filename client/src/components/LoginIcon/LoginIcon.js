@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { setIsOpenModal } from '../../store/slices/modalWSlices';
 import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
+
 function LoginIcon({
   styleLogin, styleLoginText, style, styleBtnLogin, menuLogIn, btnLoginMenu, styleIcon, styleIconAdmin,
 }) {
@@ -18,6 +19,7 @@ function LoginIcon({
 
   return (
     <div className={`${styleLogin}`}>
+
 
       {isUserLogged
         ? (
@@ -63,6 +65,7 @@ function LoginIcon({
       {/*  </> */}
       {/*  )} */}
       {/* /> */}
+
     </div>
   );
 }

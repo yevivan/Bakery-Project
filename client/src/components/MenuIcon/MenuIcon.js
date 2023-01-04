@@ -12,14 +12,18 @@ import LoginIcon from '../LoginIcon/LoginIcon';
 import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
 function MenuIcon() {
-  const itemsInCartInDatabase = useSelector(
-    (state) => state.cartItemsFromServer.cartItemsFromServer,
+  // const itemsInCartInDatabase = useSelector(
+  //   (state) => state.cartItemsFromServer.cartItemsFromServer,
+  // );
+  const itemsInCart = useSelector(
+    (state) => state.cartItems.cartItems,
   );
-  const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
-  const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
-  const { products } = itemsInCartInDatabase;
-  const itemsCountInCartInDatabse = products ? products.length : 0;
-  const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
+
+  // const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  // const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
+  // const { products } = itemsInCartInDatabase;
+  const itemsInCartCount = itemsInCart ? itemsInCart.length : 0;
+  // const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
 
   const [openInputSearch, setOpenInputSearch] = useState(false);
   const openSearch = () => {
@@ -50,7 +54,8 @@ function MenuIcon() {
       <LoginIcon styleLogin={styles.imgAccount} styleBtnLogin={styles.styleBtnLogin} styleIconAdmin={{ fontSize: '50', color: '#391113' }} styleIcon={{ fontSize: '50', color: '#f09ec4' }} btnLoginMenu={styles.btnLoginMenu} styleLoginText={styles.textAccount} menuLogIn={styles.menuLogin} style={{ color: '#f09ec4', fontSize: '30' }} />
 
       <span>
-        {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage}
+        {/* {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage} */}
+        {itemsInCartCount}
         <Navigation
           basket={<ShoppingBasketIcon />}
         />

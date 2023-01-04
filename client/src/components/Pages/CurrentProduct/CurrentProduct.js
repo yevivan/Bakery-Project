@@ -6,10 +6,9 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { Grid, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import styles from './CurrentProduct.module.scss';
-import ProductsCounter from '../../ProductsCounter/ProductsCounter';
-import { addBasketArr } from '../../../store/slices/basketArr';
-import { sendCartItemToDatabase } from '../../../api/sendCartItemToDatabase';
-import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { updateCartOnserver, setUpdatedCartItemsFromLocal } from '../../../store/slices/cartItems';
+import { addCartItemToLocalStorage } from '../../../commonHelpers/addCartItemToLocalStorage';
+import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -17,42 +16,34 @@ import { getCartItems } from '../../../store/slices/basketArrFromServer';
 function CurrentProduct() {
   const { id } = useParams();
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  const cartItems = useSelector(
+    (state) => state.cartItems.cartItems,
+  );
+
   const dispatch = useDispatch();
   const [wrap, setWrap] = useState(null);
   const [currProduct, setCurrProduct] = useState();
-  const [prodQuantity, setProdQuantity] = useState();
-  const [prodId, setProdId] = useState();
-  const [counter, setCounter] = useState(0);
+  const [currProductId, setCurrProductId] = useState(0);
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
 
-  function handleSubmit() {
-    currProduct.cartQuantity = counter;
-    if (isUserLoggedIn) {
-      sendCartItemToDatabase(prodId);
-      setTimeout(() => {
-        dispatch(getCartItems());
-      }, 100);
-    } else {
-      dispatch(addBasketArr(currProduct));
-    }
+  // HERE IS CREATED an ARRAY of one product FOR SENDING TO SERVER
+  const cartItemData = [{ product: currProduct, cartQuantity: 1, itemNo: id }];
+
+  const index = cartItems.findIndex((el) => el.product._id === currProductId);
+  let isItemInCart = false;
+  if (index !== -1) {
+    isItemInCart = true;
   }
 
-  const displayCounter = counter <= 0;
-  const maxCounter = counter >= prodQuantity;
-  function handleIncrement() {
-    if (maxCounter) {
-      setCounter(counter);
+  async function handleSubmit() {
+    if (isUserLoggedIn) {
+      const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemData);
+      dispatch(updateCartOnserver(mergedArray));
     } else {
-      setCounter(counter + 1);
-    }
-  }
-  function handleDecrement() {
-    if (displayCounter) {
-      setCounter(counter);
-    } else {
-      setCounter(counter - 1);
+      addCartItemToLocalStorage(cartItemData);
+      dispatch(setUpdatedCartItemsFromLocal());
     }
   }
 
@@ -61,15 +52,10 @@ function CurrentProduct() {
       .then((res) => res.json())
       .then((data) => {
         setCurrProduct(data);
-        setProdQuantity(data.quantity);
-        // eslint-disable-next-line no-underscore-dangle
-        setProdId(data._id);
+        setCurrProductId(data._id);
       })
       .catch((err) => console.error(err));
   }, []);
-
-  // HERE ARRAY FOR SENDING TO SERVER IS CREATED
-  // const cartItemDataForServer = { products: [{ product: prodId, cartQuantity: counter }] };
 
   return (
     <Grid
@@ -320,12 +306,29 @@ function CurrentProduct() {
                 )}
               </Box>
             </Grid>
-            <ProductsCounter
-              maxAmount={prodQuantity}
-              handleDecrement={handleDecrement}
-              handleIncrement={handleIncrement}
-              counter={counter}
-            />
+
+            <Typography
+              component="body1"
+              align="left"
+              color="#494949"
+              fs={{
+                xs: '14px',
+                sm: '14px',
+                md: '16px',
+                lg: '16px',
+                xl: '18px',
+              }}
+              fontFamily="Asap"
+              fontWeight="lighter"
+              lineHeight="1.2"
+              mt="20px"
+              width="100%"
+              sx={{
+                textIndent: '15px',
+              }}
+            >
+              {`Available right now ${currProduct.quantity}`}
+            </Typography>
             <Typography
               component="body1"
               align="left"
@@ -366,13 +369,8 @@ function CurrentProduct() {
                 },
                 transition: 'all .35s cubic-bezier(.29,.63,.44,1)',
               }}
-              disabled={!counter || !wrap}
+              disabled={isItemInCart || !wrap}
               variant="contained"
-              // onClick={() => {
-              //   dispatch(addBasketArr(id));
-              //   console.log(id);
-              //   console.log(basket);
-              // }}
               className={styles.btn}
               onClick={handleSubmit}
             >
@@ -395,7 +393,7 @@ function CurrentProduct() {
                 }}
 
               >
-                Add To Basket
+                {!isItemInCart ? 'Add To Basket' : 'Already in your Basket'}
               </Typography>
             </Button>
           </Grid>

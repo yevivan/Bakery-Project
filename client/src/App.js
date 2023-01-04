@@ -13,6 +13,7 @@ import { updateUser } from './store/slices/getLoggedUserSlices';
 import { updateLogin } from './store/slices/userLoginSlices';
 // import { registeredUserLogin } from './store/slices/userLoginSlices';
 // import { getCartItems } from './store/slices/basketArrFromServer';
+import { setUpdatedCartItemsFromLocal } from './store/slices/cartItems';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
     dispatch(updateLogin());
     // dispatch(registeredUserLogin(userData));
     dispatch(fetchSliderItems());
+    dispatch(setUpdatedCartItemsFromLocal());
     // dispatch(getCartItems());
   }, []);
 

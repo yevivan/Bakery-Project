@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -6,18 +6,36 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import { getCartItems } from '../../../store/slices/basketArrFromServer';
+import { updateCartOnserver } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
+import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
+
 function Login() {
   const dispatch = useDispatch();
-  dispatch(closeMenuMobile(false));
+  const cartItemsInLocal = useSelector((state) => state.cartItems.cartItems);
+  const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+
+  // this useRef is used as a "switch" to prevent the re-invoking of the useEffetc,
+  // when user leaves the login page and gets back.
+  const isMounted = useRef(false);
+dispatch(closeMenuMobile(false));
+  useEffect(() => {
+    const mergeLocaAndDb = async () => {
+      const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemsInLocal);
+      dispatch(updateCartOnserver(mergedArray));
+    };
+    if (isUserLoggedIn && isMounted.current) {
+      mergeLocaAndDb();
+    } else isMounted.current = true;
+  }, [isUserLoggedIn]);
+
 
   const initialValuesLogin = {
     loginOrEmail: '',
@@ -56,13 +74,10 @@ function Login() {
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
-          // const userData = values;
-          // console.log(userData);
-          dispatch(registeredUserLogin(values));
-          dispatch(getCartItems());
-          dispatch(getLoggedUserFromServer());
+          dispatch(registeredUserLogin(values)).then(() => {
+            dispatch(getLoggedUserFromServer());
+          });
           resetForm();
-          // alert('Your order has been accepted');
         }}
       >
         {({ isValid }) => (
