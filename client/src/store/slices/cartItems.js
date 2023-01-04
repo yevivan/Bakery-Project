@@ -8,13 +8,10 @@ const cartItemsSlice = createSlice({
   initialState: {
     cartItems: [],
   },
-
   reducers: {
-
     setCartItemsFromLocalStorage: (state, action) => {
       state.cartItems = action.payload;
     },
-
     setCartItemsFromDatabase: (state, action) => {
       state.cartItems = action.payload;
     },
