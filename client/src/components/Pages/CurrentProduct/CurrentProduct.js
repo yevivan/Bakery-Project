@@ -6,7 +6,6 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { Grid, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import styles from './CurrentProduct.module.scss';
-// import ProductsCounter from '../../ProductsCounter/ProductsCounter';
 import { updateCartOnserver, setUpdatedCartItemsFromLocal } from '../../../store/slices/cartItems';
 import { addCartItemToLocalStorage } from '../../../commonHelpers/addCartItemToLocalStorage';
 import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
@@ -21,13 +20,10 @@ function CurrentProduct() {
     (state) => state.cartItems.cartItems,
   );
 
-  // const [isProductInCart, setIsProductInCart] = useState(false);
   const dispatch = useDispatch();
   const [wrap, setWrap] = useState(null);
   const [currProduct, setCurrProduct] = useState();
   const [currProductId, setCurrProductId] = useState(0);
-  // const [prodQuantity, setProdQuantity] = useState();
-  // const [cartQuantity, setCartQuantity] = useState(0);
   const activeParameters = {
     borderBottom: '2px solid #fa9bc9',
   };
@@ -35,18 +31,12 @@ function CurrentProduct() {
   // HERE IS CREATED an ARRAY of one product FOR SENDING TO SERVER
   const cartItemData = [{ product: currProduct, cartQuantity: 1, itemNo: id }];
 
-  // function changeCartItemQuantity(counter) {
-  //   setCartQuantity(counter);
-  // }
-  console.log(cartItems);
-  console.log(currProductId);
   const index = cartItems.findIndex((el) => el.product._id === currProductId);
   let isItemInCart = false;
 
   if (index !== -1) {
     isItemInCart = true;
   }
-  console.log(isItemInCart);
 
   async function handleSubmit() {
     if (isUserLoggedIn) {
@@ -58,30 +48,12 @@ function CurrentProduct() {
     }
   }
 
-  // const displayCounter = counter <= 0;
-  // const maxCounter = counter >= prodQuantity;
-  // function handleIncrement() {
-  //   if (maxCounter) {
-  //     setCounter(counter);
-  //   } else {
-  //     setCounter(counter + 1);
-  //   }
-  // }
-  // function handleDecrement() {
-  //   if (displayCounter) {
-  //     setCounter(counter);
-  //   } else {
-  //     setCounter(counter - 1);
-  //   }
-  // }
-
   useEffect(() => {
     fetch(`http://127.0.0.1:5005/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrProduct(data);
         setCurrProductId(data._id);
-        // setProdQuantity(data.quantity);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -335,13 +307,7 @@ function CurrentProduct() {
                 )}
               </Box>
             </Grid>
-            {/* <ProductsCounter
-              prodQuantity={prodQuantity}
-              // handleDecrement={handleDecrement}
-              // handleIncrement={handleIncrement}
-              // counter={counter}
-              changeCartItemQuantity={changeCartItemQuantity}
-            /> */}
+
             <Typography
               component="body1"
               align="left"
@@ -404,7 +370,6 @@ function CurrentProduct() {
                 },
                 transition: 'all .35s cubic-bezier(.29,.63,.44,1)',
               }}
-              // disabled={!cartQuantity || !wrap}
               disabled={isItemInCart || !wrap}
               variant="contained"
               className={styles.btn}

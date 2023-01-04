@@ -33,17 +33,6 @@ function BasketList() {
       {cartProducts}
     </div>
   );
-
-  // if (isUserLoged) {
-  //   return (
-  //     <div className={styles.basketList}>
-  //       {cartItemsToDisplay.map(({ product, cartQuantity, _id }) => (
-  //         <BasketListItem key={_id} item={product} cartQuantity={cartQuantity} />
-  //       ))}
-  //     </div>
-  //   );
-  // }
-  // return null;
 }
 
 export default BasketList;

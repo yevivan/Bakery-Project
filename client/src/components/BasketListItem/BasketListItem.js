@@ -13,7 +13,6 @@ function BasketListItem(props) {
       name, currentPrice, quantity: prodQuantity, imageUrls: [image],
     }, cartQuantity,
   } = item;
-  console.log(cartQuantity);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }

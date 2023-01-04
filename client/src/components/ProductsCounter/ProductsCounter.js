@@ -4,12 +4,8 @@ import { useEffect, useState } from 'react';
 import styles from './ProductsCounter.module.scss';
 
 function ProductsCounter(props) {
-  // const {
-  //   handleIncrement, handleDecrement, counter, maxCounter, displayCounter,
-  // } = props;
   const { prodQuantity, changeCartItemQuantity, cartQuantity } = props;
   const [counter, setCounter] = useState(cartQuantity);
-  // setCounter(cartQuantityOnServer);
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
   function handleIncrement() {
