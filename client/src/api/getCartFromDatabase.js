@@ -4,6 +4,7 @@ export const getCartFromDatabase = async () => {
     headers: { Authorization: JSON.parse(localStorage.getItem('token')) },
   })
     .then((res) => res.json());
+
   return cart;
 };
 

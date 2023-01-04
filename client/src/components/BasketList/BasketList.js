@@ -14,12 +14,12 @@ function BasketList() {
     (state) => state.cartItems.cartItems,
     shallowEqual,
   );
-
-  useEffect(() => {
-    if (!isUserLoggedIn) {
-      dispatch(setUpdatedCartItemsFromLocal());
-    }
-  });
+  console.log(cartItems);
+  // useEffect(() => {
+  //   if (!isUserLoggedIn) {
+  //     dispatch(setUpdatedCartItemsFromLocal());
+  //   }
+  // });
 
   let cartProducts;
   if (cartItems) {

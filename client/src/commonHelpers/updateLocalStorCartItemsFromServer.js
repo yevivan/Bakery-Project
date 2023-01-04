@@ -1,15 +1,13 @@
 import { getOneProductfromDb } from '../api/getOneItemFromDb';
 
-export const updateLocalStorageCartsFromserver = () => {
+export const updateLocalStorageCartItemsFromserver = async () => {
   const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('products')) || [];
   const itemsArray = [];
-  cartItemsInLocalStorage.forEach(async (element) => {
-    const item = await getOneProductfromDb(element.itemNo);
-    // console.log(itemsArray);
-    // console.log(item);
-    item.cartQuantity = element.cartQuantity;
-    itemsArray.push(item);
-  });
-  console.log(itemsArray);
+  for (const element of cartItemsInLocalStorage) {
+    const product = await getOneProductfromDb(element.itemNo);
+    const { cartQuantity } = element;
+    itemsArray.push({ product, cartQuantity });
+  }
+
   return itemsArray;
 };

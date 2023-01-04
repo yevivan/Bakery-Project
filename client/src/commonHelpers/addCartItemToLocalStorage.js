@@ -1,9 +1,14 @@
-export const addCartToLocalStorage = (cartItemData) => {
-  let basket = JSON.parse(localStorage.getItem('products')) || [];
-  const { products: [cartItem] } = cartItemData;
-  const index = basket.findIndex((el) => el.product === cartItem.product);
-  if (index === -1) { basket = [...basket, cartItem]; } else {
-    basket[index].cartQuantity += cartItem.cartQuantity;
+// This function accepts as an argument the item chosen by an unlogged user,
+// checks fotthe sameproduct in local storage, sums up the cartQuantity for identical items or
+// adds into array in case the item isunique
+
+export const addCartItemToLocalStorage = (cartItemData) => {
+  let localCartArr = JSON.parse(localStorage.getItem('products')) || [];
+  const [{ product: { _id }, cartQuantity, itemNo }] = cartItemData;
+  const cartItem = { _id, cartQuantity, itemNo };
+  const index = localCartArr.findIndex((el) => el._id === cartItem._id);
+  if (index === -1) { localCartArr = [...localCartArr, cartItem]; } else {
+    localCartArr[index].cartQuantity += cartItem.cartQuantity;
   }
-  localStorage.setItem('products', JSON.stringify(basket));
+  localStorage.setItem('products', JSON.stringify(localCartArr));
 };

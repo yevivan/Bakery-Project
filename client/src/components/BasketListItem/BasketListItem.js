@@ -7,13 +7,18 @@ import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;
+  const [prodQuantityInCart, setprodQuantityInCart] = useState();
   const {
-    name, currentPrice, imageUrls: [image], cartQuantity,
+    product: {
+      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+    }, cartQuantity,
   } = item;
+  console.log(cartQuantity);
+  function changeCartItemQuantity(counter) {
+    setprodQuantityInCart(counter);
+  }
+  const totalPrice = currentPrice * prodQuantityInCart;
 
-  // function changeCartItemQuantity(counter) {
-  //   setCartQuantity(counter);
-  // }
   return (
     <Grid
       container
@@ -97,8 +102,9 @@ function BasketListItem(props) {
         <Box>
           <ProductsCounter
             key={name}
-            cartQuantityOnserver={cartQuantity}
-            setCartQuantity={addCartQuantity}
+            prodQuantity={prodQuantity}
+            cartQuantity={cartQuantity}
+            changeCartItemQuantity={changeCartItemQuantity}
             sx={{ border: '3px solid #d8cbc0' }}
           />
         </Box>
@@ -118,7 +124,7 @@ function BasketListItem(props) {
       >
         <Box>
           <Typography content="span" fontSize="inherit" color="black">
-            {currentPrice}
+            {totalPrice}
           </Typography>
         </Box>
       </Grid>

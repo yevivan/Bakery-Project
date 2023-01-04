@@ -7,8 +7,8 @@ function ProductsCounter(props) {
   // const {
   //   handleIncrement, handleDecrement, counter, maxCounter, displayCounter,
   // } = props;
-  const { prodQuantity, changeCartItemQuantity, cartQuantityOnServer } = props;
-  const [counter, setCounter] = useState(0);
+  const { prodQuantity, changeCartItemQuantity, cartQuantity } = props;
+  const [counter, setCounter] = useState(cartQuantity);
   // setCounter(cartQuantityOnServer);
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -11,26 +11,27 @@ import { NavLink } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import { getCartItems, updateCartOnserver } from '../../../store/slices/cartItems';
+import { updateCartOnserver } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
-import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/moveCartItemsToServer';
+import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
 
 function Login() {
   const dispatch = useDispatch();
   const cartItemsInLocal = useSelector((state) => state.cartItems.cartItems);
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
-  console.log(isUserLoggedIn);
+
+  // this useRef is used as a "switch" to prevent the re-invoking of the useEffetc,
+  // when user leaves the login page and gets back.
+  const isMounted = useRef(false);
+
   useEffect(() => {
     const mergeLocaAndDb = async () => {
-    // dispatch(getCartItems());
-      if (isUserLoggedIn) {
-        console.log(cartItemsInLocal);
-        const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemsInLocal);
-        dispatch(updateCartOnserver(mergedArray));
-        console.log(mergedArray);
-      }
+      const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemsInLocal);
+      dispatch(updateCartOnserver(mergedArray));
     };
-    mergeLocaAndDb();
+    if (isUserLoggedIn && isMounted.current) {
+      mergeLocaAndDb();
+    } else isMounted.current = true;
   }, [isUserLoggedIn]);
 
   const initialValuesLogin = {
@@ -70,17 +71,10 @@ function Login() {
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
-          // const userData = values;
-          // console.log(userData);
           dispatch(registeredUserLogin(values)).then(() => {
             dispatch(getLoggedUserFromServer());
           });
-
-          // updateLocalStorageCartsFromserver();
-          // dispatch(setUpdatedCartItemsFromLocal());
-
           resetForm();
-          // alert('Your order has been accepted');
         }}
       >
         {({ isValid }) => (
