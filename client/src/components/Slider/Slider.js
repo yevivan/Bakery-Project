@@ -13,8 +13,8 @@ function Slider() {
   const scroll = scrollerRef.current;
   // const itemWidth = itemRef.current;
   // console.log(itemWidth.clientWidth);
-  const [isMousePressed, setMouseIsPressed] = useState(false);
-  const [mouseDownMessage, setMousedownMessage] = useState('not pressed');
+  // const [isMousePressed, setMouseIsPressed] = useState(false);
+  // const [mouseDownMessage, setMousedownMessage] = useState('not pressed');
 
   function mouseDownCoords(e) {
     console.log(e);
@@ -44,12 +44,12 @@ function Slider() {
   }
 
   function scrollToPrevtItem() {
-    scroll.scrollLeft -= 100;
+    scroll.scrollLeft -= 255;
     console.log(scroll.scrollLeft);
   }
 
   function scrollToNextItem() {
-    scroll.scrollLeft += 100;
+    scroll.scrollLeft += 255;
     console.log(scroll.scrollLeft);
   }
 
@@ -57,7 +57,7 @@ function Slider() {
     <div className={styles.slider}>
       <div className={styles.slider_header}>
         <h2 className={styles.title}>Our Customer`s Favorities</h2>
-        <span>{mouseDownMessage}</span>
+        {/* <span>{mouseDownMessage}</span> */}
         <p className={styles.slider_header_slogan}>Just a few of our American recipe bestsellers</p>
       </div>
       <div className={styles.slider_section_wrapper}>

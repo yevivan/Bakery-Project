@@ -2,13 +2,13 @@
   box-sizing: border-box;
 }
 .header {
-
+border-bottom: 2px solid #f09ec4;
   height: 129px ;
 }
 a {
   text-decoration: none;
   color: #391113;
-  text-transform: uppercase;
+
   list-style: none;
   display: flex;
   gap: 15px ;
@@ -21,6 +21,7 @@ ul {
 }
 li {
   list-style: none;
+  text-transform: uppercase;
 }
 .containerHeader {
   display: flex;

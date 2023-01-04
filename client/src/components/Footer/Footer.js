@@ -6,7 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styles from './Footer.module.scss';
-import logo from '../../svg/logo_footer.svg'
+import logo from '../../svg/logo_footer.svg';
 
 function Footer() {
   return (
