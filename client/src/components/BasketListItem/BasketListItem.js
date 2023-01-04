@@ -2,11 +2,21 @@ import Grid from '@mui/material/Grid';
 import { Button, SvgIcon, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useState } from 'react';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item } = props;
-  const { name, currentPrice, imageUrls: [image] } = item;
+  const [prodQuantityInCart, setprodQuantityInCart] = useState();
+  const {
+    product: {
+      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+    }, cartQuantity,
+  } = item;
+  function changeCartItemQuantity(counter) {
+    setprodQuantityInCart(counter);
+  }
+  const totalPrice = currentPrice * prodQuantityInCart;
 
   return (
     <Grid
@@ -89,7 +99,13 @@ function BasketListItem(props) {
       </Grid>
       <Grid item xs={12} sm={2}>
         <Box>
-          <ProductsCounter key={name} sx={{ border: '3px solid #d8cbc0' }} />
+          <ProductsCounter
+            key={name}
+            prodQuantity={prodQuantity}
+            cartQuantity={cartQuantity}
+            changeCartItemQuantity={changeCartItemQuantity}
+            sx={{ border: '3px solid #d8cbc0' }}
+          />
         </Box>
       </Grid>
       <Grid
@@ -107,7 +123,7 @@ function BasketListItem(props) {
       >
         <Box>
           <Typography content="span" fontSize="inherit" color="black">
-            {currentPrice}
+            {totalPrice}
           </Typography>
         </Box>
       </Grid>
