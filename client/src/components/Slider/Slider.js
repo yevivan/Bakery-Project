@@ -13,8 +13,8 @@ function Slider() {
   const scroll = scrollerRef.current;
   // const itemWidth = itemRef.current;
   // console.log(itemWidth.clientWidth);
-  const [isMousePressed, setMouseIsPressed] = useState(false);
-  const [mouseDownMessage, setMousedownMessage] = useState('not pressed');
+  // const [isMousePressed, setMouseIsPressed] = useState(false);
+  // const [mouseDownMessage, setMousedownMessage] = useState('not pressed');
 
   function mouseDownCoords(e) {
     console.log(e);
@@ -57,6 +57,10 @@ function Slider() {
     <div className={styles.slider}>
       <div className={styles.slider_header}>
         <h2 className={styles.title}>Our Customer`s Favorities</h2>
+<<<<<<< HEAD
+=======
+        {/* <span>{mouseDownMessage}</span> */}
+>>>>>>> 6e276cf0c50c0768d6f3116c7a6aa60c6bb5cd90
         <p className={styles.slider_header_slogan}>Just a few of our American recipe bestsellers</p>
       </div>
       <div className={styles.slider_section_wrapper}>
