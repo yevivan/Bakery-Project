@@ -1,6 +1,6 @@
 .slider {
   position: relative;
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-bottom: 100px;
 }
@@ -32,10 +32,11 @@
 }
 .slider_cards_track_container {
   display: flex;
-  margin: 0px 20px;
+  margin: 0 20px;
   overflow: hidden;
   overflow: scroll;
   overflow-y: visible;
+  width: 960px;
 }
 
 .slider_cards_track {
@@ -85,7 +86,7 @@
 
 @media (min-width: 0px) and (max-width: 600px) {
   .slider {
-    width: 90%;
+    width: 100%;
   }
   .slider_header_slogan {
     display: none;
@@ -93,8 +94,39 @@
   h2 {
     font-size: 35px;
   }
-  .slider_cards_track {
-    width: 200px;
+  //.slider_cards_track {
+  //  width: 200px;
+  //}
+  //.btn_next,
+  //.btn_prev {
+  //  width: 54px;
+  //  height: 54px;
+  //  font-size: 40px;
+  //  border: none;
+  //  &:hover {
+  //    border: none;
+  //  }
+  //}
+  .slider_header {
+    padding: 30px 15px;
+  }
+}
+@media (max-width: 1220px) and (min-width: 940px) {
+  .slider_cards_track_container {
+    width: 720px;
+  }
+}
+
+@media (max-width: 939px) and (min-width: 700px) {
+  .slider_cards_track_container {
+    width: 480px;
+  }
+}
+
+@media (max-width: 699px) {
+  .slider_cards_track_container {
+    width: 240px;
+    margin: 0 10px;
   }
   .btn_next,
   .btn_prev {
@@ -106,19 +138,16 @@
       border: none;
     }
   }
-  .slider_header {
-    padding: 30px 15px;
+}
+@media (max-width: 425px) {
+  .slider_cards_track_container{
+    margin: 0 auto;
+  }
+  .btn_next,
+  .btn_prev {
+    width: 40px;
   }
 }
 
-@media (min-width: 600px) {
-}
 
-@media (min-width: 900px) {
-}
 
-@media (min-width: 1200px) {
-}
-
-@media (min-width: 1536px) {
-}

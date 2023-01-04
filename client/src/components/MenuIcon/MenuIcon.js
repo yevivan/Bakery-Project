@@ -9,6 +9,7 @@ import Navigation from '../Navigation/NavigationIconMenu';
 import styles from './MenuIcon.module.scss';
 import Search from '../Search/Search';
 import LoginIcon from '../LoginIcon/LoginIcon';
+import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
 function MenuIcon() {
   // const itemsInCartInDatabase = useSelector(
@@ -50,7 +51,8 @@ function MenuIcon() {
       {/*  <Navigation account={<PersonOutlineOutlinedIcon />} /> */}
       {/* </div> */}
 
-      <LoginIcon styleLogin={styles.imgAccount} styleLoginText={styles.textAccount} style={{ color: '#f09ec4', fontSize: '30' }} />
+      <LoginIcon styleLogin={styles.imgAccount} styleBtnLogin={styles.styleBtnLogin} styleIconAdmin={{ fontSize: '50', color: '#391113' }} styleIcon={{ fontSize: '50', color: '#f09ec4' }} btnLoginMenu={styles.btnLoginMenu} styleLoginText={styles.textAccount} menuLogIn={styles.menuLogin} style={{ color: '#f09ec4', fontSize: '30' }} />
+
       <span>
         {/* {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage} */}
         {itemsInCartCount}

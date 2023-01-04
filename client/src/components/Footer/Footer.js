@@ -11,7 +11,7 @@ import logo from '../../svg/logo_footer.svg';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <Grid lg={12} item container>
+      <Grid lg={12} item container style={{ alignItems: 'center' }}>
         <Grid item lg={6} md={6} sm={12} xs={12}>
           <div className={styles.footerLogoContainer}>
             <div className={styles.footerLogo}>
@@ -22,7 +22,7 @@ function Footer() {
             </div>
             <div className={styles.footerCopyrightBottom}>
               <small className={styles.footerCopyrightContent}>
-                © 2022 The Hummingbird Bakery.
+                © 2022 The Bird Bakery.
               </small>
             </div>
           </div>
@@ -34,6 +34,7 @@ function Footer() {
               <li>
                 <IconButton>
                   <FacebookIcon style={{ color: '#fff5d6', fontSize: 60 }} />
+
                 </IconButton>
               </li>
               <li>
