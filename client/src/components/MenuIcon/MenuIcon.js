@@ -11,14 +11,18 @@ import Search from '../Search/Search';
 import LoginIcon from '../LoginIcon/LoginIcon';
 
 function MenuIcon() {
-  const itemsInCartInDatabase = useSelector(
-    (state) => state.cartItemsFromServer.cartItemsFromServer,
+  // const itemsInCartInDatabase = useSelector(
+  //   (state) => state.cartItemsFromServer.cartItemsFromServer,
+  // );
+  const itemsInCart = useSelector(
+    (state) => state.cartItems.cartItems,
   );
-  const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
-  const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
-  const { products } = itemsInCartInDatabase;
-  const itemsCountInCartInDatabse = products ? products.length : 0;
-  const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
+
+  // const isuserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  // const itemsInCartInLocalStorage = useSelector((state) => state.basketArr.basketArr);
+  // const { products } = itemsInCartInDatabase;
+  const itemsInCartCount = itemsInCart ? itemsInCart.length : 0;
+  // const itemsCountInCartInLocalStorage = itemsInCartInLocalStorage.length;
 
   const [openInputSearch, setOpenInputSearch] = useState(false);
   const openSearch = () => {
@@ -48,7 +52,8 @@ function MenuIcon() {
 
       <LoginIcon styleLogin={styles.imgAccount} styleLoginText={styles.textAccount} style={{ color: '#f09ec4', fontSize: '30' }} />
       <span>
-        {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage}
+        {/* {isuserLoggedIn ? itemsCountInCartInDatabse : itemsCountInCartInLocalStorage} */}
+        {itemsInCartCount}
         <Navigation
           basket={<ShoppingBasketIcon />}
         />
