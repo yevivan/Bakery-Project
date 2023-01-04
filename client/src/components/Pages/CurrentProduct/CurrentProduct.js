@@ -33,7 +33,6 @@ function CurrentProduct() {
 
   const index = cartItems.findIndex((el) => el.product._id === currProductId);
   let isItemInCart = false;
-
   if (index !== -1) {
     isItemInCart = true;
   }
