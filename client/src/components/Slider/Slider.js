@@ -44,12 +44,12 @@ function Slider() {
   }
 
   function scrollToPrevtItem() {
-    scroll.scrollLeft -= 255;
+    scroll.scrollLeft -= 240;
     console.log(scroll.scrollLeft);
   }
 
   function scrollToNextItem() {
-    scroll.scrollLeft += 255;
+    scroll.scrollLeft += 240;
     console.log(scroll.scrollLeft);
   }
 
@@ -57,7 +57,6 @@ function Slider() {
     <div className={styles.slider}>
       <div className={styles.slider_header}>
         <h2 className={styles.title}>Our Customer`s Favorities</h2>
-        <span>{mouseDownMessage}</span>
         <p className={styles.slider_header_slogan}>Just a few of our American recipe bestsellers</p>
       </div>
       <div className={styles.slider_section_wrapper}>

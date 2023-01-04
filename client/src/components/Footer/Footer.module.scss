@@ -6,6 +6,7 @@
     border-top: 1px solid #ebebeb;
 }
 
+
 // .footerContainer {
 //     float: none;
 //     margin: 0 auto;
@@ -54,7 +55,22 @@
 }
 
 .paymentIconItem {
-    margin: 0 10px;
+    display: flex;
+    //margin: 0 10px;
     color: #fff5d6;
     list-style-type: none;
+}
+@media (max-width: 474px) {
+    .footerSocial{
+        width: 100%;
+    }
+    .footerLogo{
+        width: 100%;
+    }
+    .socialIcon {
+        justify-content: space-evenly;
+    }
+    .paymentIconList{
+        justify-content: space-evenly;
+    }
 }

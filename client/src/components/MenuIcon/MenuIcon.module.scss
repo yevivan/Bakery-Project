@@ -7,22 +7,67 @@
   justify-content: end;
   //padding-right: 100px;
   align-items: flex-end;
+  z-index: 2;
 }
-.menuIcon:hover {
-  opacity: 80%;
-}
+//.menuIcon:hover {
+//  opacity: 80%;
+//}
 .btn {
   transition: transform 3s;
   background: none;
 }
 .imgAccount {
+display: flex;
+  position: relative;
+  z-index: 2;
+//  flex-direction: column;
+}
+.styleBtnLogin{
 
+  display: flex;
+  flex-direction: column;
+  column-gap: 0;
+  background: none;
+  align-items: center;
 }
-.imgAccount:hover {
-  opacity: 80%;
-}
+
 .textAccount {
   color:#f09ec4;
+}
+.menuLogin {
+  margin-top: 20px;
+  position: absolute;
+  bottom: -250%;
+  left: 400%;
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+
+}
+.imgAccount:hover .menuLogin {
+  position: absolute;
+  bottom: -230%;
+  left: -25%;
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+}
+
+
+.btnLoginMenu {
+  border: 2px solid #f09ec4;
+  border-radius: 3px;
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
 }
 @media(max-width: 991px){
   .btn {

@@ -13,9 +13,11 @@ import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
 import { getCartItems } from '../../../store/slices/basketArrFromServer';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 function Login() {
   const dispatch = useDispatch();
+  dispatch(closeMenuMobile(false));
 
   const initialValuesLogin = {
     loginOrEmail: '',

@@ -11,7 +11,7 @@ function GridItem({
   return (
 
           <div style={{ backgroundImage, gridArea }} className={itemStyle} >
-              <Link to={`/products/${id}`}>
+              <Link to={`/products/${id}`} className={styles.link}>
           <div className={styles.blockTitle}>
               <h3 className={styles.title}>
                   {name}

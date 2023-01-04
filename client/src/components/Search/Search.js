@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useState } from 'react';
 import styles from './Search.module.scss';
 
 import { fetchCatalog } from '../../store/slices/catalogSlices';
@@ -14,22 +15,41 @@ function Search({
   const search = useSelector((state) => state.search.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [searchValue, setSearchValue] = useState(search.query);
   // const [searchParams, setSearchParams] = useSearchParams();
   // const query = searchParams.get('query');
   // dispatch(addSearch(query));
 
-  function handleInputChange(e) {
-    dispatch(addSearch(e.target.value));
-    console.log(e.target.value);
-  }
+  // function handleInputChange(e) {
+  //   dispatch(addSearch(e.target.value));
+  //   console.log(e.target.value);
+  // }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //
+  //   if (search.query) {
+  //     console.log(search.query);
+  //     dispatch(fetchCatalog(search));
+  //     dispatch(clearFilter());
+  //     navigate(`/search?query=${search.query}`);
+  //   }
+  // }
+
+  // function handleInputChange(e) {
+  //   setSearchValue(e.target.search.value);
+  //   // const searchQuery = e.target.search.value;
+  //   // console.log(searchQuery);
+  // }
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (search.query) {
-      console.log(search.query);
-      dispatch(fetchCatalog(search));
+    if (e.target.search.value.length) {
+      console.log(e.target.search.value);
+      dispatch(addSearch(e.target.search.value));
+      // dispatch(fetchCatalog(search));
       dispatch(clearFilter());
-      navigate(`/search?query=${search.query}`);
+      navigate(`/search?query=${e.target.search.value}`);
     }
   }
 
@@ -37,9 +57,9 @@ function Search({
     <div style={style}>
       <form className={styles.searchForm} style={styles} onSubmit={handleSubmit}>
         <label htmlFor="search" style={stylesLabel}>
-          <input type="search" value={search.query} onInput={handleInputChange} name="search" placeholder="search" className={styles.searchInput} style={stylesInput} />
+          <input type="search" name="search" onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="search" className={styles.searchInput} style={stylesInput} />
         </label>
-
+        {/* onChange={handleInputChange} value={search.query} */}
         <button type="submit" className={styles.btnSearch}>
 
           <div>

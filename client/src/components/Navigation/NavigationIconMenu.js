@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavigationIconMenu({
 
-  basket, searchList, main, style, login,
+  basket, searchList, main, style,
 
 }) {
   return (
@@ -18,9 +18,9 @@ function NavigationIconMenu({
         <li className={`${style}`}>
           <NavLink to="/basket">{basket}</NavLink>
         </li>
-        <li className={`${style}`}>
-          <NavLink to="/login">{login}</NavLink>
-        </li>
+        {/* <li className={`${style}`}> */}
+        {/*  <NavLink to="/login">{login}</NavLink> */}
+        {/* </li> */}
       </ul>
     </nav>
   );

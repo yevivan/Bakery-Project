@@ -4,10 +4,7 @@ import { Form, Formik, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import TuneIcon from '@mui/icons-material/Tune';
-import AddIcon from '@mui/icons-material/Add';
-import Checkbox from '@mui/material/Checkbox';
 import styles from './Filter.module.scss';
-import chocolateIcon from '../../svg/chocolate.svg';
 import { addAllFilter } from '../../store/slices/filterSlices';
 import ButtonComponent from '../Button/ButtonComponent';
 
@@ -15,6 +12,7 @@ function Filter() {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialValues = useSelector((state) => state.filter.filter);
+
   const [category, setCategory] = useState(false);
   const openCategory = () => {
     setCategory((prev) => !prev);
@@ -37,6 +35,7 @@ function Filter() {
   };
   const [showFilter, setShowFilter] = useState(false);
   function openFilter() { setShowFilter((prev) => !prev); }
+  // console.log(searchParams.get('categories'))
   return (
     <div className={styles.filterContainer}>
       <button className={styles.btnFilter} type="button" onClick={openFilter}><TuneIcon style={{ color: '#f09ec4', fontSize: '30' }} /></button>
@@ -45,6 +44,13 @@ function Filter() {
         initialValues={initialValues}
         onSubmit={(values) => {
           dispatch(addAllFilter(values));
+          console.log(values);
+          const params = {};
+
+          const {
+            categories, chocolate, nuts, sugar, size,
+          } = values;
+          console.log(categories.length);
           // setSearchParams(values);
         }}
         enableReinitialize

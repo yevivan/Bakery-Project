@@ -12,6 +12,7 @@ import userLoginReducer from './slices/userLoginSlices';
 import cartArrayFromServerReducer from './slices/basketArrFromServer';
 import loggedUserReducer from './slices/getLoggedUserSlices';
 import menuMobileReducer from './slices/menuMobileSlices';
+import modalWReducer from './slices/modalWSlices';
 
 export const store = configureStore({
   reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
     grid: gridReducer,
     filter: filterReducer,
     menuMobile: menuMobileReducer,
+    modalW: modalWReducer,
 
   },
 });
