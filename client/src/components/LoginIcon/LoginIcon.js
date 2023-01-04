@@ -1,6 +1,5 @@
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import Navigation from '../Navigation/NavigationIconMenu';
 // import styles from './LoginIcon.module.scss';
 
