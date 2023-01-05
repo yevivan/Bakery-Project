@@ -36,6 +36,5 @@ const filterSlices = createSlice({
   },
 });
 
-
 export default filterSlices.reducer;
 export const { addAllFilter, changeFilterCategory, clearFilter } = filterSlices.actions;
