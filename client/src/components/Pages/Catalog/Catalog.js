@@ -15,29 +15,34 @@ function Catalog() {
   const dispatch = useDispatch();
 
   const [searchParams] = useSearchParams();
-  // const categories = searchParams.get('categories');
-  // dispatch(changeFilterCategory(categories))
 
-  const categories = searchParams.get('categories');
-  const chocolate = searchParams.get('chocolate');
-  const sugar = searchParams.get('chocolate');
-  const nuts = searchParams.get('nuts');
-  const size = searchParams.get('size');
+//
+//   const categories = searchParams.get('categories');
+//   const chocolate = searchParams.get('chocolate');
+//   const sugar = searchParams.get('chocolate');
+//   const nuts = searchParams.get('nuts');
+//   const size = searchParams.get('size');
+//   const search = {
+//     categories: categories ? [categories] : [],
+//     chocolate: chocolate ? [chocolate] : [],
+//     sugar: sugar ? [sugar] : [],
+//     nuts: nuts ? [nuts] : [],
+//     size: size ? [size] : [],
+//   };
+
+
   const search = {
-    categories: categories ? [categories] : [],
-    chocolate: chocolate ? [chocolate] : [],
-    sugar: sugar ? [sugar] : [],
-    nuts: nuts ? [nuts] : [],
-    size: size ? [size] : [],
+    categories: searchParams.getAll('categories'),
+    chocolate: searchParams.getAll('chocolate'),
+    sugar: searchParams.getAll('sugar'),
+    nuts: searchParams.getAll('nuts'),
+    size: searchParams.getAll('size'),
   };
+
+
+
+
   dispatch(addAllFilter(search));
-
-  // const search = searchParams.get('categories');
-  // console.log(search)
-  // dispatch(changeFilterCategory(search));
-  // // dispatch(clearFilter);
-
-  // dispatch(clearFilter);
   dispatch(clearSearch);
   dispatch(closeMenuMobile(false));
 
