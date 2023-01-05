@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 // import CardListItem from '../CardListItem/CardListItem';
 import CardListItem from '../CardListItem/CardListItem';
 import styles from './Slider.module.scss';
@@ -18,30 +18,30 @@ function Slider() {
 
   function mouseDownCoords(e) {
     console.log(e);
-    setMousedownMessage('PRESSED');
-    setMouseIsPressed(true);
-    console.log(isMousePressed);
+    // setMousedownMessage('PRESSED');
+    // setMouseIsPressed(true);
+    // console.log(isMousePressed);
     // alert(isMousePressed);
     // console.log(e.clientX);
     // console.log(e.currentTarget.offsetLeft);
     // console.log(isMousePressed);
   }
 
-  function mouseUpDepress(e) {
-    console.log(e);
-    // alert('bobbo');
-    setMouseIsPressed(false);
-    console.log(isMousePressed);
-  }
-  function mouseSwipeSlides(e) {
-    e.stopPropagation();
+  // function mouseUpDepress(e) {
+  //   console.log(e);
+  //   // alert('bobbo');
+  //   setMouseIsPressed(false);
+  //   console.log(isMousePressed);
+  // }
+  // function mouseSwipeSlides(e) {
+  //   e.stopPropagation();
 
-    if (isMousePressed) {
-      console.log(1213232);
+  //   if (isMousePressed) {
+  //     console.log(1213232);
 
-      // scroll.scrollLeft += e.clientX;
-    }
-  }
+  //     // scroll.scrollLeft += e.clientX;
+  //   }
+  // }
 
   function scrollToPrevtItem() {
     scroll.scrollLeft -= 240;
