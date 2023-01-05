@@ -25,7 +25,7 @@ function Login() {
   // this useRef is used as a "switch" to prevent the re-invoking of the useEffetc,
   // when user leaves the login page and gets back.
   const isMounted = useRef(false);
-dispatch(closeMenuMobile(false));
+  dispatch(closeMenuMobile(false));
   useEffect(() => {
     const mergeLocaAndDb = async () => {
       const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemsInLocal);
@@ -35,7 +35,6 @@ dispatch(closeMenuMobile(false));
       mergeLocaAndDb();
     } else isMounted.current = true;
   }, [isUserLoggedIn]);
-
 
   const initialValuesLogin = {
     loginOrEmail: '',
