@@ -45,13 +45,8 @@ function Filter() {
         onSubmit={(values) => {
           dispatch(addAllFilter(values));
           console.log(values);
-          const params = {};
 
-          const {
-            categories, chocolate, nuts, sugar, size,
-          } = values;
-          console.log(categories.length);
-          // setSearchParams(values);
+          setSearchParams(values);
         }}
         enableReinitialize
       >
