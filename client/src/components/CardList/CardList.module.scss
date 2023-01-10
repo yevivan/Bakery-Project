@@ -6,14 +6,14 @@
 
 @media (min-width: 1400px){
   .cardList {
-  width: 80%;
+  //width: 80%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 20px;
 }
 }
 @media(max-width: 1399px) and (min-width: 992px){
   .cardList {
-    width: 75%;
+    //width: 75%;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 20px;
   }
@@ -22,7 +22,7 @@
 @media (max-width: 991px) and (min-width: 768px) {
   .cardList {
     grid-template-columns: 1fr 1fr;
-    width: 66%;
+    //width: 66%;
   }
 }
 @media (max-width: 767px) {

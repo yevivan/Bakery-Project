@@ -37,19 +37,7 @@ display: flex;
 .menuLogin {
   margin-top: 20px;
   position: absolute;
-  bottom: -250%;
-  left: 400%;
-  display: flex;
-  flex-direction: column;
-  width: 150%;
-  align-items: center;
-  gap: 5px;
-  z-index: 1;
-
-}
-.imgAccount:hover .menuLogin {
-  position: absolute;
-  bottom: -250%;
+  top: 45px;
   left: -25%;
   display: flex;
   flex-direction: column;
@@ -57,6 +45,20 @@ display: flex;
   align-items: center;
   gap: 5px;
   z-index: 1;
+  opacity: 0;
+
+}
+.imgAccount:hover .menuLogin {
+  position: absolute;
+  top: 45px;
+  left: -25%;
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+  opacity: 1;
 }
 
 

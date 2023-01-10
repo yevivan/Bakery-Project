@@ -16,7 +16,7 @@ function Search({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [searchValue, setSearchValue] = useState(search.query);
+  const [searchValue, setSearchValue] = useState(search.query || '');
   // const [searchParams, setSearchParams] = useSearchParams();
   // const query = searchParams.get('query');
   // dispatch(addSearch(query));
@@ -57,7 +57,7 @@ function Search({
     <div style={style}>
       <form className={styles.searchForm} style={styles} onSubmit={handleSubmit}>
         <label htmlFor="search" style={stylesLabel}>
-          <input type="search" name="search" onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="search" className={styles.searchInput} style={stylesInput} />
+          <input type="search" name="search" onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="search" className={styles.searchInput} style={stylesInput}  />
         </label>
         {/* onChange={handleInputChange} value={search.query} */}
         <button type="submit" className={styles.btnSearch}>

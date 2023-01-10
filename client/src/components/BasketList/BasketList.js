@@ -1,4 +1,4 @@
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 // import { useEffect } from 'react';
 import BasketListItem from '../BasketListItem/BasketListItem';
 import styles from './BasketList.module.scss';
