@@ -2,8 +2,9 @@
   box-sizing: border-box;
 }
 .header {
-border-bottom: 2px solid #f09ec4;
+//border-bottom: 2px solid #f09ec4;
   height: 129px ;
+  //display: flex;
 }
 a {
   text-decoration: none;
@@ -33,6 +34,9 @@ li {
   gap: 5px;
   padding: 15px 30px;
   box-sizing: border-box;
+  border-bottom: 2px solid #f09ec4;
+  height: 100%;
+  //max-width: 2200px;
 }
 @media (max-width: 991px){
   .header {

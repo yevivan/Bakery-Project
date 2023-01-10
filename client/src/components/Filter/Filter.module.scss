@@ -1,6 +1,6 @@
 .filterContainer {
-  width: 20%;
-  padding-left: 30px;
+  width: 200px;
+  //padding-left: 30px;
   text-align: left;
 }
 .form {
@@ -38,6 +38,7 @@ img {
 }
 .filterItem {
   //width: 100%;
+  position: relative;
   margin-block: 5px;
   color: #391113;
   font-family: futura-medium,Helvetica,sans-serif;
@@ -45,17 +46,37 @@ img {
   text-transform: none;
   margin-left: 15px;
 }
-.label {
-  //width: 100%;
+
+.checkboxCake:checked + .checkCake,
+.checkboxCheese:checked + .checkCheese,
+.checkboxTarts:checked + .checkTarts,
+.checkboxPastries:checked + .checkPastries,
+.checkboxWithChoco:checked + .checkWithChoco,
+.checkboxNoChoco:checked + .checkNoChoco,
+.checkboxWithSugar:checked + .checkWithSugar,
+.checkboxNoSugar:checked + .checkNoSugar,
+.checkboxWithNuts:checked + .checkWithNuts,
+.checkboxNoNuts:checked + .checkNoNuts,
+.checkboxS:checked + .checkS,
+.checkboxM:checked + .checkM,
+.checkboxL:checked + .checkL {
+  background: #391113;
 }
-.label::after{
-  content: '';
-  height: 5px;
-  width: 5px;
-  border: #5a3134;
+input{
+  //position: relative;
+  //opacity: 0;
+  margin-right: 14px;
 }
-.checkbox {
-  position: relative;
+section {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  background: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #391113;
+  border-radius: 3px;
+
 }
 .button {
   background-color: #fce5f2;
@@ -65,6 +86,17 @@ img {
   width: 100%;
   align-items: center;
   padding: 5px;
+
+}
+.btnSubmit {
+  height: 40px;
+  width: 100%;
+  font-family: Barlow Condensed;
+  font-size: 23px;
+  font-weight: 200;
+  color: #f09ec4;
+  background-color: #391113;
+  border-radius: 0;
 
 }
 
@@ -92,7 +124,7 @@ img {
 }
 @media (max-width: 1399px) and (min-width: 992px){
   .filterContainer{
-    width: 25%;
+    //width: 25%;
   }
   .btnFilter {
     display: none;
@@ -101,7 +133,7 @@ img {
 }
 @media (max-width: 991px ) and (min-width: 768px) {
   .filterContainer {
-    width: 33%;
+    //width: 33%;
   }
   .btnFilter {
     display: none;
@@ -115,6 +147,7 @@ img {
     width: 100%;
     text-align: center;
     padding-left: 0px;
+    //padding-inline: 15px;
   }
   .btnFilter {
     display: block;
@@ -122,7 +155,7 @@ img {
   }
 
   .form {
-    width: 90%;
+    width: 500px;
     text-align: center;
   }
   .title {
@@ -132,6 +165,7 @@ img {
     display: none;
   }
   .formActive {
+    width: 500px;
     display: flex;
     flex-direction: column;
   }
@@ -140,6 +174,36 @@ img {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    max-height: 70px;
+    //max-height: 70px;
+  }
+  .filterItem {
+    width: 35%;
+    display: flex;
+    justify-content: start;
+  }
+  .filterMob {
+    width: 30%;
+
+  }
+  section {
+    top:3px;
+    left: 2px;
+  }
+}
+@media (max-width: 543px){
+  .formActive {
+    width: 250px;
+    text-align: center;
+  }
+  section {
+    top:3px;
+    left: 0px;
+  }
+  .filterItem {
+    width: 50%;
+    margin-left: 0;
+    }
+  .filterMob {
+    width: auto;
   }
 }

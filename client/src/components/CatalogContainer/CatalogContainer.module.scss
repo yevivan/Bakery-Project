@@ -1,16 +1,21 @@
 .catalogContainer {
     display: flex;
     flex-direction: row;
-    max-width: 1500px;
+    //max-width: 1500px;
     margin-inline: auto;
     justify-items: center;
-    gap: 30px;
+    gap: 20px;
+    padding-inline: 20px;
 }
+
+
 
 @media (max-width: 991px) and (min-width: 768px) {
     .catalogContainer {
         display: flex;
         flex-direction: row;
+        //max-width: 90%;
+        padding-inline: 20px;
     }
 
 }
@@ -19,6 +24,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-inline: 20px;
     }
     .btnFilter {
         display: block;
