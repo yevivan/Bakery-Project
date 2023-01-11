@@ -44,6 +44,24 @@
   font-size: 16px;
   color: #909090;
 }
+.button_link{
+  width: 100%;
+}
+.btn {
+  width: 90%;
+  margin: 0 auto;
+  height: 40px;
+  font-family: Barlow Condensed;
+  font-size: 23px;
+  font-weight: 200;
+  color: #f09ec4;
+  background-color: #391113;
+  border-radius: 0;
+  margin-block: 10px;
+}
+.btn:hover {
+opacity: 0.7;
+}
 //.product_item {
 //  display: flex;
 //  flex-direction: column;

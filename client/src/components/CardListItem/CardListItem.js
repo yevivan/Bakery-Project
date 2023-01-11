@@ -33,7 +33,7 @@ function CardListItem(props) {
       </div>
 
       <Link to={`/products/${id}`} className={styles.button_link}>
-        <ButtonComponent text="Shop Now" />
+          <button className={styles.btn}>Shop Now</button>
       </Link>
 
       {/* <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}> */}
