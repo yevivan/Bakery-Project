@@ -1,4 +1,24 @@
 .container {
-  width: 90%;
+  width: 50%;
   margin: 0 auto;
+
+}
+.btnAdd {
+  background: none;
+  color: #391113;
+  font-family: Barlow Condensed;
+  font-size: 28px;
+  font-weight: 300;
+}
+@media (max-width: 900px) and (min-width: 600px)  {
+  .container {
+    width: 75%;
+    }
+  
+}
+@media (max-width: 599px) {
+  .container {
+    width: 90%;
+  }
+
 }

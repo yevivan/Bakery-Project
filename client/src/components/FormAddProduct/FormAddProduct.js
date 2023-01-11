@@ -123,7 +123,7 @@ function FormAddProduct(){
                                         value="cake"
                                     />
                                     <p className={styles.radioText}>Cake</p>
-                                    <section className={styles.checkCake} />
+                                    {/*<section className={styles.checkCake} />*/}
                                 </label>
                             </li>
                             <li className={styles.filterItem}>
@@ -135,7 +135,7 @@ function FormAddProduct(){
                                         value="cheesecake"
                                     />
                                    <p className={styles.radioText}>Cheesecake</p>
-                                    <section className={styles.checkCheese} />
+                                    {/*<section className={styles.checkCheese} />*/}
                                 </label>
                             </li>
                             <li className={styles.filterItem}>
@@ -147,7 +147,7 @@ function FormAddProduct(){
                                         value="tarts"
                                     />
                                     <p className={styles.radioText}>Tarts</p>
-                                    <section className={styles.checkTarts} />
+                                    {/*<section className={styles.checkTarts} />*/}
                                 </label>
                             </li>
                             <li className={styles.filterItem}>
@@ -159,51 +159,42 @@ function FormAddProduct(){
                                         value="Pastries"
                                     />
                                     <p className={styles.radioText}>Pastries</p>
-                                    <section className={styles.checkPastries} />
+                                    {/*<section className={styles.checkPastries} />*/}
                                 </label>
                             </li>
                         </ul>
-                        <ul
-                            className={styles.filterBlock}
-                            role="group"
-                            aria-labelledby="my-radio-group"
-                            // style={category ? { display: 'flex' } : { display: 'none' }}
-                        >
-                            <li className={styles.filterItem}>
-                                <label >
-                                    <Field
-                                        className={styles.checkboxCake}
-                                        type="radio"
-                                        name="categories"
-                                        value="cake"
-                                    />
-                                    <p className={styles.radioText}>Cake</p>
-                                    <section className={styles.checkCake} />
-                                </label>
-                            </li>
-                            <li className={styles.filterItem}>
-                                <label>
-                                    <Field
-                                        className={styles.checkboxCheese}
-                                        type="radio"
-                                        name="categories"
-                                        value="cheesecake"
-                                    />
-                                    <p className={styles.radioText}>Cheesecake</p>
-                                    <section className={styles.checkCheese} />
-                                </label>
-                            </li>
-                        </ul>
+                        {/*<ul*/}
+                        {/*    className={styles.filterBlock}*/}
+                        {/*    role="group"*/}
+                        {/*    aria-labelledby="my-radio-group"*/}
+                        {/*    // style={category ? { display: 'flex' } : { display: 'none' }}*/}
+                        {/*>*/}
+                        {/*    <li className={styles.filterItem}>*/}
+                        {/*        <label >*/}
+                        {/*            <Field*/}
+                        {/*                className={styles.checkboxCake}*/}
+                        {/*                type="radio"*/}
+                        {/*                name="categories"*/}
+                        {/*                value="cake"*/}
+                        {/*            />*/}
+                        {/*            <p className={styles.radioText}>Cake</p>*/}
+                        {/*            <section className={styles.checkCake} />*/}
+                        {/*        </label>*/}
+                        {/*    </li>*/}
+                        {/*    <li className={styles.filterItem}>*/}
+                        {/*        <label>*/}
+                        {/*            <Field*/}
+                        {/*                className={styles.checkboxCheese}*/}
+                        {/*                type="radio"*/}
+                        {/*                name="categories"*/}
+                        {/*                value="cheesecake"*/}
+                        {/*            />*/}
+                        {/*            <p className={styles.radioText}>Cheesecake</p>*/}
+                        {/*            <section className={styles.checkCheese} />*/}
+                        {/*        </label>*/}
+                        {/*    </li>*/}
+                        {/*</ul>*/}
 
-
-
-
-                        <Field
-                            type="text"
-                            name="phone"
-                            placeholder="Контактний номер"
-                        />
-                        {/*<ErrorMessage name = "phone">{msg=> <span className={styles.error}>{msg}</span>}</ErrorMessage>*/}
 
                         <button
                             disabled = {!isValid}
@@ -211,7 +202,7 @@ function FormAddProduct(){
                             className={styles.btnSubmit}
                             // style={styles.btnSubmit}
                             // onClick={()=>{dispatch(submitOrder(props.values, order))}}
-                        >ВІДПРАВИТИ</button>
+                        >Submit</button>
                     </Form>
                 )
             }
