@@ -71,48 +71,51 @@ function Filter() {
               style={category ? { display: 'flex' } : { display: 'none' }}
             >
               <li className={styles.filterItem}>
-                <label className={styles.label} htmlFor="cake">
+                <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxCake}
                     type="checkbox"
                     name="categories"
                     value="cake"
-                    id="cake"
                   />
                   Cake
+                    <section className={styles.checkCake} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field
-                    className={styles.checkbox}
+                  <Field id="field"
+                    className={styles.checkboxCheese}
                     type="checkbox"
                     name="categories"
                     value="cheesecake"
                   />
                   Cheesecake
+                    <section className={styles.checkCheese} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxTarts}
                     type="checkbox"
                     name="categories"
                     value="tarts"
                   />
                   Tarts
+                    <section className={styles.checkTarts} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxPastries}
                     type="checkbox"
                     name="categories"
                     value="Pastries"
                   />
                   Pastries
+                    <section className={styles.checkPastries} />
                 </label>
               </li>
             </ul>
@@ -134,23 +137,25 @@ function Filter() {
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxWithChoco}
                     type="checkbox"
                     name="chocolate"
                     value="true"
                   />
                   With
+                    <section className={styles.checkWithChoco} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxNoChoco}
                     type="checkbox"
                     name="chocolate"
                     value="false"
                   />
                   WithOut
+                    <section className={styles.checkNoChoco} />
                 </label>
               </li>
             </ul>
@@ -172,23 +177,25 @@ function Filter() {
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxWithSugar}
                     type="checkbox"
                     name="sugar"
                     value="true"
                   />
                   With
+                    <section className={styles.checkWithSugar} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxNoSugar}
                     type="checkbox"
                     name="sugar"
                     value="false"
                   />
                   WithOut
+                    <section className={styles.checkNoSugar} />
                 </label>
               </li>
             </ul>
@@ -210,23 +217,25 @@ function Filter() {
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxWithNuts}
                     type="checkbox"
                     name="nuts"
                     value="true"
                   />
                   With
+                    <section className={styles.checkWithNuts} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxNoNuts}
                     type="checkbox"
                     name="nuts"
                     value="false"
                   />
                   WithOut
+                    <section className={styles.checkNoNuts} />
                 </label>
               </li>
             </ul>
@@ -245,42 +254,46 @@ function Filter() {
               aria-labelledby="checkbox-group"
               style={sizes ? { display: 'flex' } : { display: 'none' }}
             >
-              <li className={styles.filterItem}>
+              <li className={styles.filterItem+`  `+ styles.filterMob}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxS}
                     type="checkbox"
                     name="size"
                     value="small"
                   />
                   Small
+                    <section className={styles.checkS} />
                 </label>
               </li>
-              <li className={styles.filterItem}>
+              <li className={styles.filterItem+`  `+ styles.filterMob}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxM}
                     type="checkbox"
                     name="size"
                     value="medium"
                   />
                   Medium
+                    <section className={styles.checkM} />
                 </label>
               </li>
-              <li className={styles.filterItem}>
+              <li className={styles.filterItem+`  `+ styles.filterMob}>
                 <label>
                   <Field
-                    className={styles.checkbox}
+                    className={styles.checkboxL}
                     type="checkbox"
                     name="size"
                     value="large"
                   />
                   Large
+                    <section className={styles.checkL} />
                 </label>
               </li>
             </ul>
             <hr className={styles.line} />
-            <ButtonComponent type="submit" text="Submit" style={{ marginTop: '50px', minWidth: '100%' }} />
+              <button className={styles.btnSubmit} type="submit">Submit</button>
+            {/*<ButtonComponent type="submit" text="Submit" style={{ marginTop: '50px', width: '100%' }} />*/}
           </Form>
         )}
 

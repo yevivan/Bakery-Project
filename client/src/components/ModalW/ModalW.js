@@ -40,7 +40,7 @@ function ModalW() {
         </div>
         <div className={styles.modalButtonWrapper}>
           <Button type="button" text="No" onClick={() => dispatch(setIsOpenModal(false))} />
-          <Button type="button" text="Yes, LogOut" onClick={handleSubmit} />
+          <Button type="button" text="Yes" onClick={handleSubmit} />
 
         </div>
       </div>

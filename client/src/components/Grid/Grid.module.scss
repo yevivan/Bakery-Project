@@ -5,7 +5,7 @@
 .container{
  display: grid;
  width: 90%;
- margin-inline: auto;
+ margin: 20px auto;
 }
 
 .title{
@@ -46,7 +46,7 @@
  .container{
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  margin-inline: 50px;
+  //margin-inline: 50px;
   display: grid;
   width: 90%;
   height: 80vh;

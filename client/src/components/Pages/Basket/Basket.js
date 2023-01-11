@@ -8,6 +8,7 @@ import BasketList from '../../BasketList/BasketList';
 import OrderForm from '../../OrderForm/OrderForm';
 import styles from './Basket.module.scss';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
+import Typography from "@mui/material/Typography";
 
 const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -62,14 +63,24 @@ function Basket() {
               </Item>
             </Grid>
           </Grid>
+            <div className={styles.subContainer}>
+                <p className={styles.subText}>Subtotal:</p>
+                <div>{}</div>
+            </div>
+            <button className={styles.btnOrder}>Make Order</button>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Item>
-            <OrderForm />
-          </Item>
+          {/*<div className={styles.subContainer}>*/}
+          {/*  <p className={styles.subText}>Subtotal:</p>*/}
+          {/*  <div>{}</div>*/}
+          {/*</div>*/}
+          {/*<Item>*/}
+
+            {/*<OrderForm />*/}
+          {/*</Item>*/}
         </Grid>
       </Grid>
-    </Container>
+      </Container>
   );
 }
 export default Basket;
