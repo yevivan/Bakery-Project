@@ -17,7 +17,7 @@ function SearchListContainer() {
     <div className={styles.searchList}>
       <h2>SearchList</h2>
       <div className={styles.searchContainer}>
-        <Search props={<ButtonComponent text="Search" style={{ height: '100%', width: '30%' }} />} />
+        <Search style={{width:'100%'}} styles={{ width: '100%', height: '40px', display: 'flex' }} stylesLabel={{ flexGrow: '1', height: '40px' }} stylesInput={{ width: '100%', height: '100%', opacity:'1' }} props={<ButtonComponent text="Search" style={{ height: '100%'}} />} />
       </div>
 
       <CardList />

@@ -45,9 +45,11 @@ function BasketListItem(props) {
               p: 1,
             }}
           >
-            <SvgIcon fontSize="medium">
-              <ClearIcon />
-            </SvgIcon>
+            <Button>
+              <SvgIcon fontSize="medium">
+                <ClearIcon style={{color: '#391113'}} />
+              </SvgIcon>
+            </Button>
           </Grid>
           <Grid item xs={12} sm={5}>
             <Button href="#" color="inherit" disableElevation sx={{ p: 2 }}>

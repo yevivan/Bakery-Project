@@ -15,10 +15,37 @@
 }
 .title{
   color: white;
-  font-size: xx-large;
+  font-size: 24px;
 
 }
 .link{
   width: 100%;
   height: 100%;
+}
+@media (max-width: 767px) and (min-width: 600px){
+  .title{
+   font-size: 20px;
+
+  }
+  .blockTitle{
+   margin-block: auto 15px;
+  }
+}
+@media (max-width: 599px) and (min-width: 480px) {
+  .title{
+    font-size: 16px;
+
+  }
+  .blockTitle{
+    margin-block: auto 10px;
+  }
+}
+@media (max-width: 479px) {
+  .title{
+    font-size: 20px;
+
+  }
+  .blockTitle{
+    margin-block: auto 10px;
+  }
 }
