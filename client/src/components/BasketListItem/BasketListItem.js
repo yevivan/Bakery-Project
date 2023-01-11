@@ -63,7 +63,7 @@ function BasketListItem(props) {
           >
             <Button>
               <SvgIcon fontSize="medium">
-                <ClearIcon />
+                <ClearIcon style={{color: '#391113'}} />
               </SvgIcon>
             </Button>
           </Grid>
