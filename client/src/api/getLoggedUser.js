@@ -5,6 +5,7 @@ export const getLoggedUser = async () => {
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
+  console.log(loggedUser)
   // localStorage.setItem('user', JSON.stringify(loggedUser));
   const { firstName, lastName, isAdmin } = loggedUser;
   localStorage.setItem('user', JSON.stringify({ firstName, lastName, isAdmin }));

@@ -7,11 +7,11 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import { updateCartOnserver } from '../../../store/slices/cartItems';
+import {getCartItems, setUpdatedCartItemsFromLocal, updateCartOnserver} from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
@@ -21,6 +21,7 @@ function Login() {
   const dispatch = useDispatch();
   const cartItemsInLocal = useSelector((state) => state.cartItems.cartItems);
   const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  const navigate = useNavigate();
 
   // this useRef is used as a "switch" to prevent the re-invoking of the useEffetc,
   // when user leaves the login page and gets back.
@@ -73,10 +74,13 @@ function Login() {
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
+          console.log(values)
           dispatch(registeredUserLogin(values)).then(() => {
             dispatch(getLoggedUserFromServer());
+            dispatch(getCartItems())
           });
           resetForm();
+          navigate('/')
         }}
       >
         {({ isValid }) => (
