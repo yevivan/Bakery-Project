@@ -36,15 +36,7 @@ function LoginIcon({
               <PersonOutlineOutlinedIcon style={style} />
             </div>
             <MenuLogIn menuLogIn={menuLogIn} btnLoginMenu={btnLoginMenu} styleIcon={styleIcon} styleIconAdmin={styleIconAdmin} isAdmin={isAdmin} />
-            {/* <div className={`${menuLogIn}`}> */}
-            {/*  <NavLink to="/account" className={`${btnLoginMenu}`}> */}
-            {/*    <SettingsIcon style={styleIcon} /> */}
-            {/*  </NavLink> */}
-            {/*  <button type="button" className={`${btnLoginMenu}`} onClick={() => dispatch(setIsOpenModal(true))}> */}
-            {/*    <LogoutIcon style={styleIcon} /> */}
-            {/*  </button> */}
-            {/*  {isAdmin && <NavLink to="admin" className={`${btnLoginMenu}`}><EngineeringIcon style={styleIconAdmin} /></NavLink>} */}
-            {/* </div> */}
+
           </>
 
         )
@@ -57,16 +49,7 @@ function LoginIcon({
           </NavLink>
         )}
 
-      {/* <span className={`${styleLoginText}`}>{isUserLogged ? `${firstName}  ${lastName}` : 'Log In'}</span> */}
-      {/* <Navigation login={( */}
-      {/*  <> */}
-      {/*    <span className={`${styleLoginText}`}>{isUserLogged ? `${firstName}  ${lastName}` : 'Log In'}</span> */}
-      {/*    <PersonOutlineOutlinedIcon style={style} /> */}
-      {/*  </> */}
-      {/*  )} */}
-      {/* /> */}
-
-    </div>
+     </div>
   );
 }
 export default LoginIcon;

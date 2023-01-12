@@ -10,6 +10,7 @@ export const userLoginSlices = createSlice({
     logIn: (state, action) => {
       state.isUserLogged = action.payload;
       console.log(state.isUserLogged);
+      localStorage.setItem('isUserLogged', JSON.stringify(action.payload))
       if (!state.isUserLogged && localStorage.getItem('token')) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -21,6 +22,7 @@ export const userLoginSlices = createSlice({
 
 export const registeredUserLogin = (userData) => async (dispatch) => {
   const isUserLoggedIn = await userlogIn(userData);
+
   dispatch(logIn(isUserLoggedIn));
 };
 export const updateLogin = () => async (dispatch) => {

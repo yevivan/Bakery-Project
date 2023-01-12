@@ -13,7 +13,7 @@ import { updateUser } from './store/slices/getLoggedUserSlices';
 import { updateLogin } from './store/slices/userLoginSlices';
 // import { registeredUserLogin } from './store/slices/userLoginSlices';
 // import { getCartItems } from './store/slices/basketArrFromServer';
-import { setUpdatedCartItemsFromLocal } from './store/slices/cartItems';
+import {getCartItems, setUpdatedCartItemsFromLocal} from './store/slices/cartItems';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,10 +22,15 @@ function App() {
   useEffect(() => {
     dispatch(updateUser());
     dispatch(updateLogin());
-    // dispatch(registeredUserLogin(userData));
+    if(localStorage.getItem('isUserLogged')){
+        dispatch(getCartItems())
+    }else {
+        dispatch(setUpdatedCartItemsFromLocal());
+    }
+
     dispatch(fetchSliderItems());
-    dispatch(setUpdatedCartItemsFromLocal());
-    // dispatch(getCartItems());
+    // dispatch(setUpdatedCartItemsFromLocal());
+
   }, []);
 
   return (
