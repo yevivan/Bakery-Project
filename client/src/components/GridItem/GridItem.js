@@ -10,16 +10,13 @@ function GridItem({
   const itemStyle = `${styles.item}`;
   return (
 
-          <div style={{ backgroundImage, gridArea }} className={itemStyle} >
-              <Link to={`/products/${id}`}>
+      <Link to={`/products/${id}`} style={{ backgroundImage, gridArea }} className={itemStyle} >
           <div className={styles.blockTitle}>
               <h3 className={styles.title}>
                   {name}
-
               </h3>
           </div>
-              </Link>
-      </div>
+      </Link>
 
 
   );

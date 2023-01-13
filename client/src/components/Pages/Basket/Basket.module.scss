@@ -19,6 +19,28 @@
   font-weight: 400;
   line-height: 1.2;
 }
+.subContainer {
+  display: flex;
+  width: 100%;
+}
+.subText {
+  margin-block: 10px;
+  padding-left: 10px;
+  color: #391113;
+  font-size: 36px;
+  width: 60%;
+}
+.btnOrder {
+
+  height: 40px;
+  width: 100%;
+  font-family: Barlow Condensed;
+  font-size: 23px;
+  font-weight: 200;
+  color: #f09ec4;
+  background-color: #391113;
+  border-radius: 0;
+}
 
 // .order {
 //   background-color: blue;

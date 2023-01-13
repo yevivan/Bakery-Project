@@ -4,23 +4,32 @@ import Header from './components/Header/Header';
 import AppRoutes from './AppRoutes';
 import Footer from './components/Footer/Footer';
 import Modal from './components/Modal/Modal';
+import ModalW from './components/ModalW/ModalW';
 import './App.scss';
 // import { userlogIn } from './api/userLogIn';
 // import { fetchData } from './store/slices/dataSlices';
 import { fetchSliderItems } from './store/slices/sliderSlices';
+import { updateUser } from './store/slices/getLoggedUserSlices';
+import { updateLogin } from './store/slices/userLoginSlices';
 // import { registeredUserLogin } from './store/slices/userLoginSlices';
 // import { getCartItems } from './store/slices/basketArrFromServer';
-import { setUpdatedCartItemsFromLocal } from './store/slices/cartItems';
+import { getCartItems, setUpdatedCartItemsFromLocal } from './store/slices/cartItems';
 
 function App() {
   const dispatch = useDispatch();
-  //  This is already registered  User Admin
+  //  This is already registered  User Account
   // const userData = { loginOrEmail: 'feonlinefinal@gmail.com', password: '11111111' };
   useEffect(() => {
-    // dispatch(registeredUserLogin(userData));
+    dispatch(updateUser());
+    dispatch(updateLogin());
+    if (localStorage.getItem('isUserLogged')) {
+      dispatch(getCartItems());
+    } else {
+      dispatch(setUpdatedCartItemsFromLocal());
+    }
+
     dispatch(fetchSliderItems());
-    dispatch(setUpdatedCartItemsFromLocal());
-    // dispatch(getCartItems());
+    // dispatch(setUpdatedCartItemsFromLocal());
   }, []);
 
   return (
@@ -29,6 +38,7 @@ function App() {
       <AppRoutes />
       <Footer />
       <Modal />
+      <ModalW />
     </div>
   );
 }

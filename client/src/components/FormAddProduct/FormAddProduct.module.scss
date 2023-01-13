@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.field {
+  opacity: 1;
+  border: 3px solid #d8cbc0;
+  padding: 5px;
+  font-weight: 100;
+  font-size: 25px;
+  font-family: Barlow Condensed, sans-serif;
+}
+.fieldTitle {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  color: #391113;
+  font-weight: 300;
+  font-size: 25px;
+  font-family: Barlow Condensed, sans-serif;
+}
+.radioText{
+  font-family: Barlow Condensed, sans-serif;
+  font-size: 18px;
+  color: #391113;
+}
+.filterItem {
+  position: relative;
+}
+section {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  background: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #391113;
+  border-radius: 3px;
+
+}
+.checkboxCake:checked + .checkCake,
+.checkboxCheese:checked + .checkCheese,
+.checkboxTarts:checked + .checkTarts,
+.checkboxPastries:checked + .checkPastries,
+.checkboxWithChoco:checked + .checkWithChoco,
+.checkboxNoChoco:checked + .checkNoChoco,
+.checkboxWithSugar:checked + .checkWithSugar,
+.checkboxNoSugar:checked + .checkNoSugar,
+.checkboxWithNuts:checked + .checkWithNuts,
+.checkboxNoNuts:checked + .checkNoNuts,
+.checkboxS:checked + .checkS,
+.checkboxM:checked + .checkM,
+.checkboxL:checked + .checkL {
+  background: #391113;
+}
+.btnSubmit {
+  height: 40px;
+  width: 100%;
+  font-family: Barlow Condensed;
+  font-size: 23px;
+  font-weight: 200;
+  color: #f09ec4;
+  background-color: #391113;
+  border-radius: 0;
+  margin-block: 10px;
+}

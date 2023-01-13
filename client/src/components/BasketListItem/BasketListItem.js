@@ -6,17 +6,33 @@ import { useState } from 'react';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
-  const { item } = props;
+  const { item, cartItems } = props;
+  console.log(cartItems);
+
   const [prodQuantityInCart, setprodQuantityInCart] = useState();
   const {
     product: {
-      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+      _id, name, currentPrice, quantity: prodQuantity, imageUrls: [image],
     }, cartQuantity,
   } = item;
+
+  console.log(_id);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }
+  // const cartItemData = [{ product: currProduct, cartQuantity: 1, itemNo: id }];
   const totalPrice = currentPrice * prodQuantityInCart;
+
+  // function handleClick() {
+  //   console.log(2244353545);
+  //   let updCartArr;
+  //   const index = cartItems.findIndex(({ product }) => product._id === _id);
+  //   if (index !== -1) {
+  //     updCartArr = cartItems.splice(index, 1);
+  //   }
+  //   console.log(updCartArr);
+  //   return updCartArr;
+  // }
 
   return (
     <Grid
@@ -45,9 +61,11 @@ function BasketListItem(props) {
               p: 1,
             }}
           >
-            <SvgIcon fontSize="medium">
-              <ClearIcon />
-            </SvgIcon>
+            <Button>
+              <SvgIcon fontSize="medium">
+                <ClearIcon style={{color: '#391113'}} />
+              </SvgIcon>
+            </Button>
           </Grid>
           <Grid item xs={12} sm={5}>
             <Button href="#" color="inherit" disableElevation sx={{ p: 2 }}>

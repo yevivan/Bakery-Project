@@ -2,16 +2,17 @@
   box-sizing: border-box;
 }
 .header {
-
+//border-bottom: 2px solid #f09ec4;
   height: 129px ;
+  //display: flex;
 }
 a {
   text-decoration: none;
   color: #391113;
-  text-transform: uppercase;
+
   list-style: none;
   display: flex;
-  gap: 15px ;
+  //gap: 15px ;
 }
 ul {
   display: flex;
@@ -21,6 +22,7 @@ ul {
 }
 li {
   list-style: none;
+  text-transform: uppercase;
 }
 .containerHeader {
   display: flex;
@@ -32,6 +34,9 @@ li {
   gap: 5px;
   padding: 15px 30px;
   box-sizing: border-box;
+  border-bottom: 2px solid #f09ec4;
+  height: 100%;
+  //max-width: 2200px;
 }
 @media (max-width: 991px){
   .header {

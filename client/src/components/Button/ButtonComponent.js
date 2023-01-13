@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import styles from './ButtonComponent.module.scss';
 
 function ButtonComponent(props) {
-  const { text, type } = props;
+  const { text, type, onClick } = props;
   return (
     <Button
       type={type}
@@ -25,6 +25,8 @@ function ButtonComponent(props) {
         padding: 0,
       }}
       variant="contained"
+      onClick={onClick}
+
     >
       {text}
 

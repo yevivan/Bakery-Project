@@ -8,24 +8,50 @@ function CardListItem(props) {
     name,
     currentPrice,
     image,
-    styleForItemsInSlider,
+    // styleForItemsInSlider,
   } = props;
   return (
 
-    <div>
-      <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}>
-        <img className={styles.product_item_img} src={image} alt="Cake" />
+    <div className={styles.card}>
+      <Link to={`/products/${id}`} className={styles.cardLinkBlock}>
+        <div className={styles.cardImage} style={{ backgroundImage: `url(${image})` }}>
+          {/* <img className={styles.cardImageItem} src={image} alt="Cake" /> */}
+        </div>
+
+        <div className={styles.cardName}>
+          <p className={styles.cardNameText}>
+            {name}
+          </p>
+
+        </div>
       </Link>
-      <p className={styles.product_item_name}>
-        {name}
-      </p>
-      <p className={styles.product_item_price}>
-        From $
-        {currentPrice}
-      </p>
+      <div className={styles.cardPrice}>
+        <p className={styles.cardPriceText}>
+          From $
+          {currentPrice}
+        </p>
+      </div>
+
       <Link to={`/products/${id}`} className={styles.button_link}>
-        <ButtonComponent text="Shop Now" />
+          <button className={styles.btn}>Shop Now</button>
       </Link>
+
+      {/* <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}> */}
+      {/*  <div> */}
+      {/*    <img className={styles.product_item_img} src={image} alt="Cake" /> */}
+      {/*  </div> */}
+      {/*  <p className={styles.product_item_name}> */}
+      {/*    {name} */}
+      {/*  </p> */}
+      {/*  <p className={styles.product_item_price}> */}
+      {/*    From $ */}
+      {/*    {currentPrice} */}
+      {/*  </p> */}
+      {/* </Link> */}
+
+      {/* <Link to={`/products/${id}`} className={styles.button_link}> */}
+      {/*  <ButtonComponent text="Shop Now" /> */}
+      {/* </Link> */}
     </div>
   );
 }

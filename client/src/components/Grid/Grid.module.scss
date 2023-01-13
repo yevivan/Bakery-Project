@@ -4,8 +4,8 @@
 
 .container{
  display: grid;
- width: 100vw;
- margin-inline: auto;
+ width: 90%;
+ margin: 20px auto;
 }
 
 .title{
@@ -25,7 +25,7 @@
   'category4'
   'category5'
   'category6';
-  width: 100%;
+  width: 90%;
   height: 300vw;
  }
 }
@@ -46,9 +46,9 @@
  .container{
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  margin-inline: 50px;
+  //margin-inline: 50px;
   display: grid;
-  width: 95vw;
+  width: 90%;
   height: 80vh;
   margin-bottom: 20px;
   grid-template-areas:

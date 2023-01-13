@@ -10,7 +10,11 @@ import sliderItemsReducer from './slices/sliderSlices';
 import userLoginReducer from './slices/userLoginSlices';
 import loggedUserReducer from './slices/getLoggedUserSlices';
 import menuMobileReducer from './slices/menuMobileSlices';
+
 import cartItemsArray from './slices/cartItems';
+
+import modalWReducer from './slices/modalWSlices';
+
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +30,7 @@ export const store = configureStore({
     grid: gridReducer,
     filter: filterReducer,
     menuMobile: menuMobileReducer,
+    modalW: modalWReducer,
 
   },
 });

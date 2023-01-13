@@ -12,6 +12,7 @@ export const mergeLocalCartArrAndArrInDb = async (cartItemsInStore) => {
   if (cartItemsInDb)({ products } = cartItemsInDb);
   else {
     products = cartItemsInStore || [];
+    localStorage.setItem('products', null);
     return { products };
   }
   products.forEach((el) => {

@@ -1,34 +1,120 @@
 .filterContainer {
-  min-width: 20%;
-  max-width: 25%;
-  padding-left: 30px;
+  width: 200px;
+  //padding-left: 30px;
   text-align: left;
+}
+.form {
+  margin-top: 5px;
+  width: 100%;
+
+}
+.btnFilter {
+  display: none;
+}
+img {
+  width: 100%;
+}
+.title {
+  color: #391113;
+  font-family: futura-medium,Helvetica,sans-serif;
+  font-size: 20px;
 }
 .filterBlock {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.filterItem {
-  margin-block: 5px;
+.line {
+  height: 1px;
+  width: 82%;
+  background-color: white;
+  margin-block: 1px;
 }
-.button {
-  background-color: rgba(0,0,0,0);
-  cursor: auto;
-  display: flex;
+
+.lineWhite {
+  height: 2px;
+  width: 82%;
+  margin-top: 6px;
+}
+.filterItem {
+  //width: 100%;
+  position: relative;
+  margin-block: 5px;
+  color: #391113;
+  font-family: futura-medium,Helvetica,sans-serif;
+  font-size: 18px;
+  text-transform: none;
+  margin-left: 15px;
+}
+
+.checkboxCake:checked + .checkCake,
+.checkboxCheese:checked + .checkCheese,
+.checkboxTarts:checked + .checkTarts,
+.checkboxPastries:checked + .checkPastries,
+.checkboxWithChoco:checked + .checkWithChoco,
+.checkboxNoChoco:checked + .checkNoChoco,
+.checkboxWithSugar:checked + .checkWithSugar,
+.checkboxNoSugar:checked + .checkNoSugar,
+.checkboxWithNuts:checked + .checkWithNuts,
+.checkboxNoNuts:checked + .checkNoNuts,
+.checkboxS:checked + .checkS,
+.checkboxM:checked + .checkM,
+.checkboxL:checked + .checkL {
+  background: #391113;
+}
+input{
+  //position: relative;
+  //opacity: 0;
+  margin-right: 14px;
+}
+section {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  background: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #391113;
+  border-radius: 3px;
 
 }
-.submitBtn {
-  border: 2px solid pink;
-  margin-top: 10px;
+.button {
+  background-color: #fce5f2;
+  cursor: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
   padding: 5px;
-  border-radius: 3px;
+
 }
+.btnSubmit {
+  height: 40px;
+  width: 100%;
+  font-family: Barlow Condensed;
+  font-size: 23px;
+  font-weight: 200;
+  color: #f09ec4;
+  background-color: #391113;
+  border-radius: 0;
+
+}
+.btnSubmit:hover {
+  opacity: 0.7;
+}
+
+
+//.submitBtn {
+//  border: 2px solid pink;
+//  margin-top: 10px;
+//  padding: 5px;
+//  border-radius: 3px;
+//}
 .text {
   display: inline-block;
   color: #391113;
   font-family: futura-medium,Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 3px;
 }
 .divBtn {
@@ -37,4 +123,90 @@
   color: #391113;
   font-family: futura-medium,Helvetica,sans-serif;
   font-size: 20px;
+  width: 25px;
+}
+@media (max-width: 1399px) and (min-width: 992px){
+  .filterContainer{
+    //width: 25%;
+  }
+  .btnFilter {
+    display: none;
+  }
+
+}
+@media (max-width: 991px ) and (min-width: 768px) {
+  .filterContainer {
+    //width: 33%;
+  }
+  .btnFilter {
+    display: none;
+  }
+
+
+}
+
+@media (max-width: 767px) {
+  .filterContainer {
+    width: 100%;
+    text-align: center;
+    padding-left: 0px;
+    //padding-inline: 15px;
+  }
+  .btnFilter {
+    display: block;
+    background: none;
+  }
+
+  .form {
+    width: 500px;
+    text-align: center;
+  }
+  .title {
+    display: none;
+  }
+  .form {
+    display: none;
+  }
+  .formActive {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  .filterBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    //max-height: 70px;
+  }
+  .filterItem {
+    width: 35%;
+    display: flex;
+    justify-content: start;
+  }
+  .filterMob {
+    width: 30%;
+
+  }
+  section {
+    top:3px;
+    left: 2px;
+  }
+}
+@media (max-width: 543px){
+  .formActive {
+    width: 250px;
+    text-align: center;
+  }
+  section {
+    top:3px;
+    left: 0px;
+  }
+  .filterItem {
+    width: 50%;
+    margin-left: 0;
+    }
+  .filterMob {
+    width: auto;
+  }
 }
