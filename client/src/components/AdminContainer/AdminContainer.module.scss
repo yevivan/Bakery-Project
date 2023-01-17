@@ -1,15 +1,18 @@
 .container {
-  width: 50%;
-  margin: 0 auto;
+  width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
 }
-.btnAdd {
-  background: none;
-  color: #391113;
-  font-family: Barlow Condensed;
-  font-size: 28px;
-  font-weight: 300;
-}
+//.btnAdd {
+//  background: none;
+//  color: #391113;
+//  font-family: Barlow Condensed;
+//  font-size: 28px;
+//  font-weight: 300;
+//}
 @media (max-width: 900px) and (min-width: 600px)  {
   .container {
     width: 75%;

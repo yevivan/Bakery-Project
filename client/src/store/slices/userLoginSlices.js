@@ -9,8 +9,7 @@ export const userLoginSlices = createSlice({
   reducers: {
     logIn: (state, action) => {
       state.isUserLogged = action.payload;
-      console.log(state.isUserLogged);
-      localStorage.setItem('isUserLogged', JSON.stringify(action.payload))
+      localStorage.setItem('isUserLogged', JSON.stringify(action.payload));
       if (!state.isUserLogged && localStorage.getItem('token')) {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -27,7 +26,7 @@ export const registeredUserLogin = (userData) => async (dispatch) => {
 };
 export const updateLogin = () => async (dispatch) => {
   const login = await updateLoginToken();
-  console.log(login)
+  console.log(login);
   dispatch(logIn(login));
 };
 export default userLoginSlices.reducer;

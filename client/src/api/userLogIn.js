@@ -16,5 +16,5 @@ export const userlogIn = async (userData) => {
 };
 export const updateLoginToken = async () => {
   const login = localStorage.getItem('token');
-  return Boolean(login)
+  return Boolean(login);
 };

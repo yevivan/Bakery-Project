@@ -9,7 +9,6 @@ import Navigation from '../Navigation/NavigationIconMenu';
 import styles from './MenuIcon.module.scss';
 import Search from '../Search/Search';
 import LoginIcon from '../LoginIcon/LoginIcon';
-import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
 function MenuIcon() {
   // const itemsInCartInDatabase = useSelector(

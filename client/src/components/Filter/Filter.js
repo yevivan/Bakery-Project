@@ -6,7 +6,6 @@ import { useSearchParams } from 'react-router-dom';
 import TuneIcon from '@mui/icons-material/Tune';
 import styles from './Filter.module.scss';
 import { addAllFilter } from '../../store/slices/filterSlices';
-import ButtonComponent from '../Button/ButtonComponent';
 
 function Filter() {
   const dispatch = useDispatch();
@@ -79,19 +78,20 @@ function Filter() {
                     value="cake"
                   />
                   Cake
-                    <section className={styles.checkCake} />
+                  <section className={styles.checkCake} />
                 </label>
               </li>
               <li className={styles.filterItem}>
                 <label>
-                  <Field id="field"
+                  <Field
+                    id="field"
                     className={styles.checkboxCheese}
                     type="checkbox"
                     name="categories"
                     value="cheesecake"
                   />
                   Cheesecake
-                    <section className={styles.checkCheese} />
+                  <section className={styles.checkCheese} />
                 </label>
               </li>
               <li className={styles.filterItem}>
@@ -103,7 +103,7 @@ function Filter() {
                     value="tarts"
                   />
                   Tarts
-                    <section className={styles.checkTarts} />
+                  <section className={styles.checkTarts} />
                 </label>
               </li>
               <li className={styles.filterItem}>
@@ -115,7 +115,7 @@ function Filter() {
                     value="Pastries"
                   />
                   Pastries
-                    <section className={styles.checkPastries} />
+                  <section className={styles.checkPastries} />
                 </label>
               </li>
             </ul>
@@ -143,7 +143,7 @@ function Filter() {
                     value="true"
                   />
                   With
-                    <section className={styles.checkWithChoco} />
+                  <section className={styles.checkWithChoco} />
                 </label>
               </li>
               <li className={styles.filterItem}>
@@ -155,7 +155,7 @@ function Filter() {
                     value="false"
                   />
                   WithOut
-                    <section className={styles.checkNoChoco} />
+                  <section className={styles.checkNoChoco} />
                 </label>
               </li>
             </ul>
@@ -183,7 +183,7 @@ function Filter() {
                     value="true"
                   />
                   With
-                    <section className={styles.checkWithSugar} />
+                  <section className={styles.checkWithSugar} />
                 </label>
               </li>
               <li className={styles.filterItem}>
@@ -195,7 +195,7 @@ function Filter() {
                     value="false"
                   />
                   WithOut
-                    <section className={styles.checkNoSugar} />
+                  <section className={styles.checkNoSugar} />
                 </label>
               </li>
             </ul>
@@ -223,7 +223,7 @@ function Filter() {
                     value="true"
                   />
                   With
-                    <section className={styles.checkWithNuts} />
+                  <section className={styles.checkWithNuts} />
                 </label>
               </li>
               <li className={styles.filterItem}>
@@ -235,7 +235,7 @@ function Filter() {
                     value="false"
                   />
                   WithOut
-                    <section className={styles.checkNoNuts} />
+                  <section className={styles.checkNoNuts} />
                 </label>
               </li>
             </ul>
@@ -254,7 +254,7 @@ function Filter() {
               aria-labelledby="checkbox-group"
               style={sizes ? { display: 'flex' } : { display: 'none' }}
             >
-              <li className={styles.filterItem+`  `+ styles.filterMob}>
+              <li className={`${styles.filterItem}  ${styles.filterMob}`}>
                 <label>
                   <Field
                     className={styles.checkboxS}
@@ -263,10 +263,10 @@ function Filter() {
                     value="small"
                   />
                   Small
-                    <section className={styles.checkS} />
+                  <section className={styles.checkS} />
                 </label>
               </li>
-              <li className={styles.filterItem+`  `+ styles.filterMob}>
+              <li className={`${styles.filterItem}  ${styles.filterMob}`}>
                 <label>
                   <Field
                     className={styles.checkboxM}
@@ -275,10 +275,10 @@ function Filter() {
                     value="medium"
                   />
                   Medium
-                    <section className={styles.checkM} />
+                  <section className={styles.checkM} />
                 </label>
               </li>
-              <li className={styles.filterItem+`  `+ styles.filterMob}>
+              <li className={`${styles.filterItem}  ${styles.filterMob}`}>
                 <label>
                   <Field
                     className={styles.checkboxL}
@@ -287,13 +287,13 @@ function Filter() {
                     value="large"
                   />
                   Large
-                    <section className={styles.checkL} />
+                  <section className={styles.checkL} />
                 </label>
               </li>
             </ul>
             <hr className={styles.line} />
-              <button className={styles.btnSubmit} type="submit">Submit</button>
-            {/*<ButtonComponent type="submit" text="Submit" style={{ marginTop: '50px', width: '100%' }} />*/}
+            <button className={styles.btnSubmit} type="submit">Submit</button>
+            {/* <ButtonComponent type="submit" text="Submit" style={{ marginTop: '50px', width: '100%' }} /> */}
           </Form>
         )}
 

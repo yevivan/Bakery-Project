@@ -1,14 +1,15 @@
-import FormAddProduct from "../FormAddProduct/FormAddProduct";
-import styles from './AdminContainer.module.scss'
+import FormAddProduct from '../FormAddProduct/FormAddProduct';
+import styles from './AdminContainer.module.scss';
+import FormUpdateProduct from '../FormUpdateProduct/FormUpdateProduct';
+import ContainerUpdateProduct from '../ContainerUpdateProduct/ContainerUpdateProduct';
 
-function AdminContainer(){
+function AdminContainer() {
+  return (
+    <div className={styles.container}>
+      <FormAddProduct />
+      <ContainerUpdateProduct />
+    </div>
 
-    return(
-        <div className={styles.container}>
-            <button className={styles.btnAdd} type='button'>Add New Product</button>
-            <FormAddProduct/>
-        </div>
-
-    )
+  );
 }
 export default AdminContainer;

@@ -16,20 +16,19 @@ function Catalog() {
 
   const [searchParams] = useSearchParams();
 
-//
-//   const categories = searchParams.get('categories');
-//   const chocolate = searchParams.get('chocolate');
-//   const sugar = searchParams.get('chocolate');
-//   const nuts = searchParams.get('nuts');
-//   const size = searchParams.get('size');
-//   const search = {
-//     categories: categories ? [categories] : [],
-//     chocolate: chocolate ? [chocolate] : [],
-//     sugar: sugar ? [sugar] : [],
-//     nuts: nuts ? [nuts] : [],
-//     size: size ? [size] : [],
-//   };
-
+  //
+  //   const categories = searchParams.get('categories');
+  //   const chocolate = searchParams.get('chocolate');
+  //   const sugar = searchParams.get('chocolate');
+  //   const nuts = searchParams.get('nuts');
+  //   const size = searchParams.get('size');
+  //   const search = {
+  //     categories: categories ? [categories] : [],
+  //     chocolate: chocolate ? [chocolate] : [],
+  //     sugar: sugar ? [sugar] : [],
+  //     nuts: nuts ? [nuts] : [],
+  //     size: size ? [size] : [],
+  //   };
 
   const search = {
     categories: searchParams.getAll('categories'),
@@ -38,9 +37,6 @@ function Catalog() {
     nuts: searchParams.getAll('nuts'),
     size: searchParams.getAll('size'),
   };
-
-
-
 
   dispatch(addAllFilter(search));
   dispatch(clearSearch);

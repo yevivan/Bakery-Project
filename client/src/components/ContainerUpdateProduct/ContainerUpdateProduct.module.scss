@@ -1,0 +1,37 @@
+.container{
+  flex-direction: column;
+}
+.searchForm {
+  width: 70%;
+  margin-block: 10px;
+  margin: 20px auto;
+  display: flex;
+}
+.searchLabel{
+  width: 60%;
+  height: 40px;
+}
+.searchInput{
+  width: 100%;
+  border: 2px solid #d8cbc0;
+  height: 100%;
+  font-family: Barlow Condensed, sans-serif;
+  font-size: 23px;
+  font-weight: 200;
+  padding-left: 10px;
+
+}
+.searchBtn{
+  width: 40%;
+  background: #d8cbc0;
+  color: #391113;
+  font-family: Barlow Condensed, sans-serif;
+  font-size: 23px;
+  font-weight: 200;
+}
+.text{
+  color: #391113;
+  font-family: Barlow Condensed, sans-serif;
+  font-size: 23px;
+  font-weight: 200;
+}
