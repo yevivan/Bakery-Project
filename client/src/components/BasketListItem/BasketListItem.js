@@ -6,17 +6,33 @@ import { useState } from 'react';
 import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
-  const { item } = props;
+  const { item, cartItems } = props;
+  console.log(cartItems);
+
   const [prodQuantityInCart, setprodQuantityInCart] = useState();
   const {
     product: {
-      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+      _id, name, currentPrice, quantity: prodQuantity, imageUrls: [image],
     }, cartQuantity,
   } = item;
+
+  console.log(_id);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }
+  // const cartItemData = [{ product: currProduct, cartQuantity: 1, itemNo: id }];
   const totalPrice = currentPrice * prodQuantityInCart;
+
+  // function handleClick() {
+  //   console.log(2244353545);
+  //   let updCartArr;
+  //   const index = cartItems.findIndex(({ product }) => product._id === _id);
+  //   if (index !== -1) {
+  //     updCartArr = cartItems.splice(index, 1);
+  //   }
+  //   console.log(updCartArr);
+  //   return updCartArr;
+  // }
 
   return (
     <Grid

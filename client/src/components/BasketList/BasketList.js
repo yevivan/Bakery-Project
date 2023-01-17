@@ -24,7 +24,7 @@ function BasketList() {
   let cartProducts;
   if (cartItems) {
     cartProducts = cartItems.map((cartItem) => (
-      <BasketListItem key={cartItem._id} item={cartItem} />
+      <BasketListItem key={cartItem._id} item={cartItem} cartItems={cartItems} />
     ));
   } else { cartProducts = null; }
 
