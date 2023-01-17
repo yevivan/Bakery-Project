@@ -22,12 +22,12 @@ function App() {
   useEffect(() => {
     dispatch(updateUser());
     dispatch(updateLogin());
-    if (localStorage.getItem('isUserLogged')) {
-      dispatch(getCartItems());
-    } else {
-      dispatch(setUpdatedCartItemsFromLocal());
-    }
-
+    // if (localStorage.getItem('isUserLogged')) {
+    //   dispatch(getCartItems());
+    // } else {
+    //   dispatch(setUpdatedCartItemsFromLocal());
+    // }
+    dispatch(setUpdatedCartItemsFromLocal());
     dispatch(fetchSliderItems());
     // dispatch(setUpdatedCartItemsFromLocal());
   }, []);

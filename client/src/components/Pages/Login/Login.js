@@ -7,11 +7,11 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import {NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import {getCartItems, setUpdatedCartItemsFromLocal, updateCartOnserver} from '../../../store/slices/cartItems';
+import { getCartItems, setUpdatedCartItemsFromLocal, updateCartOnserver } from '../../../store/slices/cartItems';
 import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
@@ -74,13 +74,12 @@ function Login() {
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
-          console.log(values)
           dispatch(registeredUserLogin(values)).then(() => {
             dispatch(getLoggedUserFromServer());
-            dispatch(getCartItems())
+            // dispatch(getCartItems());
           });
           resetForm();
-          navigate('/')
+          navigate('/');
         }}
       >
         {({ isValid }) => (
