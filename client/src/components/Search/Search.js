@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import styles from './Search.module.scss';
 
-import { fetchCatalog } from '../../store/slices/catalogSlices';
-
 import { clearFilter } from '../../store/slices/filterSlices';
 import { addSearch } from '../../store/slices/searchSlices';
 
@@ -57,7 +55,7 @@ function Search({
     <div style={style}>
       <form className={styles.searchForm} style={styles} onSubmit={handleSubmit}>
         <label htmlFor="search" style={stylesLabel}>
-          <input type="search" name="search" onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="search" className={styles.searchInput} style={stylesInput}  />
+          <input type="search" name="search" onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="search" className={styles.searchInput} style={stylesInput} />
         </label>
         {/* onChange={handleInputChange} value={search.query} */}
         <button type="submit" className={styles.btnSearch}>

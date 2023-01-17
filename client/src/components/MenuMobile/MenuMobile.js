@@ -16,7 +16,7 @@ function MenuMobile() {
 
   return (
     <div className={styles.menuList} style={menuMobile ? { transform: 'translate(0, 0)' } : { transform: 'translate(0, -100%)' }}>
-      <Search styles={{ width: '100%', height: '40px', display: 'flex' }} stylesLabel={{ flexGrow: '1', height: '40px' }} stylesInput={{ width: '100%', height: '100%', opacity:'1' }} props={<ButtonComponent text="Search" style={{ height: '100%' }} />} />
+      <Search styles={{ width: '100%', height: '40px', display: 'flex' }} stylesLabel={{ flexGrow: '1', height: '40px' }} stylesInput={{ width: '100%', height: '100%', opacity: '1' }} props={<ButtonComponent text="Search" style={{ height: '100%' }} />} />
       <Navigation
         styleMenu={styles.menu}
         style={styles.menuItem}
@@ -40,4 +40,3 @@ function MenuMobile() {
 }
 
 export default MenuMobile;
-

@@ -4,11 +4,11 @@ import Box from '@mui/material/Box';
 import { useDispatch } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import BasketList from '../../BasketList/BasketList';
 import OrderForm from '../../OrderForm/OrderForm';
 import styles from './Basket.module.scss';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
-import Typography from "@mui/material/Typography";
 
 const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -63,24 +63,24 @@ function Basket() {
               </Item>
             </Grid>
           </Grid>
-            <div className={styles.subContainer}>
-                <p className={styles.subText}>Subtotal:</p>
-                <div>{}</div>
-            </div>
-            <button className={styles.btnOrder}>Make Order</button>
+          <div className={styles.subContainer}>
+            <p className={styles.subText}>Subtotal:</p>
+            <div>{}</div>
+          </div>
+          <button className={styles.btnOrder}>Make Order</button>
         </Grid>
         <Grid item xs={12} md={4}>
-          {/*<div className={styles.subContainer}>*/}
-          {/*  <p className={styles.subText}>Subtotal:</p>*/}
-          {/*  <div>{}</div>*/}
-          {/*</div>*/}
-          {/*<Item>*/}
+          {/* <div className={styles.subContainer}> */}
+          {/*  <p className={styles.subText}>Subtotal:</p> */}
+          {/*  <div>{}</div> */}
+          {/* </div> */}
+          {/* <Item> */}
 
-            {/*<OrderForm />*/}
-          {/*</Item>*/}
+          {/* <OrderForm /> */}
+          {/* </Item> */}
         </Grid>
       </Grid>
-      </Container>
+    </Container>
   );
 }
 export default Basket;

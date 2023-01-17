@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './CardListItem.module.scss';
-import ButtonComponent from '../Button/ButtonComponent';
+// import ButtonComponent from '../Button/ButtonComponent';
 
 function CardListItem(props) {
   const {
@@ -33,7 +33,7 @@ function CardListItem(props) {
       </div>
 
       <Link to={`/products/${id}`} className={styles.button_link}>
-          <button className={styles.btn}>Shop Now</button>
+        <button className={styles.btn}>Shop Now</button>
       </Link>
 
       {/* <Link to={`/products/${id}`} className={`${styles.product_item} ${styles[styleForItemsInSlider]}`}> */}
