@@ -1,0 +1,14 @@
+.btn {
+  border: 1px solid #d8cbc0;
+  width: 100%;
+  background: #d8cbc0;
+  color: #391113;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 25px;
+  font-family: Barlow Condensed, sans-serif;
+  padding-block: 10px;
+  cursor: pointer;
+  transition: all 2s cubic-bezier(.29,.63,.44,1);
+}

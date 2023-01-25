@@ -36,7 +36,7 @@ export const getCatalog = async (object) => {
   });
 
   if (!newArr.length) {
-    const arrayCatalog = await fetch('/products?perPage=2&startPage=1')
+    const arrayCatalog = await fetch('/products')
       .then((res) => res.json());
     console.log(arrayCatalog);
     return arrayCatalog.map(({
@@ -52,7 +52,7 @@ export const getCatalog = async (object) => {
     }));
   }
   const newStringArr = newArr.join('').slice(0, -1);
-  const array = await fetch(`/products/filter?${newStringArr}&perPage=8&startPage=1`)
+  const array = await fetch(`/products/filter?${newStringArr}`)
     .then((res) => res.json());
   console.log(array);
   const { products: [...arrayCatalog] } = array;

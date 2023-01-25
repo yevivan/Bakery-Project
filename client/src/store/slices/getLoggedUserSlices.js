@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getLoggedUser, updateLoggerUser } from '../../api/getLoggedUser';
+import { changeDataUser } from '../../api/changeDataUser';
 
 export const getLoggedUserSlice = createSlice({
   name: 'loggedUser',
@@ -23,6 +24,11 @@ export const getLoggedUserFromServer = () => async (dispatch) => {
 export const updateUser = () => async (dispatch) => {
   const user = await updateLoggerUser();
   user ? dispatch(setLoggeUser(user)) : dispatch(setLoggeUser({}));
+};
+
+export const updateDataUser = (object) => async (dispatch) => {
+  const newData = await changeDataUser(object);
+  dispatch(setLoggeUser(newData));
 };
 
 export default getLoggedUserSlice.reducer;

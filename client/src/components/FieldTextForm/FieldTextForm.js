@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorMessage, Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 import styles from '../FormAddProduct/FormAddProduct.module.scss';
 
 function FieldTextForm({ name, title }) {

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
-import styles from '../FormAddProduct/FormAddProduct.module.scss';
+// import styles from '../FormAddProduct/FormAddProduct.module.scss';
 import style from './ContainerUpdateProduct.module.scss';
 import FormUpdateProduct from '../FormUpdateProduct/FormUpdateProduct';
+import Button from '../ButtonForSetting/ButtonForSetting';
 
 function ContainerUpdateProduct() {
   const [searchValue, setSearchValue] = useState('');
   const [isForm, setIsForm] = useState(false);
   const [dataItem, setDataItem] = useState({});
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [isSearch, setSearch] = useState(false);
   function showForm() { setSearch((prev) => !prev); }
   function handleSubmit(e) {
@@ -31,7 +32,7 @@ function ContainerUpdateProduct() {
   return (
 
     <>
-      <button className={styles.btnAdd} onClick={showForm} type="button">{isSearch ? <CloseIcon style={{ color: '#391113', fontSize: '25', fontWeight: '300' }} /> : 'Update Product'}</button>
+      <Button onClick={showForm} props={isSearch ? <CloseIcon style={{ color: '#391113', fontSize: '25', fontWeight: '300' }} /> : 'Update Product'} />
       <div className={style.container} style={isSearch ? { display: 'flex' } : { display: 'none' }}>
         <p className={style.text}>STEP 1 - choose product by ItemNo</p>
         <form className={style.searchForm} onSubmit={handleSubmit}>

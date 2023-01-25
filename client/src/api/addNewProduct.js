@@ -1,11 +1,11 @@
-export function addNewProduct(object) {
+export const addNewProduct = async (object) => {
   const newObject = {
     ...object,
     imageUrls: [],
   };
   newObject.imageUrls.push(object.imageUrls);
   console.log(newObject);
-  const postReq = fetch('/products', {
+  const postReq = await fetch('/products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,11 +13,12 @@ export function addNewProduct(object) {
     },
     body: JSON.stringify(newObject),
   })
-    .then(async (res) => {
-      if (res.ok) { return res.json(); }
-      const responseText = await res.json();
-      throw new Error(responseText.message);
-    })
+    .then((res) => res.json())
+    // .then(async (res) => {
+    //   if (res.ok) { return res.json(); }
+    //   const responseText = await res.json();
+    //   throw new Error(responseText.message);
+    // })
     .catch((err) => console.log(err.message));
   console.log(postReq);
-}
+};

@@ -15,6 +15,10 @@
   font-size: 25px;
   font-family: Barlow Condensed, sans-serif;
 }
+.field:active,
+.field:focus {
+  border: 3px solid #f09ec4 ;
+}
 .blockFieldTitle {
   width: 100%;
   display: flex;

@@ -3,11 +3,11 @@ import { Formik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
-import styles from './FormAddProduct.module.scss';
 // import FieldTextForm from '../FieldTextForm/FieldTextForm';
 // import FieldRadioForm from '../FieldRadioForm/FieldRadioForm';
 import { addNewProduct } from '../../api/addNewProduct';
 import FormProduct from '../FormProduct/FormProduct';
+import Button from '../ButtonForSetting/ButtonForSetting';
 
 function FormAddProduct() {
   const dispatch = useDispatch();
@@ -52,14 +52,14 @@ function FormAddProduct() {
       .max(99, 'Max 2')
       .required('Required'),
     itemNo: Yup.number()
-      .min(100000, 'Min 6 symbols')
+
       .max(999999, 'Max 6 symbols')
       .required('Required'),
   });
   return (
     <>
-      <button className={styles.btnAdd} onClick={showForm} type="button">{isForm ? <CloseIcon style={{ color: '#391113', fontSize: '25', fontWeight: '300' }} /> : 'Add New Product'}</button>
-      {/* <FormProduct isForm={isForm}/> */}
+      <Button onClick={showForm} type="button" props={isForm ? <CloseIcon style={{ color: '#391113', fontSize: '25', fontWeight: '300' }} /> : 'Add New Product'} />
+
       {isForm && (
       <Formik
         initialValues={initialValuesNewProduct}
@@ -68,7 +68,6 @@ function FormAddProduct() {
           values,
           { resetForm },
         ) => {
-          console.log(values);
           dispatch(addNewProduct(values));
           resetForm();
         }}
