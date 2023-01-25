@@ -79,7 +79,7 @@ function Login() {
             // dispatch(getCartItems());
           });
           resetForm();
-          navigate('/');
+          // navigate('/');
         }}
       >
         {({ isValid }) => (
