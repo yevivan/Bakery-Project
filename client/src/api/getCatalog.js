@@ -1,4 +1,5 @@
 export const getCatalog = async (object) => {
+  console.log(object);
   if ('query' in object) {
     const searchedItems = await fetch('/products/search', {
       method: 'POST',
@@ -13,7 +14,8 @@ export const getCatalog = async (object) => {
         console.error('Error:', error);
       });
     console.log(searchedItems);
-    return searchedItems.map(({
+    const productsQuantity = searchedItems.length;
+    const newArrProduct = searchedItems.map(({
       categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
     }) => ({
       categories,
@@ -24,6 +26,23 @@ export const getCatalog = async (object) => {
       isPopular,
       itemNo,
     }));
+    const dataCatalog = {
+      products: newArrProduct,
+      productsQuantity,
+    };
+    console.log(dataCatalog);
+    return dataCatalog;
+    // return searchedItems.map(({
+    //   categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
+    // }) => ({
+    //   categories,
+    //   name,
+    //   currentPrice,
+    //   image,
+    //   _id,
+    //   isPopular,
+    //   itemNo,
+    // }));
   }
   const filterToArr = Object.entries(object);
   const newArr = [];
@@ -54,17 +73,28 @@ export const getCatalog = async (object) => {
   const newStringArr = newArr.join('').slice(0, -1);
   const array = await fetch(`/products/filter?${newStringArr}`)
     .then((res) => res.json());
-  console.log(array);
-  const { products: [...arrayCatalog] } = array;
-  return arrayCatalog.map(({
+
+  const { products: [...arrayCatalog], productsQuantity } = array;
+  const newArrProduct = arrayCatalog.map(({
     categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
   }) => ({
-    categories,
-    name,
-    currentPrice,
-    image,
-    _id,
-    isPopular,
-    itemNo,
+    categories, name, currentPrice, image, _id, isPopular, itemNo,
   }));
+  const dataCatalog = {
+    products: newArrProduct,
+    productsQuantity,
+  };
+  console.log(dataCatalog);
+  return dataCatalog;
+  // return arrayCatalog.map(({
+  //   categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
+  // }) => ({
+  //   categories,
+  //   name,
+  //   currentPrice,
+  //   image,
+  //   _id,
+  //   isPopular,
+  //   itemNo,
+  // }));
 };

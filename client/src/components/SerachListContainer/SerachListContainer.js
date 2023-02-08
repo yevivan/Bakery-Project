@@ -5,6 +5,7 @@ import Search from '../Search/Search';
 import ButtonComponent from '../Button/ButtonComponent';
 import CardList from '../CardList/CardList';
 import { fetchCatalog } from '../../store/slices/catalogSlices';
+import CardListForSearch from '../CardListForSearch/CardListForSearch';
 
 function SearchListContainer() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function SearchListContainer() {
         <Search style={{ width: '100%' }} styles={{ width: '100%', height: '40px', display: 'flex' }} stylesLabel={{ flexGrow: '1', height: '40px' }} stylesInput={{ width: '100%', height: '100%', opacity: '1' }} props={<ButtonComponent text="Search" style={{ height: '100%' }} />} />
       </div>
 
-      <CardList />
+      <CardListForSearch />
     </div>
   );
 }

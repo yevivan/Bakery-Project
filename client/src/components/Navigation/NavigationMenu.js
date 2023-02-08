@@ -38,19 +38,19 @@ function NavigationMenu({
         {/*  </li> */}
         {/* ))} */}
         <li className={`${style}`}>
-          <NavLink to="/products">{catalog}</NavLink>
+          <NavLink to="/products?&perPage=8&startPage=1">{catalog}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/products?categories=cake">{cake}</NavLink>
+          <NavLink to="/products?categories=cake&perPage=8&startPage=1">{cake}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/products?categories=cheesecake">{cheesecake}</NavLink>
+          <NavLink to="/products?categories=cheesecake&perPage=8&startPage=1">{cheesecake}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/products?categories=tarts">{tarts}</NavLink>
+          <NavLink to="/products?categories=tarts&perPage=8&startPage=1">{tarts}</NavLink>
         </li>
         <li className={`${style}`}>
-          <NavLink to="/products?categories=Pastries">{pastries}</NavLink>
+          <NavLink to="/products?categories=Pastries&perPage=8&startPage=1">{pastries}</NavLink>
         </li>
         {/* <li className={`${style}`}> */}
         {/*  <NavLink to="/products/:id">{currentProduct}</NavLink> */}

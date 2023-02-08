@@ -7,7 +7,7 @@ function CardList() {
   // const dispatch = useDispatch();
   const cards = useSelector((state) => state.catalog.catalog);
   const cardItems = cards.map(({
-    category,
+    // category,
     name,
     currentPrice,
     image,
@@ -18,7 +18,7 @@ function CardList() {
       key={_id}
       image={image}
       id={itemNo}
-      category={category}
+      // category={category}
       name={name}
       currentPrice={currentPrice}
     />

@@ -18,6 +18,7 @@ function CatalogContainer() {
 
       <Filter />
       <CardList />
+
     </div>
   );
 }

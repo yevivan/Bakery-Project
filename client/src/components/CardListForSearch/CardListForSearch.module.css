@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.cardList{
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+@media (min-width: 1400px){
+    .cardList {
+    //width: 80%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        row-gap: 20px;
+    }
+}
+@media(max-width: 1399px) and (min-width: 992px){
+    .cardList {
+    //width: 75%;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 20px;
+    }
+
+}
+@media (max-width: 991px) and (min-width: 768px) {
+    .cardList {
+        grid-template-columns: 1fr 1fr;
+    //width: 66%;
+    }
+}
+@media (max-width: 767px) {
+    .cardList {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+}
+@media (max-width: 543px) {
+    .cardList {
+        grid-template-columns: 1fr ;
+        width: 100%;
+    }
+}

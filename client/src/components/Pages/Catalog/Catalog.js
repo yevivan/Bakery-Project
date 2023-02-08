@@ -10,6 +10,7 @@ import { addAllFilter } from '../../../store/slices/filterSlices';
 import CatalogContainer from '../../CatalogContainer/CatalogContainer';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 import { clearSearch } from '../../../store/slices/searchSlices';
+import Pagin from '../../Pagination/Pagination';
 
 function Catalog() {
   const dispatch = useDispatch();
@@ -36,6 +37,8 @@ function Catalog() {
     sugar: searchParams.getAll('sugar'),
     nuts: searchParams.getAll('nuts'),
     size: searchParams.getAll('size'),
+    perPage: searchParams.getAll('perPage'),
+    startPage: searchParams.getAll('startPage'),
   };
 
   dispatch(addAllFilter(search));
@@ -45,6 +48,7 @@ function Catalog() {
   return (
     <div className={styles.catalog}>
       <CatalogContainer />
+      <Pagin />
     </div>
 
   );
