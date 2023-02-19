@@ -8,28 +8,28 @@ function Top() {
   const { name, imageUrls: image, itemNo } = top;
 
   return (
-    // <div className={styles.top} style={{ backgroundImage: `url(${image})` }}>
-    //   <Link to={`/products/${itemNo}`}>
-    //     <div className={styles.topTitle}>
-    //       <h3 className={styles.title}>{name}</h3>
-    //     </div>
-    //     <div className={styles.topInfo}>
-    //       <p className={styles.topText}>SPECIAL OFFER</p>
-    //     </div>
-    //   </Link>
-    //
-    // </div>
-      <Link to={`/products/${itemNo}`} className={styles.top} style={{ backgroundImage: `url(${image})` }}>
-        {/*<Link to={`/products/${itemNo}`}>*/}
-          <div className={styles.topTitle}>
-            <h3 className={styles.title}>{name}</h3>
-          </div>
-          <div className={styles.topInfo}>
-            <p className={styles.topText}>SPECIAL OFFER</p>
-          </div>
-        {/*</Link>*/}
+  // <div className={styles.top} style={{ backgroundImage: `url(${image})` }}>
+  //   <Link to={`/products/${itemNo}`}>
+  //     <div className={styles.topTitle}>
+  //       <h3 className={styles.title}>{name}</h3>
+  //     </div>
+  //     <div className={styles.topInfo}>
+  //       <p className={styles.topText}>SPECIAL OFFER</p>
+  //     </div>
+  //   </Link>
+  //
+  // </div>
+    <Link to={`/products/${itemNo}`} className={styles.top} style={{ backgroundImage: `url(${image})` }}>
+      {/* <Link to={`/products/${itemNo}`}> */}
+      <div className={styles.topTitle}>
+        <h3 className={styles.title}>{name}</h3>
+      </div>
+      <div className={styles.topInfo}>
+        <p className={styles.topText}>SPECIAL OFFER</p>
+      </div>
+      {/* </Link> */}
 
-      </Link>
+    </Link>
   );
 }
 export default Top;

@@ -12,6 +12,7 @@ export const getCatalog = async (object) => {
       .catch((error) => {
         console.error('Error:', error);
       });
+    console.log(searchedItems);
     return searchedItems.map(({
       categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
     }) => ({
@@ -35,9 +36,9 @@ export const getCatalog = async (object) => {
   });
 
   if (!newArr.length) {
-    const arrayCatalog = await fetch('/products')
+    const arrayCatalog = await fetch('/products?perPage=2&startPage=1')
       .then((res) => res.json());
-
+    console.log(arrayCatalog);
     return arrayCatalog.map(({
       categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
     }) => ({
@@ -51,8 +52,9 @@ export const getCatalog = async (object) => {
     }));
   }
   const newStringArr = newArr.join('').slice(0, -1);
-  const array = await fetch(`/products/filter?${newStringArr}`)
+  const array = await fetch(`/products/filter?${newStringArr}&perPage=8&startPage=1`)
     .then((res) => res.json());
+  console.log(array);
   const { products: [...arrayCatalog] } = array;
   return arrayCatalog.map(({
     categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,

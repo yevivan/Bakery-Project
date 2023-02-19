@@ -1,25 +1,22 @@
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import SettingsIcon from '@mui/icons-material/Settings';
-import LogoutIcon from '@mui/icons-material/Logout';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import { useDispatch, useSelector } from 'react-redux';
+// import SettingsIcon from '@mui/icons-material/Settings';
+// import LogoutIcon from '@mui/icons-material/Logout';
+// import EngineeringIcon from '@mui/icons-material/Engineering';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { setIsOpenModal } from '../../store/slices/modalWSlices';
+// import { setIsOpenModal } from '../../store/slices/modalWSlices';
 import MenuLogIn from '../MenuLogIn/MenuLogIn';
-
 
 function LoginIcon({
   styleLogin, styleLoginText, style, styleBtnLogin, menuLogIn, btnLoginMenu, styleIcon, styleIconAdmin,
 }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const isUserLogged = useSelector((state) => state.userLogin.isUserLogged);
   const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
-  console.log(loggedUser);
   const { firstName, lastName, isAdmin } = loggedUser;
 
   return (
     <div className={`${styleLogin}`}>
-
 
       {isUserLogged
         ? (
@@ -49,7 +46,7 @@ function LoginIcon({
           </NavLink>
         )}
 
-     </div>
+    </div>
   );
 }
 export default LoginIcon;
