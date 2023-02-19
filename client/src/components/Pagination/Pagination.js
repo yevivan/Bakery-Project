@@ -1,5 +1,5 @@
 import {
-  Container, Pagination, Stack, PaginationItem, CssBaseline,
+  Container, Pagination, Stack,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -12,14 +12,7 @@ function Pagin() {
   const showPage = useSelector((state) => state.filter.filter.startPage);
 
   const theme = createTheme({
-    palette: {
-      color: {
-        primary: {
-          main: '#fa9bc9',
-        },
-
-      },
-    },
+    palette: { color: '#fa9bc9' },
 
   });
   return (

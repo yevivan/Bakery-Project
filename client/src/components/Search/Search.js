@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Search.module.scss';
 
 import { clearFilter } from '../../store/slices/filterSlices';
@@ -50,6 +50,9 @@ function Search({
       navigate(`/search?query=${e.target.search.value}`);
     }
   }
+  useEffect(() => {
+    setSearchValue(search.query);
+  }, [search]);
 
   return (
     <div style={style}>

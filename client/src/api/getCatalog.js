@@ -75,6 +75,7 @@ export const getCatalog = async (object) => {
     .then((res) => res.json());
 
   const { products: [...arrayCatalog], productsQuantity } = array;
+  console.log(arrayCatalog);
   const newArrProduct = arrayCatalog.map(({
     categories, name, currentPrice, imageUrls: [image], _id, isPopular, itemNo,
   }) => ({

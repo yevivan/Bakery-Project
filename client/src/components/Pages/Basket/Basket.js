@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 import BasketList from '../../BasketList/BasketList';
 import OrderForm from '../../OrderForm/OrderForm';
 import styles from './Basket.module.scss';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
+import Order from '../../Order/Order';
 
 const Item = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -18,7 +20,15 @@ const Item = styled(Box)(({ theme }) => ({
 }));
 
 function Basket() {
+  // const cartArray = useSelector((state) => state.cartItems.cartItems);
   const dispatch = useDispatch();
+  const [form, setForm] = useState(false);
+  function showForm() {
+    setForm((prev) => !prev);
+  }
+  function makeOrder() {
+
+  }
   dispatch(closeMenuMobile(false));
   return (
     <Container maxWidth="xl" sx={{ mb: 7 }}>
@@ -67,7 +77,7 @@ function Basket() {
             <p className={styles.subText}>Subtotal:</p>
             <div>{}</div>
           </div>
-          <button className={styles.btnOrder}>Make Order</button>
+          <button type="button" onClick={() => dispatch(showForm)} className={styles.btnOrder}>Make Order</button>
         </Grid>
         <Grid item xs={12} md={4}>
           {/* <div className={styles.subContainer}> */}
@@ -76,7 +86,7 @@ function Basket() {
           {/* </div> */}
           {/* <Item> */}
 
-          {/* <OrderForm /> */}
+          {form && <Order />}
           {/* </Item> */}
         </Grid>
       </Grid>

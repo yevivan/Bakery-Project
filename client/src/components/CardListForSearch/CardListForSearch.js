@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Container, Pagination, Stack } from '@mui/material';
 import CardListItem from '../CardListItem/CardListItem';
 import styles from './CardListForSearch.module.css';
+import style from '../Pagination/Pagination.module.scss';
 
 function CardListForSearch() {
   const data = useSelector((state) => state.catalog, shallowEqual);
@@ -72,8 +73,9 @@ function CardListForSearch() {
         <Stack>
           {!!(data.pageQuantity - 1) && (
           <Pagination
+            className={style.pag}
             variant="outlined"
-            color="primary"
+            // bgcolor="primary"
             count={data.pageQuantity}
             page={showPage}
             onChange={(e, num) => setShowPage(num)}
