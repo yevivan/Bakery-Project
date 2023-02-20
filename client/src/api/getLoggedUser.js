@@ -5,7 +5,6 @@ export const getLoggedUser = async () => {
   })
     .then((res) => {
       if (res.status === 401 || res.status === 500) {
-        console.log('Unauthoruzed');
         return;
       }
       return res.json();

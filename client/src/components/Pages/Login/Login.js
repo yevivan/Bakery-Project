@@ -75,7 +75,6 @@ function Login() {
         onSubmit={(values, { resetForm }) => {
           dispatch(registeredUserLogin(values)).then(() => {
             dispatch(getLoggedUserData());
-            // dispatch(getCartItems());
           });
           resetForm();
           // navigate('/');

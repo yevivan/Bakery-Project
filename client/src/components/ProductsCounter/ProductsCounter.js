@@ -1,9 +1,13 @@
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styles from './ProductsCounter.module.scss';
 
 function ProductsCounter(props) {
+  const cartItems = useSelector(
+    (state) => state.cartItems.cartItems,
+  );
   const { prodQuantity, changeCartItemQuantity, cartQuantity } = props;
   const [counter, setCounter] = useState(cartQuantity);
   const displayCounter = counter <= 0;

@@ -9,6 +9,7 @@ import styles from './CurrentProduct.module.scss';
 import { updateCartOnserver, setUpdatedCartItemsFromLocal } from '../../../store/slices/cartItems';
 import { addCartItemToLocalStorage } from '../../../commonHelpers/addCartItemToLocalStorage';
 import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
+import { getOneProductfromDb } from '../../../api/getOneItemFromDb';
 
 // ADDED ITEMS ARRAY FOR SENDING TO SERVER.
 // IDEA IS TO CHEK IF USER LOGGED AND THEN SEND ARRAY TO SERVER
@@ -48,13 +49,20 @@ function CurrentProduct() {
   }
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5005/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrProduct(data);
-        setCurrProductId(data._id);
-      })
-      .catch((err) => console.error(err));
+    async function getCurrentItem() {
+      const currentItem = await getOneProductfromDb(id);
+      setCurrProduct(currentItem);
+    }
+    getCurrentItem();
+    // fetch(`http://127.0.0.1:5005/products/${id}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setCurrProduct(data);
+    //     setCurrProductId(data._id);
+    //   })
+    //   .catch((err) => console.error(err));
+    // setCurrProduct(getOneProductfromDb);
+    // setCurrProductId()
   }, []);
 
   return (

@@ -8,7 +8,6 @@ export const updateProduct = async (object) => {
     imageUrls: [],
   };
   newObject.imageUrls.push(object.imageUrls);
-  console.log(newObject);
   const postUpd = await fetch(`/products/${_id}`, {
     method: 'PUT',
     headers: {
@@ -18,11 +17,5 @@ export const updateProduct = async (object) => {
     body: JSON.stringify(newObject),
   })
     .then((res) => res.json())
-    // .then(async (res) => {
-    //   if (res.ok) { return res.json(); }
-    //   const responseText = await res.json();
-    //   throw new Error(responseText.message);
-    // })
     .catch((err) => console.log(err.message));
-  console.log(postUpd);
 };

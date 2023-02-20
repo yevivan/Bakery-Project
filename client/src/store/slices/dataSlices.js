@@ -15,7 +15,6 @@ const dataSlices = createSlice({
 
 export const fetchData = () => async (dispatch) => {
   const data = await getData();
-  // console.log(data);
   dispatch(addData(data));
 };
 

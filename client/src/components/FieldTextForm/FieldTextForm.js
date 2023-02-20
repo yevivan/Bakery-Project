@@ -12,7 +12,14 @@ function FieldTextForm({ name, title }) {
         name={name}
         placeholder={title}
       />
-      <ErrorMessage name={name}>{(msg) => <span className={styles.error}>{msg}</span>}</ErrorMessage>
+      <ErrorMessage name={name}>
+        {(msg) => (
+          <span className={styles.error}>
+            {msg}
+          </span>
+        )}
+
+      </ErrorMessage>
     </>
   );
 }

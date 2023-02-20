@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from '../FormAddProduct/FormAddProduct.module.scss';
 import style from './ContainerUpdateProduct.module.scss';
@@ -9,18 +8,15 @@ function ContainerUpdateProduct() {
   const [searchValue, setSearchValue] = useState('');
   const [isForm, setIsForm] = useState(false);
   const [dataItem, setDataItem] = useState({});
-  const dispatch = useDispatch();
   const [isSearch, setSearch] = useState(false);
   function showForm() { setSearch((prev) => !prev); }
   function handleSubmit(e) {
     e.preventDefault();
     const itemNo = e.target.search.value;
     if (itemNo.length === 6) {
-      console.log(itemNo);
       fetch(`http://127.0.0.1:5005/products/${itemNo}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setDataItem(data);
           setIsForm(true);
         })
