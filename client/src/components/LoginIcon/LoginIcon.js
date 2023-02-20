@@ -8,11 +8,14 @@ import { NavLink } from 'react-router-dom';
 import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
 function LoginIcon({
-  styleLogin, styleLoginText, style, styleBtnLogin, menuLogIn, btnLoginMenu, styleIcon, styleIconAdmin,
+  styleLogin, styleLoginText, style, styleBtnLogin, menuLogIn,
+  btnLoginMenu, styleIcon, styleIconAdmin,
 }) {
   // const dispatch = useDispatch();
   const isUserLogged = useSelector((state) => state.userLogin.isUserLogged);
-  const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
+  // const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
+  const loggedUser = useSelector((state) => state.userLogin.loggedUserData);
+  console.log(loggedUser);
   const { firstName, lastName, isAdmin } = loggedUser;
 
   return (

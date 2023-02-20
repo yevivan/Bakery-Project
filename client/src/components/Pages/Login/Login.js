@@ -12,7 +12,7 @@ import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
 import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
 import { getCartItems, setUpdatedCartItemsFromLocal, updateCartOnserver } from '../../../store/slices/cartItems';
-import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
+// import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
 import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 
 import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';

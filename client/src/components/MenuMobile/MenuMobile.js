@@ -10,7 +10,8 @@ import MenuLogIn from '../MenuLogIn/MenuLogIn';
 
 function MenuMobile() {
   const menuMobile = useSelector((state) => state.menuMobile.menuMobile);
-  const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
+  // const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
+  const loggedUser = useSelector((state) => state.userLogin.loggedUserData);
   const { isAdmin } = loggedUser;
   const [menuLog, setMenuLog] = useState(false);
 
