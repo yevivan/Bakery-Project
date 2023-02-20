@@ -27,7 +27,7 @@ function MenuMobile() {
         tarts={<p>Tarts</p>}
         pastries={<p>Pastries</p>}
       />
-      <button className={styles.btnMobAccount} onClick={() => { setMenuLog(true); }}>
+      <button type="button" className={styles.btnMobAccount} onClick={() => { setMenuLog(true); }}>
         <LoginIcon styleLogin={styles.btnAccount} styleBtnLogin={styles.btnLogin} styleLoginText={styles.textAccount} menuLogIn={styles.menuNone} btnLoginMenu={styles.btnLoginMenu} styleIconAdmin={{ fontSize: '50', color: '#fce5f2' }} styleIcon={{ fontSize: '50', color: '#f09ec4' }} style={{ color: '#f09ec4', fontSize: '50' }} />
       </button>
       <div className={styles.containerMenuLogIn} onClick={() => { setMenuLog(false); }} style={menuLog ? { transform: 'translate(-20px, -20px)' } : { transform: 'translate(calc(-100% - 20px), -20px)' }}>

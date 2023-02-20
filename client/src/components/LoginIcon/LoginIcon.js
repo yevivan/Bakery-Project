@@ -11,9 +11,7 @@ function LoginIcon({
   styleLogin, styleLoginText, style, styleBtnLogin, menuLogIn,
   btnLoginMenu, styleIcon, styleIconAdmin,
 }) {
-  // const dispatch = useDispatch();
   const isUserLogged = useSelector((state) => state.userLogin.isUserLogged);
-  // const loggedUser = useSelector((state) => state.loggedUser.loggedUser);
   const loggedUser = useSelector((state) => state.userLogin.loggedUserData);
   console.log(loggedUser);
   const { firstName, lastName, isAdmin } = loggedUser;
@@ -35,7 +33,13 @@ function LoginIcon({
               </span>
               <PersonOutlineOutlinedIcon style={style} />
             </div>
-            <MenuLogIn menuLogIn={menuLogIn} btnLoginMenu={btnLoginMenu} styleIcon={styleIcon} styleIconAdmin={styleIconAdmin} isAdmin={isAdmin} />
+            <MenuLogIn
+              menuLogIn={menuLogIn}
+              btnLoginMenu={btnLoginMenu}
+              styleIcon={styleIcon}
+              styleIconAdmin={styleIconAdmin}
+              isAdmin={isAdmin}
+            />
 
           </>
 

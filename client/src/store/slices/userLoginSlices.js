@@ -13,14 +13,11 @@ export const userLoginSlices = createSlice({
       email: null,
       telephone: null,
     },
-
   },
   reducers: {
     logIn: (state, action) => {
       state.isUserLogged = action.payload;
-      localStorage.setItem('isUserLogged', JSON.stringify(action.payload));
     },
-
     setLoggedUserData: (state, action) => {
       state.loggedUserData = action.payload;
     },
@@ -36,7 +33,6 @@ export const registeredUserLogin = (userData) => async (dispatch) => {
 export const getLoggedUserData = () => async (dispatch) => {
   const userCredebtials = await getLoggedUser();
   if (userCredebtials) {
-    console.log(userCredebtials);
     dispatch(setLoggedUserData(userCredebtials));
     dispatch(logIn(true));
   }

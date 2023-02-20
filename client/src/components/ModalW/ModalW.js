@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import styles from './ModalW.module.scss';
 import { setIsOpenModal } from '../../store/slices/modalWSlices';
 import Button from '../Button/ButtonComponent';
-// import { setLoggeUser } from '../../store/slices/getLoggedUserSlices';
+import { deleteCartItemsAfterLogout } from '../../store/slices/cartItems';
 import { logIn } from '../../store/slices/userLoginSlices';
 
 function ModalW() {
@@ -18,8 +18,10 @@ function ModalW() {
   //
   function handleSubmit() {
     // dispatch(setLoggeUser({}));
+    localStorage.setItem('token', '');
     dispatch(logIn(false));
     dispatch(setIsOpenModal(false));
+    dispatch(deleteCartItemsAfterLogout());
   }
 
   if (!isOpenModal) {

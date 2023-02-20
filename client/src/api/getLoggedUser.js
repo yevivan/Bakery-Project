@@ -4,7 +4,7 @@ export const getLoggedUser = async () => {
     headers: { Authorization: JSON.parse(localStorage.getItem('token')) },
   })
     .then((res) => {
-      if (res.status === 401 || res.status === 401) {
+      if (res.status === 401 || res.status === 500) {
         console.log('Unauthoruzed');
         return;
       }

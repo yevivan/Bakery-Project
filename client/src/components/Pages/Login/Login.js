@@ -10,11 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Textfield from '../../FormsUI/Textfield/Textfield';
 import styles from './Login.module.scss';
-import { registeredUserLogin } from '../../../store/slices/userLoginSlices';
-import { getCartItems, setUpdatedCartItemsFromLocal, updateCartOnserver } from '../../../store/slices/cartItems';
-// import { getLoggedUserFromServer } from '../../../store/slices/getLoggedUserSlices';
-import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
+import { registeredUserLogin, getLoggedUserData } from '../../../store/slices/userLoginSlices';
+import { updateCartOnserver } from '../../../store/slices/cartItems';
 
+import { closeMenuMobile } from '../../../store/slices/menuMobileSlices';
 import { mergeLocalCartArrAndArrInDb } from '../../../commonHelpers/mergeLocalCartArrAndArrInDb';
 
 function Login() {
@@ -75,7 +74,7 @@ function Login() {
         validationSchema={validationSchemaLogin}
         onSubmit={(values, { resetForm }) => {
           dispatch(registeredUserLogin(values)).then(() => {
-            dispatch(getLoggedUserFromServer());
+            dispatch(getLoggedUserData());
             // dispatch(getCartItems());
           });
           resetForm();

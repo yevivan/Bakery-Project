@@ -8,7 +8,6 @@ import filterReducer from './slices/filterSlices';
 import searchSliceReducer from './slices/searchSlices';
 import sliderItemsReducer from './slices/sliderSlices';
 import userLoginReducer from './slices/userLoginSlices';
-// import loggedUserReducer from './slices/getLoggedUserSlices';
 import menuMobileReducer from './slices/menuMobileSlices';
 
 import cartItemsArray from './slices/cartItems';
@@ -18,7 +17,6 @@ import modalWReducer from './slices/modalWSlices';
 export const store = configureStore({
   reducer: {
     cartItems: cartItemsArray,
-    // loggedUser: loggedUserReducer,
     userLogin: userLoginReducer,
     search: searchSliceReducer,
     sliderItems: sliderItemsReducer,

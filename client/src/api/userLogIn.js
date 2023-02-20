@@ -11,10 +11,5 @@ export const userlogIn = async (userData) => {
     .then((res) => res.json())
     .catch((err) => err);
   localStorage.setItem('token', JSON.stringify(user.token));
-  console.log(user);
   return user.success;
-};
-export const updateLoginToken = async () => {
-  const login = localStorage.getItem('token');
-  return Boolean(login);
 };

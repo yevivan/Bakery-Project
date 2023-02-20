@@ -18,6 +18,9 @@ const cartItemsSlice = createSlice({
     addCartItemsToDatabase: (state, action) => {
       state.cartItems = action.payload;
     },
+    deleteCartItemsAfterLogout: (state) => {
+      state.cartItems = [];
+    },
   },
 
 });
@@ -48,5 +51,7 @@ export const updateCartOnserver = (cartItemData) => async (dispatch) => {
 
 export default cartItemsSlice.reducer;
 export const {
-  addCartItemsToLocal, setCartItemsFromDatabase, setCartItemsFromLocalStorage,
+  addCartItemsToLocal, setCartItemsFromDatabase,
+  setCartItemsFromLocalStorage,
+  deleteCartItemsAfterLogout,
 } = cartItemsSlice.actions;
