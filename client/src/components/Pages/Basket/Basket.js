@@ -20,6 +20,7 @@ const Item = styled(Box)(({ theme }) => ({
 function Basket() {
   const dispatch = useDispatch();
   dispatch(closeMenuMobile(false));
+
   return (
     <Container maxWidth="xl" sx={{ mb: 7 }}>
       <h1 className={styles.title}>My Basket</h1>
@@ -67,7 +68,7 @@ function Basket() {
             <p className={styles.subText}>Subtotal:</p>
             <div>{}</div>
           </div>
-          <button className={styles.btnOrder}>Make Order</button>
+          <button type="button" className={styles.btnOrder}>Make Order</button>
         </Grid>
         <Grid item xs={12} md={4}>
           {/* <div className={styles.subContainer}> */}

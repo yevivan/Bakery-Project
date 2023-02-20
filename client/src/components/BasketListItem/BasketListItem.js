@@ -7,16 +7,13 @@ import ProductsCounter from '../ProductsCounter/ProductsCounter';
 
 function BasketListItem(props) {
   const { item, cartItems } = props;
-  console.log(cartItems);
 
   const [prodQuantityInCart, setprodQuantityInCart] = useState();
   const {
     product: {
-      _id, name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
     }, cartQuantity,
   } = item;
-
-  console.log(_id);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }
