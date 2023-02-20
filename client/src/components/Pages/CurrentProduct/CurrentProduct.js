@@ -52,6 +52,7 @@ function CurrentProduct() {
     async function getCurrentItem() {
       const currentItem = await getOneProductfromDb(id);
       setCurrProduct(currentItem);
+      setCurrProductId(currentItem._id);
     }
     getCurrentItem();
     // fetch(`http://127.0.0.1:5005/products/${id}`)
