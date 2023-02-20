@@ -1,19 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userlogIn, updateLoginToken } from '../../api/userLogIn';
+import { userlogIn } from '../../api/userLogIn';
+import { getLoggedUser } from '../../api/getLoggedUser';
 
 export const userLoginSlices = createSlice({
   name: 'isUserLogged',
   initialState: {
     isUserLogged: false,
+    loggedUserData: {
+      firstName: null,
+      lastName: null,
+      isAdmin: false,
+      email: null,
+      telephone: null,
+    },
+
   },
   reducers: {
     logIn: (state, action) => {
       state.isUserLogged = action.payload;
       localStorage.setItem('isUserLogged', JSON.stringify(action.payload));
-      if (!state.isUserLogged && localStorage.getItem('token')) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-      }
+    },
+
+    setLoggedUserData: (state, action) => {
+      state.loggedUserData = action.payload;
     },
   },
 
@@ -21,13 +30,16 @@ export const userLoginSlices = createSlice({
 
 export const registeredUserLogin = (userData) => async (dispatch) => {
   const isUserLoggedIn = await userlogIn(userData);
-
   dispatch(logIn(isUserLoggedIn));
 };
-export const updateLogin = () => async (dispatch) => {
-  const login = await updateLoginToken();
-  console.log(login);
-  dispatch(logIn(login));
+
+export const getLoggedUserData = () => async (dispatch) => {
+  const userCredebtials = await getLoggedUser();
+  if (userCredebtials) {
+    console.log(userCredebtials);
+    dispatch(setLoggedUserData(userCredebtials));
+    dispatch(logIn(true));
+  }
 };
 export default userLoginSlices.reducer;
-export const { logIn } = userLoginSlices.actions;
+export const { logIn, setLoggedUserData } = userLoginSlices.actions;
