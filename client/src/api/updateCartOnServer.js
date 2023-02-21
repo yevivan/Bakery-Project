@@ -1,4 +1,5 @@
 export const updateCartDataOnserver = async (cartItemData) => {
+  console.log(cartItemData);
   const cartItems = await fetch('/cart/', {
     method: 'PUT',
     headers: {

@@ -11,9 +11,11 @@ function BasketListItem(props) {
   const [prodQuantityInCart, setprodQuantityInCart] = useState();
   const {
     product: {
-      name, currentPrice, quantity: prodQuantity, imageUrls: [image],
+      itemNo, name, currentPrice, quantity: prodQuantity, imageUrls: [image],
     }, cartQuantity,
   } = item;
+
+  console.log(itemNo);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }
@@ -118,6 +120,7 @@ function BasketListItem(props) {
             key={name}
             prodQuantity={prodQuantity}
             cartQuantity={cartQuantity}
+            itemNo={itemNo}
             changeCartItemQuantity={changeCartItemQuantity}
             sx={{ border: '3px solid #d8cbc0' }}
           />

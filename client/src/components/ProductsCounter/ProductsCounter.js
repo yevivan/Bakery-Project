@@ -3,15 +3,50 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './ProductsCounter.module.scss';
+import { updateCartDataOnserver } from '../../api/updateCartOnServer';
 
 function ProductsCounter(props) {
   const cartItems = useSelector(
     (state) => state.cartItems.cartItems,
   );
-  const { prodQuantity, changeCartItemQuantity, cartQuantity } = props;
+  console.log(cartItems);
+  const {
+    itemNo, prodQuantity, changeCartItemQuantity, cartQuantity,
+  } = props;
   const [counter, setCounter] = useState(cartQuantity);
   const displayCounter = counter <= 0;
   const maxCounter = counter >= prodQuantity;
+
+  function updateItemQuantityInCartArray(items) {
+    const cartArrCopy = [...items];
+    console.log(items);
+    const updatedItems = cartArrCopy.map((item) => {
+      if (item.product.itemNo === itemNo) {
+        return { ...item, cartQuantity: counter };
+      }
+      return item;
+    });
+
+    console.log(updatedItems);
+    updateCartDataOnserver(updatedItems);
+  }
+  // function updateItemQuantityInCartArrayInLocal(items) {
+  //   const cartArrCopy = [...items];
+
+  //   const cartItem = { _id, cartQuantity, itemNo };
+  //   console.log(cartArrCopy);
+  //   const updatedItems = cartArrCopy.map((item) => {
+  //     const [{ product: { itemNo }, cartQuantity, _id }] = item;
+  //     if (item.product.itemNo === itemNo) {
+  //       return { ...item, cartQuantity: counter };
+  //     }
+  //     return item;
+  //   });
+
+  //   console.log(updatedItems);
+  //   localStorage.setItem('products', JSON.stringify(localCartArr));
+  // }
+
   function handleIncrement() {
     if (maxCounter) {
       setCounter(counter);
@@ -29,6 +64,7 @@ function ProductsCounter(props) {
 
   useEffect(() => {
     changeCartItemQuantity(counter);
+    updateItemQuantityInCartArray(cartItems);
   });
 
   return (
@@ -48,7 +84,9 @@ function ProductsCounter(props) {
       <Button
         className={styles.counter__btn}
         disabled={maxCounter}
-        onClick={() => { handleIncrement(); }}
+        onClick={() => {
+          handleIncrement();
+        }}
       >
         +
       </Button>
