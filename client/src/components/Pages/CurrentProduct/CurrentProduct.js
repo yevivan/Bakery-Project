@@ -39,6 +39,7 @@ function CurrentProduct() {
   }
 
   async function handleSubmit() {
+    console.log(cartItemData);
     if (isUserLoggedIn) {
       const mergedArray = await mergeLocalCartArrAndArrInDb(cartItemData);
       dispatch(updateCartOnserver(mergedArray));

@@ -10,7 +10,6 @@ export const getLoggedUser = async () => {
       return res.json();
     })
     .catch((err) => console.log(err));
-  console.log(loggedUser);
 
   if (loggedUser) {
     const {

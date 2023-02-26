@@ -7,6 +7,7 @@ import { getCartFromDatabase } from '../api/getCartFromDatabase';
 // array , then merges it, removes duplicates and creates arra for sending to the db.
 
 export const mergeLocalCartArrAndArrInDb = async (cartItemsInStore) => {
+  console.log(cartItemsInStore);
   const cartItemsInDb = await getCartFromDatabase();
   let products;
   if (cartItemsInDb)({ products } = cartItemsInDb);
@@ -28,6 +29,7 @@ export const mergeLocalCartArrAndArrInDb = async (cartItemsInStore) => {
   products = Array.from(new Set(products.map(({ product }) => product._id)))
     .map((id) => products.find(({ product }) => product._id === id));
   localStorage.setItem('products', null);
+  console.log(products);
   return {
     products,
   };

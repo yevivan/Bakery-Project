@@ -15,7 +15,6 @@ function BasketListItem(props) {
     }, cartQuantity,
   } = item;
 
-  console.log(itemNo);
   function changeCartItemQuantity(counter) {
     setprodQuantityInCart(counter);
   }

@@ -13,7 +13,6 @@ function LoginIcon({
 }) {
   const isUserLogged = useSelector((state) => state.userLogin.isUserLogged);
   const loggedUser = useSelector((state) => state.userLogin.loggedUserData);
-  console.log(loggedUser);
   const { firstName, lastName, isAdmin } = loggedUser;
 
   return (

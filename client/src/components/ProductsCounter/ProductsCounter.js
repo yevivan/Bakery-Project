@@ -9,7 +9,9 @@ function ProductsCounter(props) {
   const cartItems = useSelector(
     (state) => state.cartItems.cartItems,
   );
-  console.log(cartItems);
+
+  const isUserLoggedIn = useSelector((state) => state.userLogin.isUserLogged);
+  // console.log(cartItems);
   const {
     itemNo, prodQuantity, changeCartItemQuantity, cartQuantity,
   } = props;
@@ -27,8 +29,13 @@ function ProductsCounter(props) {
       return item;
     });
 
+    // if (!isUserLoggedIn) {
+
+    //   localStorage.setItem('products', JSON.stringify(updatedItems));
+    // }
+    console.log(cartItems);
     console.log(updatedItems);
-    updateCartDataOnserver(updatedItems);
+    // updateCartDataOnserver(updatedItems);
   }
   // function updateItemQuantityInCartArrayInLocal(items) {
   //   const cartArrCopy = [...items];
@@ -48,6 +55,7 @@ function ProductsCounter(props) {
   // }
 
   function handleIncrement() {
+    // updateItemQuantityInCartArray(cartItems);
     if (maxCounter) {
       setCounter(counter);
     } else {
