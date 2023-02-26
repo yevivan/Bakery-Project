@@ -22,7 +22,6 @@ function App() {
     dispatch(getCartItems());
     dispatch(setUpdatedCartItemsFromLocal());
     dispatch(fetchSliderItems());
-    // dispatch(setUpdatedCartItemsFromLocal());
   }, []);
 
   return (

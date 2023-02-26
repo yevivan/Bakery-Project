@@ -32,11 +32,11 @@ function CurrentProduct() {
   // HERE IS CREATED an ARRAY of one product FOR SENDING TO SERVER
   const cartItemData = [{ product: currProduct, cartQuantity: 1, itemNo: id }];
 
-  const index = cartItems.findIndex((el) => el.product._id === currProductId);
-  let isItemInCart = false;
-  if (index !== -1) {
-    isItemInCart = true;
-  }
+  // const index = cartItems.findIndex((el) => el.product._id === currProductId);
+  // let isItemInCart = false;
+  // if (index !== -1) {
+  //   isItemInCart = true;
+  // }
 
   async function handleSubmit() {
     console.log(cartItemData);
